@@ -89,7 +89,7 @@
             <button
               type="button"
               id="btn-mega-shop"
-              class="nav-link-4z flex items-center gap-1"
+              class="nav-link-t flex items-center gap-1"
               :class="hasHero && !scrolled ? 'text-white/80 hover:text-white' : ''"
               @mouseenter="openMenu('shop')"
               @click="openMenu('shop')"
@@ -105,7 +105,7 @@
           @foreach($top_items as $item)
             <a
               href="{{ esc_url($item->url) }}"
-              class="nav-link-4z"
+              class="nav-link-t"
               :class="hasHero && !scrolled ? 'text-white/80 hover:text-white' : ''"
             >{{ esc_html($item->title) }}</a>
           @endforeach
@@ -151,7 +151,7 @@
           {{-- CTA --}}
           <a
             href="{{ $cta_url }}"
-            class="btn-4z-outline"
+            class="btn-slide"
             :class="hasHero && !scrolled
               ? 'border-white/40 text-white hover:bg-white hover:text-ink'
               : 'border-ink/25 text-ink hover:bg-ink hover:text-white'"
@@ -228,7 +228,7 @@
           @if(!empty($wc_cats))
             <button
               type="button"
-              class="nav-link-4z text-white/75 hover:text-gold"
+              class="nav-link-t text-white/75 hover:text-gold"
               style="font-size: 10px"
               @mouseenter="openMenu('shop')"
               @click="openMenu('shop')"
@@ -241,7 +241,7 @@
             </button>
           @endif
           @foreach($top_items as $item)
-            <a href="{{ esc_url($item->url) }}" class="nav-link-4z text-white/75 hover:text-gold" style="font-size: 10px">
+            <a href="{{ esc_url($item->url) }}" class="nav-link-t text-white/75 hover:text-gold" style="font-size: 10px">
               {{ esc_html($item->title) }}
             </a>
           @endforeach
@@ -264,7 +264,7 @@
               >{{ $cart_count }}</span>
             </a>
           @endif
-          <a href="{{ $cta_url }}" class="btn-4z-outline border-white/30 text-white hover:bg-white hover:text-ink" style="padding: 6px 16px; font-size: 9px">
+          <a href="{{ $cta_url }}" class="btn-slide border-white/30 text-white hover:bg-white hover:text-ink" style="padding: 6px 16px; font-size: 9px">
             {{ __('Contattaci', 'sage') }}
           </a>
         </div>
@@ -364,7 +364,7 @@
             </div>
             <a
               href="{{ esc_url(function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop')) }}"
-              class="mt-8 btn-4z-outline-light self-start"
+              class="mt-8 btn-slide-light self-start"
             >
               {{ __('Vai allo shop', 'sage') }}
               <svg class="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>

@@ -160,15 +160,15 @@ add_action('after_setup_theme', function () {
      * Register block pattern categories.
      */
     register_block_pattern_category('theme-sections', [
-        'label'       => __('4 Zampe – Sezioni', 'sage'),
+        'label'       => __('Theme – Sezioni', 'sage'),
         'description' => __('Sezioni hero, CTA, intro e layout.', 'sage'),
     ]);
     register_block_pattern_category('theme-cards', [
-        'label'       => __('4 Zampe – Card', 'sage'),
+        'label'       => __('Theme – Card', 'sage'),
         'description' => __('Card per prodotti, servizi e blog.', 'sage'),
     ]);
     register_block_pattern_category('theme-carousel', [
-        'label'       => __('4 Zampe – Carousel', 'sage'),
+        'label'       => __('Theme – Carousel', 'sage'),
         'description' => __('Sezioni con slider e caroselli.', 'sage'),
     ]);
 }, 20);
@@ -199,6 +199,68 @@ add_action('wp_head', function () {
     echo '<link rel="stylesheet" media="print" onload="this.media=\'all\'" href="' . $url . '">' . "\n";
     echo '<noscript><link rel="stylesheet" href="' . $url . '"></noscript>' . "\n";
 }, 1);
+
+/**
+ * OG / Twitter Card meta tags fallback (active only when no SEO plugin is detected).
+ * Yoast SEO, Rank Math, and All in One SEO each define their own OG output —
+ * this hook fires at priority 5 and bails early if any of them is active.
+ */
+add_action('wp_head', function () {
+    // Bail if a full-featured SEO plugin is handling OG tags.
+    if (
+        defined('WPSEO_VERSION')        // Yoast SEO
+        || defined('RANK_MATH_VERSION') // Rank Math
+        || defined('AIOSEO_VERSION')    // All in One SEO
+    ) {
+        return;
+    }
+
+    global $post;
+
+    $site_name   = esc_attr(get_bloginfo('name'));
+    $site_url    = esc_url(home_url('/'));
+    $og_type     = is_singular() ? 'article' : 'website';
+    $og_url      = esc_url(get_canonical_url() ?: (is_singular() ? get_permalink() : $site_url));
+    $og_title    = esc_attr(wp_get_document_title());
+    $og_desc     = '';
+    $og_image    = '';
+
+    if (is_singular() && isset($post)) {
+        $og_desc  = has_excerpt($post) ? esc_attr(get_the_excerpt($post)) : esc_attr(wp_trim_words(strip_shortcodes($post->post_content), 30, ''));
+        $thumb_id = get_post_thumbnail_id($post);
+        if ($thumb_id) {
+            $og_image = esc_url(wp_get_attachment_image_url($thumb_id, 'large'));
+        }
+    } elseif (is_archive() || is_home()) {
+        $og_desc = esc_attr(get_bloginfo('description'));
+    }
+
+    if (! $og_image) {
+        // Fallback: use custom logo if set
+        $logo_id  = get_theme_mod('custom_logo');
+        $og_image = $logo_id ? esc_url(wp_get_attachment_image_url($logo_id, 'large')) : '';
+    }
+
+    echo '<meta property="og:site_name" content="' . $site_name . '">' . "\n";
+    echo '<meta property="og:type"      content="' . $og_type . '">' . "\n";
+    echo '<meta property="og:url"       content="' . $og_url . '">' . "\n";
+    echo '<meta property="og:title"     content="' . $og_title . '">' . "\n";
+    if ($og_desc) {
+        echo '<meta property="og:description" content="' . $og_desc . '">' . "\n";
+        echo '<meta name="description"         content="' . $og_desc . '">' . "\n";
+    }
+    if ($og_image) {
+        echo '<meta property="og:image" content="' . $og_image . '">' . "\n";
+    }
+    echo '<meta name="twitter:card"  content="summary_large_image">' . "\n";
+    echo '<meta name="twitter:title" content="' . $og_title . '">' . "\n";
+    if ($og_desc) {
+        echo '<meta name="twitter:description" content="' . $og_desc . '">' . "\n";
+    }
+    if ($og_image) {
+        echo '<meta name="twitter:image" content="' . $og_image . '">' . "\n";
+    }
+}, 5);
 
 /**
  * Register the theme sidebars.

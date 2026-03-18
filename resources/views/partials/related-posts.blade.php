@@ -16,7 +16,7 @@
 @if($related)
   <aside class="mt-16 pt-12 border-t border-border" aria-labelledby="related-heading">
 
-    <p class="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-2" aria-hidden="true">
+    <p class="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-2" aria-hidden="true">
       {{ __('Continua a leggere', 'sage') }}
     </p>
     <h2 id="related-heading" class="font-serif text-2xl font-light text-ink mb-8">
@@ -29,7 +29,6 @@
           setup_postdata($post);
           $rid       = $post->ID;
           $rthumb_id = get_post_thumbnail_id($rid);
-          $rthumb    = $rthumb_id ? wp_get_attachment_image_url($rthumb_id, 'medium_large') : '';
           $ralt      = $rthumb_id ? esc_attr(get_post_meta($rthumb_id, '_wp_attachment_image_alt', true)) : '';
           $rcats     = get_the_category($rid);
           $rperma    = esc_url(get_permalink($rid));
@@ -39,16 +38,21 @@
 
         <article class="group flex flex-col" role="listitem">
 
-          @if($rthumb)
+          @if($rthumb_id)
             <a href="{{ $rperma }}" tabindex="-1" aria-hidden="true"
                class="block overflow-hidden aspect-[16/9] mb-4">
-              <img src="{{ $rthumb }}" alt="{{ $ralt }}" loading="lazy" decoding="async"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <x-picture
+                :id="(int) $rthumb_id"
+                :alt="$ralt"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                size="medium_large"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </a>
           @endif
 
           @if($rcats)
-            <span class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-gold mb-2 block">
+            <span class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-muted mb-2 block">
               {{ esc_html($rcats[0]->name) }}
             </span>
           @endif

@@ -11,7 +11,7 @@
   $hero_cta_2_url   = function_exists('get_field') ? get_field('hero_cta_2_url')   : '/about';
   $hero_align   = function_exists('get_field') ? get_field('hero_align')   : 'left'; // left | center
   $image_url    = $hero_image['url'] ?? '';
-  $image_srcset = $hero_image['sizes'] ?? [];
+  $image_id     = (int) ($hero_image['ID'] ?? $hero_image['id'] ?? 0);
   $align_classes = $hero_align === 'center' ? 'text-center items-center mx-auto' : 'text-left';
 @endphp
 
@@ -33,6 +33,17 @@
       >
         <source src="{{ is_array($hero_video) ? $hero_video['url'] : $hero_video }}" type="video/mp4">
       </video>
+    @elseif($image_id)
+      <x-picture
+        :id="$image_id"
+        alt=""
+        class="w-full h-full object-cover"
+        size="full"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        :data="['scroll' => 'hero-parallax']"
+      />
     @elseif($image_url)
       <img
         src="{{ $image_url }}"

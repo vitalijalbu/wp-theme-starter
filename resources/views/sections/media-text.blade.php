@@ -9,6 +9,7 @@
   $cta2_label     = $cta2_label     ?? '';
   $cta2_url       = $cta2_url       ?? '';
   $image          = $image          ?? null;  // WP attachment array ['url', 'alt', 'sizes']
+  $image_id       = is_array($image) ? (int) ($image['ID'] ?? $image['id'] ?? 0) : 0;
   $image_url      = is_array($image) ? ($image['url'] ?? '') : (is_string($image) ? $image : '');
   $image_alt      = is_array($image) ? ($image['alt'] ?? '') : '';
   $bg             = $bg             ?? 'surface'; // 'surface' | 'cream' | 'ink'
@@ -20,7 +21,7 @@
     default => 'bg-surface',
   };
   $text_class  = $bg === 'ink' ? 'text-white'   : 'text-ink';
-  $label_class = $bg === 'ink' ? 'text-gold'     : 'text-gold';
+  $label_class = $bg === 'ink' ? 'text-gold'     : 'text-muted';
   $muted_class = $bg === 'ink' ? 'text-white/60' : 'text-muted';
 
   // Reverse column order when image is right
@@ -34,7 +35,15 @@
       {{-- Image column --}}
       <div class="w-full lg:w-1/2" data-scroll="fade">
         <div class="relative">
-          @if($image_url)
+          @if($image_id)
+            <x-picture
+              :id="$image_id"
+              :alt="$image_alt"
+              class="media-text-image"
+              size="large"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          @elseif($image_url)
             <img
               src="{{ $image_url }}"
               alt="{{ $image_alt }}"

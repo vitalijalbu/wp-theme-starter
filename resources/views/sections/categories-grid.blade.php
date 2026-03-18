@@ -43,7 +43,7 @@
     @if($section_label || $section_title)
       <div class="text-center mb-14">
         @if($section_label)
-          <span class="section-label {{ $bg === 'ink' ? 'text-gold' : '' }}" data-scroll="fade">
+          <span class="section-label {{ $bg === 'ink' ? 'text-gold' : 'text-muted' }}" data-scroll="fade">
             {{ $section_label }}
           </span>
         @endif
@@ -79,8 +79,7 @@
             $thumbnail_id = 0;
           }
           if ($thumbnail_id) {
-            $cat_img  = wp_get_attachment_image_url($thumbnail_id, 'large');
-            $cat_thumb = wp_get_attachment_image_url($thumbnail_id, 'medium');
+            $cat_img = wp_get_attachment_image_url($thumbnail_id, 'large');
           }
         @endphp
         <a
@@ -89,7 +88,15 @@
           data-scroll-item
         >
           {{-- Image: alt="" because <h3> below provides the visible name --}}
-          @if($cat_img)
+          @if($thumbnail_id)
+            <x-picture
+              :id="(int) $thumbnail_id"
+              alt=""
+              class="category-card__image"
+              size="large"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            />
+          @elseif($cat_img)
             <img
               src="{{ $cat_img }}"
               alt=""

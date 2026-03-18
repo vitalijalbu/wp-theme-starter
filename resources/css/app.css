@@ -6,25 +6,39 @@
 @source "../**/*.blade.php";
 @source "../**/*.js";
 
-/* ── Design tokens luxury ────────────────────────────────────────────────── */
+/* ── Design tokens — NET-A-PORTER inspired ───────────────────────────────── */
+/*
+ * Single source of truth for the design system.
+ * Tailwind generates utilities from these (text-accent, bg-cream, etc.).
+ * theme.json mirrors the palette so the Gutenberg editor stays in sync.
+ * To rebrand: change these 15 variables — everything updates automatically.
+ */
 @theme {
   --font-sans:   'Poppins', system-ui, sans-serif;
   --font-serif:  'Cormorant Garamond', Georgia, serif;
 
-  --color-primary:      #3E80C4;
-  --color-primary-dark: #2d69a8;
-  --color-primary-50:   #f0f6ff;
-  --color-gold:         #c8a96e;
-  --color-gold-light:   #e8d5b0;
-  --color-cream:        #f5f0e8;
-  --color-ink:          #0f0f0f;
-  --color-ink-light:    #1a1a1a;
-  --color-dark:         #1a1a2e;
-  --color-dark-900:     #1e293b;
-  --color-muted:        #6b6b6b;
-  --color-border:       #e5e0d8;
-  --color-surface:      #fafaf8;
-  --color-surface-alt:  #f5f0e8;
+  /* ── Accent (NAP signature red — replaces "gold" everywhere) ── */
+  --color-accent:       #e4002b;   /* NAP red — buttons, labels, hover cues   */
+  --color-accent-light: #fff0f2;   /* Tint for backgrounds/badges             */
+  /* Keep gold as alias so legacy Tailwind classes (text-gold) still compile  */
+  --color-gold:         #e4002b;
+  --color-gold-light:   #fff0f2;
+
+  /* ── Primary (alias → accent for WC notices/buttons) ────────── */
+  --color-primary:      #e4002b;
+  --color-primary-dark: #c0001f;
+  --color-primary-50:   #fff0f2;
+
+  /* ── Neutrals ────────────────────────────────────────────────── */
+  --color-ink:          #0a0a0a;   /* Near-black for headings & body text     */
+  --color-ink-light:    #1a1a1a;   /* Slightly lighter black for hover states */
+  --color-muted:        #6b6b6b;   /* Secondary / caption text                */
+  --color-border:       #e0e0e0;   /* Dividers, card borders — cool grey      */
+
+  /* ── Surfaces ────────────────────────────────────────────────── */
+  --color-surface:      #ffffff;   /* Pure white — main background            */
+  --color-surface-alt:  #f5f5f5;   /* Subtle off-white for section contrast   */
+  --color-cream:        #f5f5f5;   /* Section bg (NAP uses cool off-whites)   */
 
   --header-height: 72px;
 }
@@ -43,11 +57,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* NAP: headings are very thin — editorial serif at 300 */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   color: var(--color-ink);
-  line-height: 1.15;
-  font-weight: 500;
+  line-height: 1.1;
+  font-weight: 300;
 }
 
 p {
@@ -99,19 +114,20 @@ img {
 .section-label {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;  /* NAP: very generous tracking on all caps */
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-muted); /* NAP: labels are muted, not colored */
   margin-bottom: 1rem;
 }
 
 .section-title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 500;
-  line-height: 1.1;
+  font-weight: 300;   /* NAP: always ultra-light on large display headings */
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
 }
 
@@ -566,18 +582,14 @@ img {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 300ms ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
+  /* NAP: no hover lift — pure editorial restraint */
 }
 
 .product-card__image-wrap {
   position: relative;
   overflow: hidden;
   aspect-ratio: 3 / 4;
-  background: var(--color-cream);
+  background: var(--color-surface-alt);  /* cool off-white, not warm cream */
 }
 
 .product-card__image-wrap img {
@@ -663,7 +675,9 @@ img {
 }
 
 .product-card__title:hover {
-  color: var(--color-gold);
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .product-card__price {
@@ -886,8 +900,8 @@ img {
 }
 
 .feature-item:hover {
-  border-color: var(--color-gold);
-  box-shadow: 0 8px 40px rgba(200, 169, 110, 0.12);
+  border-color: var(--color-ink);
+  /* NAP: no shadow — just a crisp border state change */
 }
 
 .feature-item__icon {
@@ -1222,8 +1236,8 @@ select:focus {
 }
 
 .woocommerce ul.products li.product:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(15, 15, 15, 0.08);
+  border-color: var(--color-ink);
+  /* NAP: no lift, no shadow — just border darkens */
 }
 
 .woocommerce ul.products li.product a img {
@@ -1305,8 +1319,8 @@ select:focus {
 
 .woocommerce ul.products li.product .button:hover,
 .woocommerce ul.products li.product .added_to_cart:hover {
-  background-color: var(--color-gold);
-  color: var(--color-ink) !important;
+  background-color: var(--color-ink-light);
+  color: var(--color-surface) !important;
 }
 
 .woocommerce .star-rating span::before,
@@ -1367,9 +1381,9 @@ select:focus {
 .woocommerce a.button:hover,
 .woocommerce button.button:hover,
 .woocommerce input.button:hover {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-ink) !important;
+  background-color: var(--color-ink-light) !important;
+  border-color: var(--color-ink-light) !important;
+  color: var(--color-surface) !important;
 }
 
 .woocommerce a.button.alt,
@@ -1695,7 +1709,7 @@ mark.order-status {
 .icon-btn:hover { opacity: 1; color: var(--color-ink); }
 
 /* ── Nav link — Poppins uppercase + gold underline ──────────────────────── */
-.nav-link-4z {
+.nav-link-t {
   position:       relative;
   display:        inline-flex;
   align-items:    center;
@@ -1712,7 +1726,7 @@ mark.order-status {
   cursor:         pointer;
   padding:        0;
 }
-.nav-link-4z::after {
+.nav-link-t::after {
   content:          '';
   position:         absolute;
   bottom:           -3px;
@@ -1724,19 +1738,19 @@ mark.order-status {
   transform-origin: right center;
   transition:       transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.nav-link-4z:hover,
-.nav-link-4z[aria-expanded="true"] {
+.nav-link-t:hover,
+.nav-link-t[aria-expanded="true"] {
   opacity: 1;
   color:   var(--color-ink);
 }
-.nav-link-4z:hover::after,
-.nav-link-4z[aria-current="page"]::after {
+.nav-link-t:hover::after,
+.nav-link-t[aria-current="page"]::after {
   transform:        scaleX(1);
   transform-origin: left center;
 }
 
 /* ── Luxury CTA button — ink with sliding fill ──────────────────────────── */
-.btn-4z-outline {
+.btn-slide {
   position:        relative;
   display:         inline-flex;
   align-items:     center;
@@ -1759,7 +1773,7 @@ mark.order-status {
   text-decoration: none;
   white-space:     nowrap;
 }
-.btn-4z-outline::before {
+.btn-slide::before {
   content:          '';
   position:         absolute;
   inset:            0;
@@ -1769,12 +1783,12 @@ mark.order-status {
   transition:       transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   z-index:          -1;
 }
-.btn-4z-outline:hover::before { transform: scaleX(1); transform-origin: left; }
-.btn-4z-outline:hover         { color: #fff; }
-.btn-4z-outline > *           { position: relative; z-index: 1; }
+.btn-slide:hover::before { transform: scaleX(1); transform-origin: left; }
+.btn-slide:hover         { color: #fff; }
+.btn-slide > *           { position: relative; z-index: 1; }
 
 /* Light variant for dark backgrounds (mega-menu CTA card, scrolled bar) */
-.btn-4z-outline-light {
+.btn-slide-light {
   position:        relative;
   display:         inline-flex;
   align-items:     center;
@@ -1796,7 +1810,7 @@ mark.order-status {
   text-decoration: none;
   white-space:     nowrap;
 }
-.btn-4z-outline-light::before {
+.btn-slide-light::before {
   content:          '';
   position:         absolute;
   inset:            0;
@@ -1806,12 +1820,12 @@ mark.order-status {
   transition:       transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   z-index:          -1;
 }
-.btn-4z-outline-light:hover::before { transform: scaleX(1); transform-origin: left; }
-.btn-4z-outline-light:hover         { color: #fff; border-color: rgba(255,255,255,0.6); }
-.btn-4z-outline-light > *           { position: relative; z-index: 1; }
+.btn-slide-light:hover::before { transform: scaleX(1); transform-origin: left; }
+.btn-slide-light:hover         { color: #fff; border-color: rgba(255,255,255,0.6); }
+.btn-slide-light > *           { position: relative; z-index: 1; }
 
 /* Gold solid button */
-.btn-4z-gold {
+.btn-accent {
   display:         inline-flex;
   align-items:     center;
   justify-content: center;
@@ -1830,7 +1844,7 @@ mark.order-status {
   text-decoration: none;
   white-space:     nowrap;
 }
-.btn-4z-gold:hover { background: #b8924d; border-color: #b8924d; }
+.btn-accent:hover { background: #b8924d; border-color: #b8924d; }
 
 /* ── Mega-menu column hover ──────────────────────────────────────────────── */
 .megamenu-col {
@@ -1857,9 +1871,8 @@ mark.order-status {
                border-color 0.3s ease;
 }
 .card-luxury:hover {
-  transform:    translateY(-3px);
-  box-shadow:   0 20px 60px rgba(15, 15, 15, 0.08);
-  border-color: var(--color-gold);
+  border-color: var(--color-ink);
+  /* NAP: crisp border change only */
 }
 
 /* ── Luxury form inputs ─────────────────────────────────────────────────── */
@@ -1919,6 +1932,149 @@ mark.order-status {
 .swiper-scrollbar-drag    { background: var(--color-gold) !important; border-radius: 0 !important; }
 .swiper-pagination-bullet { width: 24px !important; height: 2px !important; border-radius: 0 !important; background: rgba(15,15,15,0.2) !important; opacity: 1 !important; transition: all 0.25s ease !important; }
 .swiper-pagination-bullet-active { width: 40px !important; background: var(--color-ink) !important; }
+
+/* ── FAQ Accordion ───────────────────────────────────────────────────────── */
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.faq-item--dark,
+.faq-item--dark:first-child {
+  border-color: rgba(255,255,255,0.08);
+}
+
+.faq-item__trigger {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             1.5rem;
+  width:           100%;
+  padding:         1.5rem 0;
+  background:      none;
+  border:          none;
+  cursor:          pointer;
+  text-align:      left;
+  font-family:     var(--font-serif);
+  font-size:       clamp(1rem, 1.5vw, 1.2rem);
+  font-weight:     400;
+  color:           var(--color-ink);
+  line-height:     1.35;
+  transition:      color 200ms ease;
+}
+.faq-item--dark .faq-item__trigger { color: #fff; }
+.faq-item__trigger:hover            { color: var(--color-primary); }
+.faq-item--dark .faq-item__trigger:hover { color: var(--color-gold); }
+
+.faq-item__icon {
+  width:       1.25rem;
+  height:      1.25rem;
+  flex-shrink: 0;
+  color:       var(--color-muted);
+  transition:  transform 300ms ease, color 200ms ease;
+}
+.faq-item__trigger:hover .faq-item__icon { color: var(--color-primary); }
+
+.faq-item__answer {
+  padding-bottom: 1.75rem;
+  font-family:    var(--font-sans);
+  font-size:      0.9375rem;
+  line-height:    1.75;
+  color:          var(--color-muted);
+}
+.faq-item--dark .faq-item__answer { color: rgba(255,255,255,0.55); }
+.faq-item__answer > * + * { margin-top: 0.75rem; }
+
+/* ── Process Steps ───────────────────────────────────────────────────────── */
+.process-step {
+  position: relative;
+  display:  flex;
+}
+
+.process-step--h {
+  flex-direction: column;
+  align-items:    flex-start;
+  padding:        0 2.5rem 0 0;
+}
+
+/* Thin connector line between horizontal steps */
+.process-step__line {
+  position: absolute;
+  top:      1.5rem;     /* vertically aligned to center of icon */
+  left:     3.5rem;     /* starts after icon */
+  right:    0;
+  height:   1px;
+  display:  block;
+}
+
+.process-step--v {
+  flex-direction: row;
+  align-items:    flex-start;
+  gap:            1.5rem;
+  padding-bottom: 3rem;
+}
+.process-step--v:last-child { padding-bottom: 0; }
+
+.process-step__icon-wrap {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  width:           3rem;
+  height:          3rem;
+  border:          1px solid;
+  position:        relative;
+  z-index:         1;
+  background:      var(--color-surface);
+}
+.process-step--dark .process-step__icon-wrap { background: var(--color-ink); }
+
+.process-step__num {
+  font-family: var(--font-serif);
+  font-size:   1.25rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.process-step__counter {
+  display:        block;
+  font-family:    var(--font-sans);
+  font-size:      0.625rem;
+  font-weight:    700;
+  letter-spacing: 0.15em;
+  margin-bottom:  0.5rem;
+}
+
+.process-step__body { flex: 1; }
+
+.process-step__title {
+  font-family: var(--font-serif);
+  font-size:   1.125rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin:      1rem 0 0.5rem;
+}
+.process-step--v .process-step__title { margin-top: 0.125rem; }
+
+.process-step__desc {
+  font-family: var(--font-sans);
+  font-size:   0.9rem;
+  line-height: 1.7;
+  margin:      0;
+}
+
+/* ── Related Pages ───────────────────────────────────────────────────────── */
+.related-page-card {
+  border:     1px solid var(--color-border);
+  overflow:   hidden;
+  transition: border-color 250ms ease;
+}
+.related-page-card:hover       { border-color: var(--color-ink); }
+.related-page-card--dark       { border-color: rgba(255,255,255,0.08); }
+.related-page-card--dark:hover { border-color: rgba(255,255,255,0.3); }
+
+.related-page-card__body { padding: 1.75rem; }
 
 /* ── Accessibility: prefers-reduced-motion ──────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

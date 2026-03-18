@@ -13,15 +13,15 @@
 <article @php(post_class('group flex flex-col h-full'))>
 
   {{-- Thumbnail --}}
-  @if($thumb_url)
+  @if($thumb_id)
     <a href="{{ get_permalink() }}" tabindex="-1" aria-hidden="true" class="block overflow-hidden aspect-[16/9] mb-5">
-      <img
-        src="{{ $thumb_url }}"
-        alt="{{ $thumb_alt }}"
-        loading="lazy"
-        decoding="async"
+      <x-picture
+        :id="$thumb_id"
+        :alt="$thumb_alt"
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      >
+        size="large"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
     </a>
   @endif
 

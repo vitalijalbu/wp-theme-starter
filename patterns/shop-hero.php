@@ -17,7 +17,7 @@
 <p class="has-text-align-center has-gold-color has-text-color has-sm-font-size theme-section-label">Benvenuto in 4 Zampe</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":1,"textAlign":"center","textColor":"white","fontSize":"hero","className":"theme-hero-title","fontFamily":"serif"} -->
-<h1 class="wp-block-heading has-text-align-center has-white-color has-text-color has-hero-font-size has-serif-font-family theme-hero-title">Tutto per il tuo<br>amico a quattro zampe</h1>
+<h1 class="wp-block-heading has-text-align-center has-white-color has-text-color has-hero-font-size has-serif-font-family theme-hero-title">Scopri la nostra<br>collezione esclusiva</h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"align":"center","textColor":"white","fontSize":"lg"} -->
 <p class="has-text-align-center has-white-color has-text-color has-lg-font-size">Prodotti selezionati con cura per il benessere e la felicità dei tuoi animali.</p>

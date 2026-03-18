@@ -1,5 +1,5 @@
 {
-  "__preprocessed__": "This file is used to build the theme.json file in the `public/build/assets` directory. The built artifact includes Tailwind's colors, fonts, and font sizes.",
+  "__preprocessed__": "This file is the source of truth for all design tokens. It is compiled to public/build/assets/theme.json by Vite. Update tokens here — they sync to Gutenberg and to app.css @theme automatically.",
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
   "settings": {
@@ -20,30 +20,28 @@
       "defaultPalette": false,
       "duotone": [],
       "palette": [
-        { "slug": "black", "color": "#111111", "name": "Nero" },
-        { "slug": "dark", "color": "#1a1a2e", "name": "Dark Navy" },
-        { "slug": "dark-900", "color": "#1e293b", "name": "Dark 900" },
-        { "slug": "dark-50", "color": "#f0f6ff", "name": "Blu 50" },
-        { "slug": "primary", "color": "#3E80C4", "name": "Blu Primary" },
-        { "slug": "primary-dark", "color": "#2d69a8", "name": "Blu Scuro" },
-        { "slug": "primary-light", "color": "#bfdbfe", "name": "Blu Chiaro" },
-        { "slug": "white", "color": "#ffffff", "name": "Bianco" },
-        { "slug": "off-white", "color": "#f8fafc", "name": "Off White" },
-        { "slug": "gray-100", "color": "#f1f5f9", "name": "Grigio 100" },
-        { "slug": "gray-200", "color": "#e2e8f0", "name": "Grigio 200" },
-        { "slug": "gray-500", "color": "#64748b", "name": "Grigio 500" },
-        { "slug": "gray-600", "color": "#475569", "name": "Grigio 600" }
+        { "slug": "ink",          "color": "#0a0a0a", "name": "Ink (black)"       },
+        { "slug": "ink-light",    "color": "#1a1a1a", "name": "Ink Light"         },
+        { "slug": "white",        "color": "#ffffff", "name": "White"             },
+        { "slug": "surface",      "color": "#ffffff", "name": "Surface"           },
+        { "slug": "surface-alt",  "color": "#f5f5f5", "name": "Surface Alt"       },
+        { "slug": "cream",        "color": "#f5f5f5", "name": "Cream"             },
+        { "slug": "muted",        "color": "#6b6b6b", "name": "Muted"            },
+        { "slug": "border",       "color": "#e0e0e0", "name": "Border"            },
+        { "slug": "accent",       "color": "#e4002b", "name": "Accent (Red)"      },
+        { "slug": "accent-light", "color": "#fff0f2", "name": "Accent Light"      },
+        { "slug": "gold",         "color": "#e4002b", "name": "Gold (→ Accent)"   }
       ],
       "gradients": [
         {
-          "slug": "primary-to-dark",
-          "gradient": "linear-gradient(135deg, #3E80C4 0%, #1a1a2e 100%)",
-          "name": "Blu a Scuro"
+          "slug": "ink-overlay",
+          "gradient": "linear-gradient(180deg, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0.65) 100%)",
+          "name": "Ink Overlay"
         },
         {
-          "slug": "dark-overlay",
-          "gradient": "linear-gradient(180deg, rgba(26,26,46,0.5) 0%, rgba(26,26,46,0.7) 100%)",
-          "name": "Overlay Scuro"
+          "slug": "ink-overlay-strong",
+          "gradient": "linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.8) 100%)",
+          "name": "Ink Overlay Strong"
         }
       ]
     },
@@ -66,29 +64,30 @@
         {
           "fontFamily": "'Poppins', system-ui, sans-serif",
           "slug": "sans",
-          "name": "Poppins"
+          "name": "Poppins (Sans)"
         },
         {
-          "name": "Serif",
+          "fontFamily": "'Cormorant Garamond', Georgia, serif",
           "slug": "serif",
-          "fontFamily": "'Cormorant Garamond', Georgia, serif"
+          "name": "Cormorant Garamond (Serif)"
         }
       ],
       "fontSizes": [
-        { "slug": "sm", "size": "0.875rem", "name": "Small" },
-        { "slug": "base", "size": "1rem", "name": "Base" },
-        { "slug": "lg", "size": "1.125rem", "name": "Large" },
-        { "slug": "xl", "size": "1.25rem", "name": "XL" },
-        { "slug": "2xl", "size": "1.5rem", "name": "2XL" },
-        { "slug": "3xl", "size": "1.875rem", "name": "3XL" },
-        { "slug": "4xl", "size": "2.25rem", "name": "4XL" },
-        { "slug": "5xl", "size": "3rem", "name": "5XL" },
+        { "slug": "xs",   "size": "0.75rem",  "name": "XS" },
+        { "slug": "sm",   "size": "0.875rem", "name": "SM" },
+        { "slug": "base", "size": "1rem",     "name": "Base" },
+        { "slug": "lg",   "size": "1.125rem", "name": "LG" },
+        { "slug": "xl",   "size": "1.25rem",  "name": "XL" },
+        { "slug": "2xl",  "size": "1.5rem",   "name": "2XL" },
+        { "slug": "3xl",  "size": "1.875rem", "name": "3XL" },
+        { "slug": "4xl",  "size": "2.25rem",  "name": "4XL" },
+        { "slug": "5xl",  "size": "3rem",     "name": "5XL" },
         { "slug": "hero", "size": "clamp(2.5rem, 5vw, 4.5rem)", "name": "Hero" }
       ]
     },
     "border": {
       "color": true,
-      "radius": true,
+      "radius": false,
       "style": true,
       "width": true
     }
@@ -96,60 +95,65 @@
   "styles": {
     "color": {
       "background": "#ffffff",
-      "text": "#111111"
+      "text": "#0a0a0a"
     },
     "typography": {
       "fontFamily": "var(--wp--preset--font-family--sans)",
       "fontSize": "var(--wp--preset--font-size--base)",
-      "lineHeight": "1.65"
+      "lineHeight": "1.7"
     },
     "elements": {
       "h1": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--sans)",
-          "fontWeight": "700",
-          "lineHeight": "1.1"
+          "fontFamily": "var(--wp--preset--font-family--serif)",
+          "fontWeight": "300",
+          "lineHeight": "1.05",
+          "letterSpacing": "-0.01em"
         }
       },
       "h2": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--sans)",
-          "fontWeight": "700",
-          "lineHeight": "1.2"
+          "fontFamily": "var(--wp--preset--font-family--serif)",
+          "fontWeight": "300",
+          "lineHeight": "1.1"
         }
       },
       "h3": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--sans)",
-          "fontWeight": "600",
-          "lineHeight": "1.3"
+          "fontFamily": "var(--wp--preset--font-family--serif)",
+          "fontWeight": "400",
+          "lineHeight": "1.2"
         }
       },
       "h4": {
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--sans)",
-          "fontWeight": "600"
+          "fontWeight": "500",
+          "lineHeight": "1.3"
         }
       },
       "link": {
-        "color": { "text": "#111111" },
+        "color": { "text": "#0a0a0a" },
         "typography": { "textDecoration": "none" },
-        ":hover": { "color": { "text": "#3E80C4" } }
+        ":hover": { "color": { "text": "#e4002b" } }
       },
       "button": {
-        "color": { "background": "#3E80C4", "text": "#ffffff" },
+        "color": { "background": "#0a0a0a", "text": "#ffffff" },
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--sans)",
-          "fontWeight": "600",
+          "fontWeight": "500",
+          "fontSize": "0.8125rem",
+          "letterSpacing": "0.1em",
+          "textTransform": "uppercase",
           "textDecoration": "none"
         },
-        "border": { "radius": "4px" },
+        "border": { "radius": "0px" },
         "spacing": {
           "padding": {
-            "top": "0.75rem",
-            "bottom": "0.75rem",
-            "left": "1.5rem",
-            "right": "1.5rem"
+            "top": "0.875rem",
+            "bottom": "0.875rem",
+            "left": "2rem",
+            "right": "2rem"
           }
         }
       }

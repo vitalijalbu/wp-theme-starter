@@ -46,7 +46,12 @@
   $number_class  = $bg === 'ink' ? 'text-white'       : 'text-ink';
   $label_class   = $bg === 'ink' ? 'text-white/50'    : 'text-muted';
   $section_title_class = $bg === 'ink' ? 'text-white' : 'text-ink';
-  $section_label_class = 'text-gold';
+  $section_label_class = $bg === 'ink' ? 'text-gold'  : 'text-muted';
+  $grid_cols           = match(count($stats)) {
+    2       => 'grid-cols-2',
+    3       => 'grid-cols-2 lg:grid-cols-3',
+    default => 'grid-cols-2 lg:grid-cols-4',
+  };
 @endphp
 
 <section class="section-luxury {{ $bg_class }}" aria-label="{{ $section_title ?: __('Statistiche', 'sage') }}">
@@ -66,7 +71,7 @@
 
     {{-- Stats row --}}
     <div
-      class="grid grid-cols-2 lg:grid-cols-{{ count($stats) }} {{ $dividers ? 'divide-y-2 lg:divide-y-0 lg:divide-x divide-' . ($bg === 'ink' ? 'white/10' : 'border') : '' }}"
+      class="grid {{ $grid_cols }} {{ $dividers ? 'divide-y-2 lg:divide-y-0 lg:divide-x divide-' . ($bg === 'ink' ? 'white/10' : 'border') : '' }}"
       data-scroll="stagger"
       role="list"
     >
