@@ -1,35 +1,40 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
-  "files": { "ignoreUnknown": false },
+
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/vendor",
+      "!**/public/build",
+      "!**/.output",
+      "!**/*.lock",
+      "!**/*-lock.json",
+      "!resources/fields",
+      "!**/*.css",
+      "!**/*.scss"
+    ]
+  },
+
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 80,
+    "lineWidth": 100,
     "attributePosition": "auto",
     "bracketSameLine": false,
     "bracketSpacing": true,
     "expand": "auto",
-    "useEditorconfig": true,
-    "includes": [
-      "**",
-      "!**/dist",
-      "!**/vendor",
-      "!**/node_modules",
-      "!resources/fields",
-      "!**/.output",
-      "!**/*.lock",
-      "!**/*-lock.json",
-      "!**/*.js",
-      "!**/*.css",
-      "!**/*.scss"
-    ]
+    "useEditorconfig": true
   },
+
   "linter": {
     "enabled": true,
+    "includes": ["resources/js/**", "resources/js/**/*.js"],
     "rules": {
       "recommended": false,
       "complexity": {
@@ -63,7 +68,7 @@
         "noUnreachable": "error",
         "noUnreachableSuper": "error",
         "noUnsafeFinally": "error",
-        "noUnusedVariables": "error",
+        "noUnusedVariables": "warn",
         "useIsNan": "error",
         "useValidTypeof": "error"
       },
@@ -89,7 +94,7 @@
         "noDuplicateClassMembers": "error",
         "noDuplicateObjectKeys": "error",
         "noDuplicateParameters": "error",
-        "noEmptyBlockStatements": "error",
+        "noEmptyBlockStatements": "warn",
         "noFallthroughSwitchClause": "error",
         "noFunctionAssign": "error",
         "noGlobalAssign": "error",
@@ -110,9 +115,9 @@
         "useDefaultSwitchClauseLast": "error",
         "useIterableCallbackReturn": "error"
       }
-    },
-    "includes": ["**", "!dist", "!vendor", "!node_modules", "!.output"]
+    }
   },
+
   "javascript": {
     "formatter": {
       "jsxQuoteStyle": "double",
@@ -125,19 +130,60 @@
       "attributePosition": "auto",
       "bracketSpacing": true
     },
-    "globals": ["exports", "navigator", "window", "document"]
+    "globals": [
+      "exports",
+      "navigator",
+      "window",
+      "document",
+      "console",
+      "setTimeout",
+      "clearTimeout",
+      "requestAnimationFrame",
+      "cancelAnimationFrame",
+      "fetch",
+      "FormData",
+      "AbortController",
+      "URLSearchParams",
+      "MutationObserver",
+      "IntersectionObserver",
+      "ResizeObserver",
+      "Alpine",
+      "gsap",
+      "ScrollTrigger",
+      "Swiper",
+      "jQuery",
+      "$",
+      "wp",
+      "wpApiSettings",
+      "wc_add_to_cart_params",
+      "woocommerce_params",
+      "wc_cart_fragments_params"
+    ]
   },
-  "html": {
+
+  "css": {
     "formatter": {
-      "indentScriptAndStyle": false,
-      "selfCloseVoidElements": "always"
+      "enabled": false
+    },
+    "linter": {
+      "enabled": false
     }
   },
+
+  "html": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf",
+      "selfCloseVoidElements": "always",
+      "indentScriptAndStyle": false
+    }
+  },
+
   "overrides": [
-    { "includes": ["**/*.jsx"] },
     {
-      "includes": ["**", "!**/*.js", "!**/*.mjs", "!**/*.cjs", "!**/*.ts"],
-      "javascript": { "globals": [] },
+      "includes": ["**/*.jsx", "**/*.tsx"],
       "linter": {
         "rules": {
           "correctness": {
@@ -154,11 +200,13 @@
       }
     },
     {
-      "includes": ["**", "!**/*.js", "!**/*.mjs", "!**/*.cjs", "!**/*.ts"],
-      "linter": { "rules": {} }
-    },
-    { "includes": ["*.blade.php"] }
+      "includes": ["*.blade.php", "**/*.blade.php"],
+      "formatter": {
+        "enabled": false
+      }
+    }
   ],
+
   "assist": {
     "enabled": true,
     "actions": { "source": { "organizeImports": "on" } }

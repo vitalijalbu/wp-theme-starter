@@ -87,6 +87,152 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize):
         'type'     => 'text',
         'priority' => 30,
     ]);
+    // ── Section: Homepage ────────────────────────────────────────────────────
+    $wp_customize->add_section('theme_homepage', [
+        'title'    => __('Homepage', 'sage'),
+        'priority' => 110,
+    ]);
+
+    // Hero image
+    $wp_customize->add_setting('home_hero_image_id', [
+        'default'           => 0,
+        'sanitize_callback' => 'absint',
+    ]);
+    $wp_customize->add_control(new \WP_Customize_Media_Control($wp_customize, 'home_hero_image_id', [
+        'label'      => __('Immagine hero homepage', 'sage'),
+        'section'    => 'theme_homepage',
+        'mime_type'  => 'image',
+        'priority'   => 10,
+    ]));
+
+    // Hero heading
+    $wp_customize->add_setting('home_hero_heading', [
+        'default'           => get_bloginfo('name'),
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'postMessage',
+    ]);
+    $wp_customize->add_control('home_hero_heading', [
+        'label'    => __('Titolo hero', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'text',
+        'priority' => 20,
+    ]);
+
+    // Hero subtext
+    $wp_customize->add_setting('home_hero_subtext', [
+        'default'           => get_bloginfo('description'),
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'postMessage',
+    ]);
+    $wp_customize->add_control('home_hero_subtext', [
+        'label'    => __('Sottotitolo hero', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'textarea',
+        'priority' => 30,
+    ]);
+
+    // Hero CTA
+    $wp_customize->add_setting('home_hero_cta_label', [
+        'default'           => __('Esplora la collezione', 'sage'),
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'postMessage',
+    ]);
+    $wp_customize->add_control('home_hero_cta_label', [
+        'label'    => __('Testo CTA hero', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'text',
+        'priority' => 40,
+    ]);
+    $wp_customize->add_setting('home_hero_cta_url', [
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('home_hero_cta_url', [
+        'label'    => __('URL CTA hero', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'url',
+        'priority' => 50,
+    ]);
+
+    // Brand story
+    $wp_customize->add_setting('home_story_image_id', [
+        'default'           => 0,
+        'sanitize_callback' => 'absint',
+    ]);
+    $wp_customize->add_control(new \WP_Customize_Media_Control($wp_customize, 'home_story_image_id', [
+        'label'      => __('Immagine sezione "La nostra storia"', 'sage'),
+        'section'    => 'theme_homepage',
+        'mime_type'  => 'image',
+        'priority'   => 60,
+    ]));
+    $wp_customize->add_setting('home_story_heading', [
+        'default'           => __('Qualità e passione, ogni giorno', 'sage'),
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'postMessage',
+    ]);
+    $wp_customize->add_control('home_story_heading', [
+        'label'    => __('Titolo brand story', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'text',
+        'priority' => 70,
+    ]);
+    $wp_customize->add_setting('home_story_body', [
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_textarea_field',
+        'transport'         => 'postMessage',
+    ]);
+    $wp_customize->add_control('home_story_body', [
+        'label'    => __('Testo brand story', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'textarea',
+        'priority' => 80,
+    ]);
+    $wp_customize->add_setting('home_story_cta_label', [
+        'default'           => __('Scopri di più', 'sage'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('home_story_cta_label', [
+        'label'    => __('Testo CTA brand story', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'text',
+        'priority' => 90,
+    ]);
+    $wp_customize->add_setting('home_story_cta_url', [
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('home_story_cta_url', [
+        'label'    => __('URL CTA brand story', 'sage'),
+        'section'  => 'theme_homepage',
+        'type'     => 'url',
+        'priority' => 100,
+    ]);
+
+    // ── Section: Contatti ────────────────────────────────────────────────────
+    $wp_customize->add_section('theme_contact', [
+        'title'    => __('Informazioni di contatto', 'sage'),
+        'priority' => 128,
+    ]);
+
+    foreach ([
+        ['contact_address',        __('Indirizzo',        'sage'), 'textarea', 'sanitize_textarea_field'],
+        ['contact_phone',          __('Telefono',         'sage'), 'text',     'sanitize_text_field'],
+        ['contact_email',          __('Email',            'sage'), 'email',    'sanitize_email'],
+        ['contact_hours',          __('Orari apertura',   'sage'), 'textarea', 'sanitize_textarea_field'],
+        ['contact_map_embed_url',  __('URL embed mappa',  'sage'), 'url',      'esc_url_raw'],
+    ] as [$key, $label, $type, $sanitize]) {
+        $wp_customize->add_setting($key, [
+            'default'           => '',
+            'sanitize_callback' => $sanitize,
+            'transport'         => 'refresh',
+        ]);
+        $wp_customize->add_control($key, [
+            'label'   => $label,
+            'section' => 'theme_contact',
+            'type'    => $type,
+        ]);
+    }
+
     // ── Section: Announcement Bar ────────────────────────────────────────────
     $wp_customize->add_section('theme_announcement', [
         'title'    => __('Barra Annunci', 'sage'),

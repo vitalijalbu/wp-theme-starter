@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 
 body {
-  font-family: 'Poppins', system-ui, sans-serif;
+  font-family: "Poppins", system-ui, sans-serif;
   color: #111111;
 }
 
@@ -13,16 +13,16 @@ body {
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #111111;
   line-height: 1.2;
 }
 
 .editor-styles-wrapper .wp-block-button__link {
   border-radius: 4px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
-  background-color: #3E80C4;
+  background-color: #3e80c4;
   color: #ffffff;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .editor-styles-wrapper a {
-  color: #3E80C4;
+  color: #3e80c4;
   text-decoration: none;
 }
 

@@ -85,9 +85,17 @@ function newsletter_subscribe(\WP_REST_Request $request) {
  * cover/group so the header can stay transparent over a dark hero.
  */
 add_filter('body_class', function (array $classes): array {
+    // Front page always has a hero section (assembled in front-page.blade.php)
+    if (is_front_page() && ! is_home()) {
+        $classes[] = 'has-hero';
+        return $classes;
+    }
+
     if (! is_singular()) {
         return $classes;
     }
+
+    // Singular: detect hero via first Gutenberg block
     $post   = get_post();
     $blocks = $post ? parse_blocks($post->post_content) : [];
     $first  = $blocks[0]['blockName'] ?? '';
