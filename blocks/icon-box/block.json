@@ -7,6 +7,7 @@
   "description": "Card con immagine/icona, titolo, testo e link opzionale. Da usare in colonne per presentare features o servizi.",
   "keywords": ["icona", "feature", "card", "box", "servizio", "vantaggio"],
   "textdomain": "sage",
+  "editorScript": "file:../../public/build/editor.js",
   "style": "file:../../public/build/app.css",
   "render": "file:render.php",
   "supports": {

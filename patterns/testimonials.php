@@ -15,9 +15,9 @@
 	<div class="wp-block-group">
 
 		<!-- Stelle ⭐⭐⭐⭐⭐ -->
-		<!-- wp:paragraph {"align":"center","fontSize":"2xl"} -->
-		<p class="has-text-align-center has-2-xl-font-size">⭐⭐⭐⭐⭐</p>
-		<!-- /wp:paragraph -->
+		<!-- wp:html -->
+		<p class="has-text-align-center has-2-xl-font-size" role="img" aria-label="<?php echo esc_attr__('5 stelle su 5', 'sage'); ?>">⭐⭐⭐⭐⭐</p>
+		<!-- /wp:html -->
 
 		<!-- Citazione -->
 		<!-- wp:quote {"className":"theme-testimonial__quote"} -->

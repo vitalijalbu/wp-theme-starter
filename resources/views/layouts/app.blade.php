@@ -51,7 +51,7 @@
 
         {{-- Input --}}
         <form @submit.prevent="submit()" role="search">
-          <label for="search-overlay-input" class="block text-[9px] font-sans font-semibold tracking-[0.25em] uppercase text-gold mb-6">
+          <label for="search-overlay-input" class="block text-[11px] font-sans font-semibold tracking-[0.25em] uppercase text-gold mb-6">
             {{ __('Cosa stai cercando?', 'sage') }}
           </label>
           <div class="flex items-end border-b border-white/20 pb-3 gap-4 focus-within:border-white/60 transition-colors">

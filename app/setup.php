@@ -33,6 +33,12 @@ add_action('admin_head', function () {
         return;
     }
 
+    // Load Google Fonts for the block editor via <link> (avoids CSS @import order warnings).
+    $font_url = esc_url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+    echo '<link rel="stylesheet" href="' . $font_url . '">' . "\n";
+
     if (! Vite::isRunningHot()) {
         $dependencies = json_decode(Vite::content('editor.deps.json'));
 
@@ -201,6 +207,83 @@ add_action('wp_head', function () {
 }, 1);
 
 /**
+ * JSON-LD structured data for singular posts/pages.
+ * Outputs Article or WebPage schema when no SEO plugin is active.
+ */
+add_action('wp_head', function () {
+    if (
+        defined('WPSEO_VERSION')
+        || defined('RANK_MATH_VERSION')
+        || defined('AIOSEO_VERSION')
+    ) {
+        return;
+    }
+
+    if (! is_singular()) {
+        return;
+    }
+
+    global $post;
+    if (! $post) {
+        return;
+    }
+
+    $post_type = get_post_type($post);
+    $schema_type = match ($post_type) {
+        'post'      => 'Article',
+        'portfolio' => 'CreativeWork',
+        'team'      => 'Person',
+        default     => 'WebPage',
+    };
+
+    $data = [
+        '@context' => 'https://schema.org',
+        '@type'    => $schema_type,
+        'headline' => get_the_title($post),
+        'url'      => get_permalink($post),
+    ];
+
+    if (in_array($schema_type, ['Article', 'CreativeWork'], true)) {
+        $data['datePublished'] = get_the_date('c', $post);
+        $data['dateModified']  = get_the_modified_date('c', $post);
+        $author_id = (int) get_post_field('post_author', $post);
+        $data['author'] = [
+            '@type' => 'Person',
+            'name'  => get_the_author_meta('display_name', $author_id),
+        ];
+    }
+
+    if (has_excerpt($post)) {
+        $data['description'] = wp_strip_all_tags(get_the_excerpt($post));
+    }
+
+    $thumb_id = get_post_thumbnail_id($post);
+    if ($thumb_id) {
+        $img = wp_get_attachment_image_src($thumb_id, 'large');
+        if ($img) {
+            $data['image'] = $img[0];
+        }
+    }
+
+    $site = [
+        '@type' => 'Organization',
+        'name'  => get_bloginfo('name'),
+        'url'   => home_url('/'),
+    ];
+    $logo_id = get_theme_mod('custom_logo');
+    if ($logo_id) {
+        $logo = wp_get_attachment_image_src($logo_id, 'full');
+        if ($logo) {
+            $site['logo'] = $logo[0];
+        }
+    }
+    $data['publisher'] = $site;
+
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo '<script type="application/ld+json">' . wp_json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}, 5);
+
+/**
  * OG / Twitter Card meta tags fallback (active only when no SEO plugin is detected).
  * Yoast SEO, Rank Math, and All in One SEO each define their own OG output —
  * this hook fires at priority 5 and bails early if any of them is active.
@@ -261,6 +344,21 @@ add_action('wp_head', function () {
         echo '<meta name="twitter:image" content="' . $og_image . '">' . "\n";
     }
 }, 5);
+
+/**
+ * Register a custom block category so theme blocks appear at the top
+ * of the inserter under their own labelled group.
+ */
+add_filter('block_categories_all', function (array $categories): array {
+    return array_merge(
+        [[
+            'slug'  => 'theme',
+            'title' => __('Theme', 'sage'),
+            'icon'  => null,
+        ]],
+        $categories
+    );
+}, 10, 1);
 
 /**
  * Register custom blocks (server-side rendered via render.php).

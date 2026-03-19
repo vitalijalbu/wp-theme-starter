@@ -1,5 +1,6 @@
 @php
   $bg          = $bg          ?? 'ink';
+  $nl_input_id = 'nl-email-' . wp_unique_id();
   $placeholder = $placeholder ?? __('La tua email', 'sage');
   $btn_label   = $btn_label   ?? __('Iscriviti', 'sage');
   $rest_url    = $rest_url    ?? esc_url(rest_url('theme/v1/newsletter'));
@@ -24,9 +25,9 @@
     aria-label="{{ __('Iscrizione newsletter', 'sage') }}"
   >
     <div class="flex border-b {{ $bg === 'ink' ? 'border-white/20 focus-within:border-white/60' : 'border-border focus-within:border-ink' }} transition-colors">
-      <label for="nl-email-{{ uniqid() }}" class="sr-only">{{ __('Indirizzo email', 'sage') }}</label>
+      <label for="{{ $nl_input_id }}" class="sr-only">{{ __('Indirizzo email', 'sage') }}</label>
       <input
-        id="nl-email-{{ uniqid() }}"
+        id="{{ $nl_input_id }}"
         type="email"
         x-model="email"
         placeholder="{{ $placeholder }}"

@@ -36,7 +36,7 @@ $wrap_flex     = $is_horizontal
       width="<?= $icon_size ?>"
       height="<?= $icon_size ?>"
       class="shrink-0 object-contain"
-      style="width:<?= $icon_size ?>px;height:<?= $icon_size ?>px"
+      style="width:<?= esc_attr($icon_size) ?>px;height:<?= esc_attr($icon_size) ?>px"
       loading="lazy"
       decoding="async"
     >

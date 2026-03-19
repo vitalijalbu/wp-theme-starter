@@ -37,9 +37,9 @@
 				<!-- Telefono -->
 				<!-- wp:group {"layout":{"type":"flex","verticalAlignment":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:paragraph {"fontSize":"2xl"} -->
-					<p class="has-2-xl-font-size">📞</p>
-					<!-- /wp:paragraph -->
+					<!-- wp:html -->
+					<p class="has-2-xl-font-size" aria-hidden="true">📞</p>
+					<!-- /wp:html -->
 					<!-- wp:group {"layout":{"type":"default"}} -->
 					<div class="wp-block-group">
 						<!-- wp:paragraph {"className":"theme-section-label"} -->
@@ -56,9 +56,9 @@
 				<!-- Email -->
 				<!-- wp:group {"layout":{"type":"flex","verticalAlignment":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:paragraph {"fontSize":"2xl"} -->
-					<p class="has-2-xl-font-size">✉️</p>
-					<!-- /wp:paragraph -->
+					<!-- wp:html -->
+					<p class="has-2-xl-font-size" aria-hidden="true">✉️</p>
+					<!-- /wp:html -->
 					<!-- wp:group {"layout":{"type":"default"}} -->
 					<div class="wp-block-group">
 						<!-- wp:paragraph {"className":"theme-section-label"} -->
@@ -75,9 +75,9 @@
 				<!-- WhatsApp -->
 				<!-- wp:group {"layout":{"type":"flex","verticalAlignment":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:paragraph {"fontSize":"2xl"} -->
-					<p class="has-2-xl-font-size">💬</p>
-					<!-- /wp:paragraph -->
+					<!-- wp:html -->
+					<p class="has-2-xl-font-size" aria-hidden="true">💬</p>
+					<!-- /wp:html -->
 					<!-- wp:group {"layout":{"type":"default"}} -->
 					<div class="wp-block-group">
 						<!-- wp:paragraph {"className":"theme-section-label"} -->
@@ -94,9 +94,9 @@
 				<!-- Sede -->
 				<!-- wp:group {"layout":{"type":"flex","verticalAlignment":"center"}} -->
 				<div class="wp-block-group">
-					<!-- wp:paragraph {"fontSize":"2xl"} -->
-					<p class="has-2-xl-font-size">📍</p>
-					<!-- /wp:paragraph -->
+					<!-- wp:html -->
+					<p class="has-2-xl-font-size" aria-hidden="true">📍</p>
+					<!-- /wp:html -->
 					<!-- wp:group {"layout":{"type":"default"}} -->
 					<div class="wp-block-group">
 						<!-- wp:paragraph {"className":"theme-section-label"} -->

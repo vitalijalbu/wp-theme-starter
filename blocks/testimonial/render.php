@@ -49,7 +49,13 @@ if ($style === 'large') {
   </blockquote>
 
   <figcaption class="mt-6 flex items-center gap-3 <?= $style === 'large' ? 'justify-center' : '' ?>">
-    <?php if ($author_img_url) : ?>
+    <?php if ($author_img_id) : ?>
+      <?= wp_get_attachment_image($author_img_id, [80, 80], false, [
+          'class'   => 'w-10 h-10 rounded-full object-cover shrink-0',
+          'loading' => 'lazy',
+          'alt'     => esc_attr($author_name),
+      ]) ?>
+    <?php elseif ($author_img_url) : ?>
       <img
         src="<?= $author_img_url ?>"
         alt="<?= esc_attr($author_name) ?>"
