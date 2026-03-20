@@ -28,7 +28,7 @@
   $row_class = $image_position === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row';
 @endphp
 
-<section class="section-luxury {{ $bg_class }} overflow-hidden" aria-label="{{ strip_tags($title) ?: __('Sezione media e testo', 'sage') }}">
+<section id="{{ $section_id ?? 'section-media-text' }}" class="section-luxury {{ $bg_class }} overflow-hidden" aria-label="{{ strip_tags($title) ?: __('Sezione media e testo', 'sage') }}">
   <div class="max-w-360 mx-auto px-6 lg:px-10">
     <div class="flex flex-col {{ $row_class }} gap-12 lg:gap-20 items-center">
 

@@ -34,6 +34,7 @@
 
 @if(!empty($categories))
 <section
+  id="{{ $section_id ?? 'section-categories' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ $section_title }}"
 >

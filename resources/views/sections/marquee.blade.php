@@ -37,9 +37,10 @@
   };
 @endphp
 
-<div
+<section
+  id="{{ $section_id ?? 'section-marquee' }}"
   class="marquee-outer {{ $bg_class }} {{ $py_class }} overflow-hidden"
-  aria-hidden="true"
+  aria-label="{{ __('Vantaggi', 'sage') }}"
 >
   <div class="marquee-track-wrapper">
     <div class="js-marquee-track flex items-center gap-10 whitespace-nowrap" style="--marquee-speed: {{ $speed }}s">
@@ -53,4 +54,4 @@
       @endforeach
     </div>
   </div>
-</div>
+</section>

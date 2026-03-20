@@ -19,6 +19,7 @@
 @endphp
 
 <section
+  id="{{ $section_id ?? 'section-newsletter' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ strip_tags($section_title) }}"
 >

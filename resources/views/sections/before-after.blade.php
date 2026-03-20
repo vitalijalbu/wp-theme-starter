@@ -34,6 +34,7 @@
 
 @if($before_url && $after_url)
 <section
+  id="{{ $section_id ?? 'section-before-after' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ $heading ?: __('Prima e dopo', 'sage') }}"
 >

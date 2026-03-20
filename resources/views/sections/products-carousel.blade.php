@@ -33,6 +33,7 @@
 
 @if(!empty($products))
 <section
+  id="{{ $section_id ?? 'section-products-carousel' }}"
   class="section-luxury bg-surface overflow-hidden"
   data-products-carousel
   aria-roledescription="{{ __('carosello', 'sage') }}"

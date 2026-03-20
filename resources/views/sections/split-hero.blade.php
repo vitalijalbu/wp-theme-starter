@@ -22,6 +22,7 @@
 @endphp
 
 <section
+  id="{{ $section_id ?? 'section-hero' }}"
   class="split-hero {{ $bg_class }} {{ $full_height ? 'min-h-svh' : '' }} flex items-center"
   aria-label="{{ strip_tags($heading) }}"
 >

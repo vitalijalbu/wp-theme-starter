@@ -42,6 +42,7 @@
 
 @if(!empty($items))
 <section
+  id="{{ $section_id ?? 'section-portfolio' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ strip_tags($section_title) }}"
   @if($show_filters) x-data="{ active: 'all' }" @endif

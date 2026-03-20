@@ -55,6 +55,7 @@
 @endphp
 
 <section
+  id="{{ $section_id ?? 'section-products' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ strip_tags($section_title) }}"
   x-data="{

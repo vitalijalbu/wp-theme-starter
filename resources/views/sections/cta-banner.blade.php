@@ -38,6 +38,7 @@
 @endphp
 
 <section
+  id="{{ $section_id ?? 'section-cta' }}"
   class="section-luxury {{ $section_classes }}"
   aria-label="{{ strip_tags($title) }}"
 >

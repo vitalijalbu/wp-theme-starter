@@ -46,6 +46,7 @@
 @endphp
 
 <section
+  id="{{ $section_id ?? 'section-size-guide' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ strip_tags($heading) }}"
   @if($accordion && count($tables) > 1) x-data="{ openTab: 0 }" @endif

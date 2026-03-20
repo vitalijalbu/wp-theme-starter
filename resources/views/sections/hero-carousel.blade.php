@@ -23,6 +23,7 @@
 <style>.header-spacer{display:none}</style>
 
 <section
+  id="{{ $section_id ?? 'section-hero' }}"
   class="relative w-full overflow-hidden"
   aria-roledescription="{{ __('carosello', 'sage') }}"
   aria-label="{{ __('Slideshow hero', 'sage') }}"

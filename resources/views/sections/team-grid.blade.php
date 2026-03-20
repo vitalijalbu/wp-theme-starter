@@ -34,7 +34,7 @@
 @endphp
 
 @if(!empty($members))
-<section class="section-luxury {{ $bg_class }}" aria-label="{{ strip_tags($section_title) }}">
+<section id="{{ $section_id ?? 'section-team' }}" class="section-luxury {{ $bg_class }}" aria-label="{{ strip_tags($section_title) }}">
   <div class="max-w-360 mx-auto px-6 lg:px-10">
 
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">

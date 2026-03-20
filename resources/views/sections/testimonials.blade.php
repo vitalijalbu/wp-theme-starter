@@ -43,6 +43,7 @@
 @endphp
 
 <section
+  id="{{ $section_id ?? 'section-testimonials' }}"
   class="section-luxury {{ $bg_class }} overflow-hidden"
   aria-roledescription="{{ __('carosello', 'sage') }}"
   aria-label="{{ strip_tags($section_title) }}"

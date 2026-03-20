@@ -50,6 +50,7 @@
 
 @if(!empty($faqs))
 <section
+  id="{{ $section_id ?? 'section-faq' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ strip_tags($section_title) }}"
   itemscope

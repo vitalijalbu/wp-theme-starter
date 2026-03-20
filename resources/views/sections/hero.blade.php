@@ -18,7 +18,7 @@
 {{-- Remove header spacer on hero pages (header is transparent overlay) --}}
 <style>.header-spacer{display:none}</style>
 
-<section class="hero-section" aria-label="{{ strip_tags($hero_title) ?: get_bloginfo('name') }}">
+<section id="{{ $section_id ?? 'section-hero' }}" class="hero-section" aria-label="{{ strip_tags($hero_title) ?: get_bloginfo('name') }}">
 
   {{-- Background: video > image > gradient fallback --}}
   <div class="hero-bg" aria-hidden="true">

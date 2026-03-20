@@ -30,6 +30,7 @@
 
 @if(!empty($images))
 <section
+  id="{{ $section_id ?? 'section-gallery' }}"
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ $section_title ?: __('Galleria immagini', 'sage') }}"
   @if($lightbox) x-data="imageLightbox()" @endif
