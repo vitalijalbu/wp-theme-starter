@@ -68,8 +68,8 @@
 				<div class="wp-block-group">
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0.125rem"}}} -->
 					<div class="wp-block-group">
-						<!-- wp:paragraph {"className":"font-sans text-[10px] font-semibold tracking-widest uppercase text-muted"} -->
-						<p class="font-sans text-[10px] font-semibold tracking-widest uppercase text-muted">Materiale</p>
+						<!-- wp:paragraph {"className":"font-sans     font-semibold tracking-widest uppercase text-muted"} -->
+						<p class="font-sans font-semibold tracking-widest uppercase text-muted">Materiale</p>
 						<!-- /wp:paragraph -->
 						<!-- wp:paragraph {"className":"font-sans text-sm text-ink"} -->
 						<p class="font-sans text-sm text-ink">100% Cotone biologico</p>
@@ -78,8 +78,8 @@
 					<!-- /wp:group -->
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0.125rem"}}} -->
 					<div class="wp-block-group">
-						<!-- wp:paragraph {"className":"font-sans text-[10px] font-semibold tracking-widest uppercase text-muted"} -->
-						<p class="font-sans text-[10px] font-semibold tracking-widest uppercase text-muted">Produzione</p>
+						<!-- wp:paragraph {"className":"font-sans     font-semibold tracking-widest uppercase text-muted"} -->
+						<p class="font-sans     font-semibold tracking-widest uppercase text-muted">Produzione</p>
 						<!-- /wp:paragraph -->
 						<!-- wp:paragraph {"className":"font-sans text-sm text-ink"} -->
 						<p class="font-sans text-sm text-ink">Made in Italy</p>

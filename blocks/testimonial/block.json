@@ -7,8 +7,6 @@
   "description": "Singola card di testimonianza con citazione, nome, ruolo e immagine opzionale.",
   "keywords": ["testimonianza", "recensione", "citazione", "review"],
   "textdomain": "sage",
-  "editorScript": "file:../../public/build/editor.js",
-  "style": "file:../../public/build/app.css",
   "render": "file:render.php",
   "supports": {
     "anchor": true,

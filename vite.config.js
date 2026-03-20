@@ -43,7 +43,6 @@ export default defineConfig({
         manualChunks: {
           'vendor-alpine':    ['alpinejs', '@alpinejs/collapse', '@alpinejs/focus'],
           'vendor-gsap':      ['gsap', 'gsap/ScrollTrigger'],
-          'vendor-loco':      ['locomotive-scroll'],
           'vendor-swiper':    ['swiper'],
         },
       },
@@ -59,7 +58,6 @@ export default defineConfig({
       '@alpinejs/focus',
       'gsap',
       'gsap/ScrollTrigger',
-      'locomotive-scroll',
     ],
   },
 });

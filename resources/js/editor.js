@@ -22,7 +22,6 @@ import {
   TextControl,
   ToggleControl,
 } from '@wordpress/components'
-import domReady from '@wordpress/dom-ready'
 import { createElement as el, Fragment } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
 import ServerSideRender from '@wordpress/server-side-render'
@@ -80,394 +79,387 @@ function MediaPanel({ imageId, imageUrl, onSelect, onRemove }) {
 
 // ── theme/hero ────────────────────────────────────────────────────────────────
 
-domReady(() => {
-  registerBlockType('theme/hero', {
-    edit({ attributes, setAttributes }) {
-      const {
-        imageId,
-        imageUrl,
-        label,
-        heading,
-        subtext,
-        ctaLabel,
-        ctaUrl,
-        cta2Label,
-        cta2Url,
-        overlayOpacity,
-        minHeight,
-        contentAlign,
-      } = attributes
+registerBlockType('theme/hero', {
+  edit({ attributes, setAttributes }) {
+    const {
+      imageId,
+      imageUrl,
+      label,
+      heading,
+      subtext,
+      ctaLabel,
+      ctaUrl,
+      cta2Label,
+      cta2Url,
+      overlayOpacity,
+      minHeight,
+      contentAlign,
+    } = attributes
 
-      return el(
-        Fragment,
+    return el(
+      Fragment,
+      null,
+
+      el(
+        InspectorControls,
         null,
 
         el(
-          InspectorControls,
-          null,
-
-          el(
-            PanelBody,
-            { title: __('Immagine di sfondo', 'sage'), initialOpen: true },
-            el(MediaPanel, {
-              imageId,
-              imageUrl,
-              onSelect: (media) =>
-                setAttributes({
-                  imageId: media.id,
-                  imageUrl: media.url,
-                  imageAlt: media.alt ?? '',
-                }),
-              onRemove: () => setAttributes({ imageId: 0, imageUrl: '', imageAlt: '' }),
-            }),
-            el(RangeControl, {
-              label: __('Opacità overlay', 'sage'),
-              value: overlayOpacity ?? 40,
-              onChange: (val) => setAttributes({ overlayOpacity: val }),
-              min: 0,
-              max: 100,
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Contenuto', 'sage'), initialOpen: true },
-            el(TextControl, {
-              label: __('Label piccola', 'sage'),
-              value: label ?? '',
-              onChange: (val) => setAttributes({ label: val }),
-            }),
-            el(TextControl, {
-              label: __('Titolo principale', 'sage'),
-              value: heading ?? '',
-              onChange: (val) => setAttributes({ heading: val }),
-            }),
-            el(TextareaControl, {
-              label: __('Sottotitolo', 'sage'),
-              value: subtext ?? '',
-              onChange: (val) => setAttributes({ subtext: val }),
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Pulsanti CTA', 'sage'), initialOpen: false },
-            el(TextControl, {
-              label: __('Testo CTA principale', 'sage'),
-              value: ctaLabel ?? '',
-              onChange: (val) => setAttributes({ ctaLabel: val }),
-            }),
-            el(TextControl, {
-              label: __('URL CTA principale', 'sage'),
-              value: ctaUrl ?? '',
-              type: 'url',
-              onChange: (val) => setAttributes({ ctaUrl: val }),
-            }),
-            el(TextControl, {
-              label: __('Testo CTA secondario', 'sage'),
-              value: cta2Label ?? '',
-              onChange: (val) => setAttributes({ cta2Label: val }),
-            }),
-            el(TextControl, {
-              label: __('URL CTA secondario', 'sage'),
-              value: cta2Url ?? '',
-              type: 'url',
-              onChange: (val) => setAttributes({ cta2Url: val }),
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Layout', 'sage'), initialOpen: false },
-            el(SelectControl, {
-              label: __('Allineamento contenuto', 'sage'),
-              value: contentAlign ?? 'center',
-              options: [
-                { label: __('Sinistra', 'sage'), value: 'left' },
-                { label: __('Centro', 'sage'), value: 'center' },
-                { label: __('Destra', 'sage'), value: 'right' },
-              ],
-              onChange: (val) => setAttributes({ contentAlign: val }),
-            }),
-            el(TextControl, {
-              label: __('Altezza minima', 'sage'),
-              value: minHeight ?? '100svh',
-              help: __('es. 100svh, 600px, 80vh', 'sage'),
-              onChange: (val) => setAttributes({ minHeight: val }),
-            }),
-          ),
+          PanelBody,
+          { title: __('Immagine di sfondo', 'sage'), initialOpen: true },
+          el(MediaPanel, {
+            imageId,
+            imageUrl,
+            onSelect: (media) =>
+              setAttributes({
+                imageId: media.id,
+                imageUrl: media.url,
+                imageAlt: media.alt ?? '',
+              }),
+            onRemove: () => setAttributes({ imageId: 0, imageUrl: '', imageAlt: '' }),
+          }),
+          el(RangeControl, {
+            label: __('Opacità overlay', 'sage'),
+            value: overlayOpacity ?? 40,
+            onChange: (val) => setAttributes({ overlayOpacity: val }),
+            min: 0,
+            max: 100,
+          }),
         ),
 
-        el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/hero', attributes })),
-      )
-    },
-    save: () => null,
-  })
+        el(
+          PanelBody,
+          { title: __('Contenuto', 'sage'), initialOpen: true },
+          el(TextControl, {
+            label: __('Label piccola', 'sage'),
+            value: label ?? '',
+            onChange: (val) => setAttributes({ label: val }),
+          }),
+          el(TextControl, {
+            label: __('Titolo principale', 'sage'),
+            value: heading ?? '',
+            onChange: (val) => setAttributes({ heading: val }),
+          }),
+          el(TextareaControl, {
+            label: __('Sottotitolo', 'sage'),
+            value: subtext ?? '',
+            onChange: (val) => setAttributes({ subtext: val }),
+          }),
+        ),
 
-  // ── theme/testimonial ───────────────────────────────────────────────────────
+        el(
+          PanelBody,
+          { title: __('Pulsanti CTA', 'sage'), initialOpen: false },
+          el(TextControl, {
+            label: __('Testo CTA principale', 'sage'),
+            value: ctaLabel ?? '',
+            onChange: (val) => setAttributes({ ctaLabel: val }),
+          }),
+          el(TextControl, {
+            label: __('URL CTA principale', 'sage'),
+            value: ctaUrl ?? '',
+            type: 'url',
+            onChange: (val) => setAttributes({ ctaUrl: val }),
+          }),
+          el(TextControl, {
+            label: __('Testo CTA secondario', 'sage'),
+            value: cta2Label ?? '',
+            onChange: (val) => setAttributes({ cta2Label: val }),
+          }),
+          el(TextControl, {
+            label: __('URL CTA secondario', 'sage'),
+            value: cta2Url ?? '',
+            type: 'url',
+            onChange: (val) => setAttributes({ cta2Url: val }),
+          }),
+        ),
 
-  registerBlockType('theme/testimonial', {
-    edit({ attributes, setAttributes }) {
-      const {
-        quote,
-        authorName,
-        authorRole,
-        authorImageId,
-        authorImageUrl,
-        rating,
-        bg,
-        style: cardStyle,
-      } = attributes
+        el(
+          PanelBody,
+          { title: __('Layout', 'sage'), initialOpen: false },
+          el(SelectControl, {
+            label: __('Allineamento contenuto', 'sage'),
+            value: contentAlign ?? 'center',
+            options: [
+              { label: __('Sinistra', 'sage'), value: 'left' },
+              { label: __('Centro', 'sage'), value: 'center' },
+              { label: __('Destra', 'sage'), value: 'right' },
+            ],
+            onChange: (val) => setAttributes({ contentAlign: val }),
+          }),
+          el(TextControl, {
+            label: __('Altezza minima', 'sage'),
+            value: minHeight ?? '100svh',
+            help: __('es. 100svh, 600px, 80vh', 'sage'),
+            onChange: (val) => setAttributes({ minHeight: val }),
+          }),
+        ),
+      ),
 
-      return el(
-        Fragment,
+      el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/hero', attributes })),
+    )
+  },
+  save: () => null,
+})
+
+// ── theme/testimonial ───────────────────────────────────────────────────────
+
+registerBlockType('theme/testimonial', {
+  edit({ attributes, setAttributes }) {
+    const {
+      quote,
+      authorName,
+      authorRole,
+      authorImageId,
+      authorImageUrl,
+      rating,
+      bg,
+      style: cardStyle,
+    } = attributes
+
+    return el(
+      Fragment,
+      null,
+
+      el(
+        InspectorControls,
         null,
 
         el(
-          InspectorControls,
-          null,
-
-          el(
-            PanelBody,
-            { title: __('Citazione', 'sage'), initialOpen: true },
-            el(TextareaControl, {
-              label: __('Citazione', 'sage'),
-              value: quote ?? '',
-              onChange: (val) => setAttributes({ quote: val }),
-            }),
-            el(RangeControl, {
-              label: __('Valutazione (stelle)', 'sage'),
-              value: rating ?? 5,
-              onChange: (val) => setAttributes({ rating: val }),
-              min: 0,
-              max: 5,
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Autore', 'sage'), initialOpen: true },
-            el(TextControl, {
-              label: __('Nome autore', 'sage'),
-              value: authorName ?? '',
-              onChange: (val) => setAttributes({ authorName: val }),
-            }),
-            el(TextControl, {
-              label: __('Ruolo / azienda', 'sage'),
-              value: authorRole ?? '',
-              onChange: (val) => setAttributes({ authorRole: val }),
-            }),
-            el(MediaPanel, {
-              imageId: authorImageId,
-              imageUrl: authorImageUrl,
-              onSelect: (media) =>
-                setAttributes({ authorImageId: media.id, authorImageUrl: media.url }),
-              onRemove: () => setAttributes({ authorImageId: 0, authorImageUrl: '' }),
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Stile', 'sage'), initialOpen: false },
-            el(SelectControl, {
-              label: __('Stile card', 'sage'),
-              value: cardStyle ?? 'card',
-              options: [
-                { label: __('Card', 'sage'), value: 'card' },
-                { label: __('Minimal', 'sage'), value: 'minimal' },
-                { label: __('Grande', 'sage'), value: 'large' },
-              ],
-              onChange: (val) => setAttributes({ style: val }),
-            }),
-            el(SelectControl, {
-              label: __('Sfondo', 'sage'),
-              value: bg ?? 'surface',
-              options: bgOptions,
-              onChange: (val) => setAttributes({ bg: val }),
-            }),
-          ),
+          PanelBody,
+          { title: __('Citazione', 'sage'), initialOpen: true },
+          el(TextareaControl, {
+            label: __('Citazione', 'sage'),
+            value: quote ?? '',
+            onChange: (val) => setAttributes({ quote: val }),
+          }),
+          el(RangeControl, {
+            label: __('Valutazione (stelle)', 'sage'),
+            value: rating ?? 5,
+            onChange: (val) => setAttributes({ rating: val }),
+            min: 0,
+            max: 5,
+          }),
         ),
 
         el(
-          'div',
-          useBlockProps(),
-          el(ServerSideRender, { block: 'theme/testimonial', attributes }),
+          PanelBody,
+          { title: __('Autore', 'sage'), initialOpen: true },
+          el(TextControl, {
+            label: __('Nome autore', 'sage'),
+            value: authorName ?? '',
+            onChange: (val) => setAttributes({ authorName: val }),
+          }),
+          el(TextControl, {
+            label: __('Ruolo / azienda', 'sage'),
+            value: authorRole ?? '',
+            onChange: (val) => setAttributes({ authorRole: val }),
+          }),
+          el(MediaPanel, {
+            imageId: authorImageId,
+            imageUrl: authorImageUrl,
+            onSelect: (media) =>
+              setAttributes({ authorImageId: media.id, authorImageUrl: media.url }),
+            onRemove: () => setAttributes({ authorImageId: 0, authorImageUrl: '' }),
+          }),
         ),
-      )
-    },
-    save: () => null,
-  })
 
-  // ── theme/stat ──────────────────────────────────────────────────────────────
+        el(
+          PanelBody,
+          { title: __('Stile', 'sage'), initialOpen: false },
+          el(SelectControl, {
+            label: __('Stile card', 'sage'),
+            value: cardStyle ?? 'card',
+            options: [
+              { label: __('Card', 'sage'), value: 'card' },
+              { label: __('Minimal', 'sage'), value: 'minimal' },
+              { label: __('Grande', 'sage'), value: 'large' },
+            ],
+            onChange: (val) => setAttributes({ style: val }),
+          }),
+          el(SelectControl, {
+            label: __('Sfondo', 'sage'),
+            value: bg ?? 'surface',
+            options: bgOptions,
+            onChange: (val) => setAttributes({ bg: val }),
+          }),
+        ),
+      ),
 
-  registerBlockType('theme/stat', {
-    edit({ attributes, setAttributes }) {
-      const { value, label, description, prefix, suffix, align, bg } = attributes
+      el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/testimonial', attributes })),
+    )
+  },
+  save: () => null,
+})
 
-      return el(
-        Fragment,
+// ── theme/stat ──────────────────────────────────────────────────────────────
+
+registerBlockType('theme/stat', {
+  edit({ attributes, setAttributes }) {
+    const { value, label, description, prefix, suffix, align, bg } = attributes
+
+    return el(
+      Fragment,
+      null,
+
+      el(
+        InspectorControls,
         null,
 
         el(
-          InspectorControls,
-          null,
-
-          el(
-            PanelBody,
-            { title: __('Dati', 'sage'), initialOpen: true },
-            el(TextControl, {
-              label: __('Prefisso (es. +, €)', 'sage'),
-              value: prefix ?? '',
-              onChange: (val) => setAttributes({ prefix: val }),
-            }),
-            el(TextControl, {
-              label: __('Valore (es. 100+)', 'sage'),
-              value: value ?? '',
-              onChange: (val) => setAttributes({ value: val }),
-            }),
-            el(TextControl, {
-              label: __('Suffisso (es. %, k)', 'sage'),
-              value: suffix ?? '',
-              onChange: (val) => setAttributes({ suffix: val }),
-            }),
-            el(TextControl, {
-              label: __('Etichetta', 'sage'),
-              value: label ?? '',
-              onChange: (val) => setAttributes({ label: val }),
-            }),
-            el(TextControl, {
-              label: __('Descrizione opzionale', 'sage'),
-              value: description ?? '',
-              onChange: (val) => setAttributes({ description: val }),
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Stile', 'sage'), initialOpen: false },
-            el(SelectControl, {
-              label: __('Allineamento', 'sage'),
-              value: align ?? 'left',
-              options: [
-                { label: __('Sinistra (con linea)', 'sage'), value: 'left' },
-                { label: __('Centro', 'sage'), value: 'center' },
-              ],
-              onChange: (val) => setAttributes({ align: val }),
-            }),
-            el(SelectControl, {
-              label: __('Sfondo sezione', 'sage'),
-              value: bg ?? 'surface',
-              options: bgOptions,
-              onChange: (val) => setAttributes({ bg: val }),
-            }),
-          ),
+          PanelBody,
+          { title: __('Dati', 'sage'), initialOpen: true },
+          el(TextControl, {
+            label: __('Prefisso (es. +, €)', 'sage'),
+            value: prefix ?? '',
+            onChange: (val) => setAttributes({ prefix: val }),
+          }),
+          el(TextControl, {
+            label: __('Valore (es. 100+)', 'sage'),
+            value: value ?? '',
+            onChange: (val) => setAttributes({ value: val }),
+          }),
+          el(TextControl, {
+            label: __('Suffisso (es. %, k)', 'sage'),
+            value: suffix ?? '',
+            onChange: (val) => setAttributes({ suffix: val }),
+          }),
+          el(TextControl, {
+            label: __('Etichetta', 'sage'),
+            value: label ?? '',
+            onChange: (val) => setAttributes({ label: val }),
+          }),
+          el(TextControl, {
+            label: __('Descrizione opzionale', 'sage'),
+            value: description ?? '',
+            onChange: (val) => setAttributes({ description: val }),
+          }),
         ),
 
-        el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/stat', attributes })),
-      )
-    },
-    save: () => null,
-  })
+        el(
+          PanelBody,
+          { title: __('Stile', 'sage'), initialOpen: false },
+          el(SelectControl, {
+            label: __('Allineamento', 'sage'),
+            value: align ?? 'left',
+            options: [
+              { label: __('Sinistra (con linea)', 'sage'), value: 'left' },
+              { label: __('Centro', 'sage'), value: 'center' },
+            ],
+            onChange: (val) => setAttributes({ align: val }),
+          }),
+          el(SelectControl, {
+            label: __('Sfondo sezione', 'sage'),
+            value: bg ?? 'surface',
+            options: bgOptions,
+            onChange: (val) => setAttributes({ bg: val }),
+          }),
+        ),
+      ),
 
-  // ── theme/icon-box ──────────────────────────────────────────────────────────
+      el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/stat', attributes })),
+    )
+  },
+  save: () => null,
+})
 
-  registerBlockType('theme/icon-box', {
-    edit({ attributes, setAttributes }) {
-      const {
-        iconImageId,
-        iconImageUrl,
-        iconSize,
-        title,
-        text,
-        linkLabel,
-        linkUrl,
-        bg,
-        layout,
-        bordered,
-      } = attributes
+// ── theme/icon-box ──────────────────────────────────────────────────────────
 
-      return el(
-        Fragment,
+registerBlockType('theme/icon-box', {
+  edit({ attributes, setAttributes }) {
+    const {
+      iconImageId,
+      iconImageUrl,
+      iconSize,
+      title,
+      text,
+      linkLabel,
+      linkUrl,
+      bg,
+      layout,
+      bordered,
+    } = attributes
+
+    return el(
+      Fragment,
+      null,
+
+      el(
+        InspectorControls,
         null,
 
         el(
-          InspectorControls,
-          null,
-
-          el(
-            PanelBody,
-            { title: __('Icona', 'sage'), initialOpen: true },
-            el(MediaPanel, {
-              imageId: iconImageId,
-              imageUrl: iconImageUrl,
-              onSelect: (media) =>
-                setAttributes({ iconImageId: media.id, iconImageUrl: media.url }),
-              onRemove: () => setAttributes({ iconImageId: 0, iconImageUrl: '' }),
-            }),
-            el(RangeControl, {
-              label: __('Dimensione icona (px)', 'sage'),
-              value: iconSize ?? 48,
-              onChange: (val) => setAttributes({ iconSize: val }),
-              min: 16,
-              max: 120,
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Contenuto', 'sage'), initialOpen: true },
-            el(TextControl, {
-              label: __('Titolo', 'sage'),
-              value: title ?? '',
-              onChange: (val) => setAttributes({ title: val }),
-            }),
-            el(TextareaControl, {
-              label: __('Testo', 'sage'),
-              value: text ?? '',
-              onChange: (val) => setAttributes({ text: val }),
-            }),
-            el(TextControl, {
-              label: __('Testo link', 'sage'),
-              value: linkLabel ?? '',
-              onChange: (val) => setAttributes({ linkLabel: val }),
-            }),
-            el(TextControl, {
-              label: __('URL link', 'sage'),
-              value: linkUrl ?? '',
-              type: 'url',
-              onChange: (val) => setAttributes({ linkUrl: val }),
-            }),
-          ),
-
-          el(
-            PanelBody,
-            { title: __('Stile', 'sage'), initialOpen: false },
-            el(SelectControl, {
-              label: __('Layout', 'sage'),
-              value: layout ?? 'vertical',
-              options: [
-                { label: __('Verticale', 'sage'), value: 'vertical' },
-                { label: __('Orizzontale', 'sage'), value: 'horizontal' },
-              ],
-              onChange: (val) => setAttributes({ layout: val }),
-            }),
-            el(SelectControl, {
-              label: __('Sfondo', 'sage'),
-              value: bg ?? 'surface',
-              options: bgOptions,
-              onChange: (val) => setAttributes({ bg: val }),
-            }),
-            el(ToggleControl, {
-              label: __('Bordo card', 'sage'),
-              checked: bordered ?? false,
-              onChange: (val) => setAttributes({ bordered: val }),
-            }),
-          ),
+          PanelBody,
+          { title: __('Icona', 'sage'), initialOpen: true },
+          el(MediaPanel, {
+            imageId: iconImageId,
+            imageUrl: iconImageUrl,
+            onSelect: (media) => setAttributes({ iconImageId: media.id, iconImageUrl: media.url }),
+            onRemove: () => setAttributes({ iconImageId: 0, iconImageUrl: '' }),
+          }),
+          el(RangeControl, {
+            label: __('Dimensione icona (px)', 'sage'),
+            value: iconSize ?? 48,
+            onChange: (val) => setAttributes({ iconSize: val }),
+            min: 16,
+            max: 120,
+          }),
         ),
 
-        el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/icon-box', attributes })),
-      )
-    },
-    save: () => null,
-  })
+        el(
+          PanelBody,
+          { title: __('Contenuto', 'sage'), initialOpen: true },
+          el(TextControl, {
+            label: __('Titolo', 'sage'),
+            value: title ?? '',
+            onChange: (val) => setAttributes({ title: val }),
+          }),
+          el(TextareaControl, {
+            label: __('Testo', 'sage'),
+            value: text ?? '',
+            onChange: (val) => setAttributes({ text: val }),
+          }),
+          el(TextControl, {
+            label: __('Testo link', 'sage'),
+            value: linkLabel ?? '',
+            onChange: (val) => setAttributes({ linkLabel: val }),
+          }),
+          el(TextControl, {
+            label: __('URL link', 'sage'),
+            value: linkUrl ?? '',
+            type: 'url',
+            onChange: (val) => setAttributes({ linkUrl: val }),
+          }),
+        ),
+
+        el(
+          PanelBody,
+          { title: __('Stile', 'sage'), initialOpen: false },
+          el(SelectControl, {
+            label: __('Layout', 'sage'),
+            value: layout ?? 'vertical',
+            options: [
+              { label: __('Verticale', 'sage'), value: 'vertical' },
+              { label: __('Orizzontale', 'sage'), value: 'horizontal' },
+            ],
+            onChange: (val) => setAttributes({ layout: val }),
+          }),
+          el(SelectControl, {
+            label: __('Sfondo', 'sage'),
+            value: bg ?? 'surface',
+            options: bgOptions,
+            onChange: (val) => setAttributes({ bg: val }),
+          }),
+          el(ToggleControl, {
+            label: __('Bordo card', 'sage'),
+            checked: bordered ?? false,
+            onChange: (val) => setAttributes({ bordered: val }),
+          }),
+        ),
+      ),
+
+      el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/icon-box', attributes })),
+    )
+  },
+  save: () => null,
 })

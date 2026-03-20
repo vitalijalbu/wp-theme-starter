@@ -48,18 +48,30 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize):
         'priority' => 125,
     ]);
 
-    // CTA button URL override
+    // CTA button label + URL
+    $wp_customize->add_setting('header_cta_label', [
+        'default'           => __('Contattaci', 'sage'),
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'postMessage',
+    ]);
+    $wp_customize->add_control('header_cta_label', [
+        'label'    => __('Testo pulsante CTA header', 'sage'),
+        'section'  => 'theme_theme',
+        'type'     => 'text',
+        'priority' => 10,
+    ]);
+
     $wp_customize->add_setting('cta_url', [
         'default'           => '',
         'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'refresh',
     ]);
     $wp_customize->add_control('cta_url', [
-        'label'       => __('URL pulsante "Contattaci"', 'sage'),
+        'label'       => __('URL pulsante CTA header', 'sage'),
         'description' => __('Lascia vuoto per usare /contatti.', 'sage'),
         'section'     => 'theme_theme',
         'type'        => 'url',
-        'priority'    => 10,
+        'priority'    => 11,
     ]);
 
     // Footer tagline
@@ -289,4 +301,11 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize):
 function theme_cta_url(): string {
     $override = get_theme_mod('cta_url', '');
     return $override ? esc_url($override) : esc_url(home_url('/contatti'));
+}
+
+/**
+ * Helper: return the CTA button label.
+ */
+function theme_cta_label(): string {
+    return sanitize_text_field(get_theme_mod('header_cta_label', __('Contattaci', 'sage')));
 }

@@ -28,9 +28,9 @@
         { "slug": "cream", "color": "#f5f5f5", "name": "Cream" },
         { "slug": "muted", "color": "#6b6b6b", "name": "Muted" },
         { "slug": "border", "color": "#e0e0e0", "name": "Border" },
-        { "slug": "accent", "color": "#e4002b", "name": "Accent (Red)" },
-        { "slug": "accent-light", "color": "#fff0f2", "name": "Accent Light" },
-        { "slug": "gold", "color": "#e4002b", "name": "Gold (→ Accent)" }
+        { "slug": "accent", "color": "#0074C7", "name": "Accent (Blue)" },
+        { "slug": "accent-light", "color": "#eff6ff", "name": "Accent Light" },
+        { "slug": "gold", "color": "#0074C7", "name": "Gold (Blue)" }
       ],
       "gradients": [
         {
@@ -67,9 +67,9 @@
           "name": "Poppins (Sans)"
         },
         {
-          "fontFamily": "'Cormorant Garamond', Georgia, serif",
+          "fontFamily": "'Inter', system-ui, sans-serif",
           "slug": "serif",
-          "name": "Cormorant Garamond (Serif)"
+          "name": "Inter (Serif)"
         }
       ],
       "fontSizes": [

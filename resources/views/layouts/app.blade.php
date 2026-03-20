@@ -157,7 +157,7 @@
         {{-- Close --}}
         <button
           @click="hide()"
-          class="mt-8 flex items-center gap-2 text-[10px] font-sans font-semibold tracking-[0.2em] uppercase text-white/30 hover:text-white/60 transition-colors"
+          class="mt-8 flex items-center gap-2     font-sans font-semibold tracking-[0.2em] uppercase text-white/30 hover:text-white/60 transition-colors"
         >
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>

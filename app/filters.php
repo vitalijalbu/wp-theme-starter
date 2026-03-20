@@ -16,7 +16,7 @@ add_filter('woocommerce_add_to_cart_fragments', function (array $fragments): arr
 
     $count = (int) WC()->cart->get_cart_contents_count();
     $html  = sprintf(
-        '<span class="cart-count-fragment absolute -top-1 -right-1 min-w-4 h-4 bg-gold text-ink text-[9px] font-bold rounded-full flex items-center justify-center px-0.5 leading-none transition-opacity %s" data-cart-count="%d">%d</span>',
+        '<span class="cart-count-fragment absolute -top-1 -right-1 min-w-4 h-4 bg-gold text-ink     font-bold rounded-full flex items-center justify-center px-0.5 leading-none transition-opacity %s" data-cart-count="%d">%d</span>',
         $count === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100',
         $count,
         $count
@@ -221,24 +221,29 @@ add_filter('rest_endpoints', function (array $endpoints): array {
 });
 
 /**
- * Map WooCommerce templates to the woocommerce Blade view.
+ * Force WooCommerce pages to use resources/views/woocommerce.blade.php.
  *
- * Sage resolves templates via the `sage/template/hierarchy` filter.
- * By prepending 'woocommerce' for any WC page we force Acorn to load
- * resources/views/woocommerce.blade.php instead of page.blade.php.
+ * WooCommerce hooks into `template_include` at priority 99 and overrides the
+ * template to a file inside the WC plugin directory. Sage hooks at priority 100
+ * but cannot match that path to any Blade view, so it falls back to the raw PHP
+ * file — losing the theme layout entirely.
+ *
+ * We hook at priority 101 (after both WC and Sage) and force `sage.view` to
+ * 'woocommerce' so index.php renders woocommerce.blade.php with the full layout.
  */
-add_filter('sage/template/hierarchy', function (array $templates): array {
-    if (function_exists('is_woocommerce') && is_woocommerce()) {
-        array_unshift($templates, 'woocommerce');
+add_filter('template_include', function (string $template): string {
+    if (
+        function_exists('is_woocommerce') && (
+            is_woocommerce()       ||
+            is_product_category()  ||
+            is_product_tag()       ||
+            is_product_taxonomy()  ||
+            is_cart()              ||
+            is_checkout()          ||
+            is_account_page()
+        )
+    ) {
+        \Roots\app()->instance('sage.view', 'woocommerce');
     }
-    if (function_exists('is_cart') && is_cart()) {
-        array_unshift($templates, 'woocommerce');
-    }
-    if (function_exists('is_checkout') && is_checkout()) {
-        array_unshift($templates, 'woocommerce');
-    }
-    if (function_exists('is_account_page') && is_account_page()) {
-        array_unshift($templates, 'woocommerce');
-    }
-    return $templates;
-});
+    return $template;
+}, 101);

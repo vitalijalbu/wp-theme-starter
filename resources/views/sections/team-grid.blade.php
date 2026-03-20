@@ -90,7 +90,7 @@
             @endif
             @if($linkedin)
               <a href="{{ esc_url($linkedin) }}" target="_blank" rel="noopener noreferrer"
-                 class="mt-2 inline-block font-sans text-[10px] font-semibold tracking-[0.15em] uppercase {{ $bg === 'ink' ? 'text-gold' : 'text-primary' }} hover:underline"
+                 class="mt-2 inline-block font-sans     font-semibold tracking-[0.15em] uppercase {{ $bg === 'ink' ? 'text-gold' : 'text-primary' }} hover:underline"
                  aria-label="{{ __('LinkedIn di', 'sage') }} {{ esc_attr(get_the_title($pid)) }}">
                 LinkedIn
               </a>

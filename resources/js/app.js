@@ -10,7 +10,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { initCarousels } from './modules/carousel.js'
 // ── Modules ───────────────────────────────────────────────────────────────────
-import { initLocomotiveScroll, updateLocomotiveScroll } from './modules/locomotive-scroll.js'
 import { initLuxuryAnimations } from './modules/luxury-animations.js'
 import { initMagneticHover } from './modules/magnetic-hover.js'
 import { initScrollEffects } from './modules/scroll-effects.js'
@@ -22,7 +21,6 @@ if (!prefersReducedMotion) {
   gsap.registerPlugin(ScrollTrigger)
   window.ScrollTrigger = ScrollTrigger
 } else {
-  // biome-ignore lint/suspicious/noEmptyBlockStatements: intentional no-op stubs
   window.ScrollTrigger = {
     refresh: () => {
       /* noop */
@@ -65,7 +63,6 @@ Alpine.data('siteHeader', () => ({
   mobileOpen: false,
   activeMenu: null,
   scrolled: false,
-  prevScrolled: false,
 
   get hasHero() {
     return this.$store.layout.hasHero
@@ -158,105 +155,7 @@ Alpine.data('siteHeader', () => ({
       this.closeMobile()
     })
 
-    // ── GSAP dual-state (expanded ↔ scrolled compact bar) ─────────────────
-    let _scrollTl = null
-    let _expandedH = null
-
-    this.$watch('scrolled', (val) => {
-      if (val === this.prevScrolled) {
-        return
-      }
-      this.prevScrolled = val
-
-      const expandedW = this.$refs.expandedWrapper
-      const scrolledBar = this.$refs.scrolledBar
-
-      if (_scrollTl) {
-        _scrollTl.kill()
-        _scrollTl = null
-      }
-
-      if (val) {
-        // → scrolled: collapse expanded, reveal compact bar
-        if (expandedW) {
-          _expandedH = expandedW.offsetHeight
-          gsap.set(expandedW, { height: _expandedH, overflow: 'hidden' })
-        }
-        _scrollTl = gsap.timeline()
-        if (expandedW) {
-          _scrollTl.to(
-            expandedW,
-            {
-              height: 0,
-              opacity: 0,
-              duration: 0.3,
-              ease: 'expo.inOut',
-              overwrite: true,
-            },
-            0,
-          )
-        }
-        if (scrolledBar) {
-          scrolledBar.style.display = 'flex'
-          gsap.set(scrolledBar, { opacity: 0, y: -10 })
-          _scrollTl.to(
-            scrolledBar,
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.36,
-              ease: 'expo.out',
-              overwrite: true,
-            },
-            0.06,
-          )
-        }
-        _scrollTl.add(() => {
-          if (expandedW) {
-            expandedW.style.display = 'none'
-            gsap.set(expandedW, { clearProps: 'height,opacity,overflow' })
-          }
-        })
-      } else {
-        // → not scrolled: reveal expanded, collapse compact bar
-        _scrollTl = gsap.timeline()
-        if (scrolledBar) {
-          _scrollTl.to(
-            scrolledBar,
-            {
-              opacity: 0,
-              y: -8,
-              duration: 0.2,
-              ease: 'expo.in',
-              overwrite: true,
-            },
-            0,
-          )
-        }
-        if (expandedW) {
-          const targetH = _expandedH ?? expandedW.scrollHeight
-          expandedW.style.display = 'block'
-          gsap.set(expandedW, { height: 0, opacity: 0, overflow: 'hidden' })
-          _scrollTl.to(
-            expandedW,
-            {
-              height: targetH,
-              opacity: 1,
-              duration: 0.4,
-              ease: 'expo.out',
-              overwrite: true,
-            },
-            0,
-          )
-          _scrollTl.add(() => {
-            gsap.set(expandedW, { clearProps: 'height,opacity,overflow' })
-          })
-        }
-        if (scrolledBar) {
-          scrolledBar.style.display = 'none'
-        }
-      }
-    })
+    // no GSAP swap — background change is handled by Alpine :class binding
   },
 }))
 
@@ -335,13 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousels()
 
   if (!prefersReducedMotion) {
-    const loco = initLocomotiveScroll()
-    if (loco) {
-      initLuxuryAnimations()
-      initScrollEffects()
-      initMagneticHover()
-    }
-    window.updateLocomotiveScroll = updateLocomotiveScroll
+    initLuxuryAnimations()
+    initScrollEffects()
+    initMagneticHover()
   } else {
     // Run non-animated fallbacks (still register scroll effects as visible)
     document

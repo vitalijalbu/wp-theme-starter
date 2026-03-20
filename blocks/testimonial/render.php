@@ -7,7 +7,7 @@ $quote          = wp_kses_post($attributes['quote']        ?? '');
 $author_name    = esc_html($attributes['authorName']       ?? '');
 $author_role    = esc_html($attributes['authorRole']       ?? '');
 $author_img_id  = (int) ($attributes['authorImageId']      ?? 0);
-$author_img_url = esc_url($attributes['authorImageUrl']    ?? ($author_img_id ? wp_get_attachment_image_url($author_img_id, 'thumbnail') : ''));
+$author_img_url = esc_url($attributes['authorImageUrl']    ?? ($author_img_id ? wp_get_attachment_image_url($author_img_id, 'thumbnail') : '')) ?: esc_url(\App\get_placeholder_url());
 $rating         = min(5, max(0, (int) ($attributes['rating'] ?? 5)));
 $bg             = $attributes['bg']    ?? 'surface';
 $style          = $attributes['style'] ?? 'card';
@@ -55,7 +55,7 @@ if ($style === 'large') {
           'loading' => 'lazy',
           'alt'     => esc_attr($author_name),
       ]) ?>
-    <?php elseif ($author_img_url) : ?>
+    <?php else : ?>
       <img
         src="<?= $author_img_url ?>"
         alt="<?= esc_attr($author_name) ?>"
@@ -65,10 +65,6 @@ if ($style === 'large') {
         width="40"
         height="40"
       >
-    <?php else : ?>
-      <span class="w-10 h-10 rounded-full bg-border flex items-center justify-center font-serif text-base <?= $meta_class ?> shrink-0">
-        <?= mb_substr($author_name, 0, 1) ?>
-      </span>
     <?php endif; ?>
     <div>
       <p class="font-sans text-sm font-semibold <?= $meta_class ?>"><?= $author_name ?></p>

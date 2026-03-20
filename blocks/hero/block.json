@@ -7,8 +7,6 @@
   "description": "Hero a schermo intero con immagine di sfondo, titolo, sottotitolo e doppio CTA.",
   "keywords": ["hero", "banner", "principale", "cta"],
   "textdomain": "sage",
-  "editorScript": "file:../../public/build/editor.js",
-  "style": "file:../../public/build/app.css",
   "render": "file:render.php",
   "supports": {
     "anchor": true,

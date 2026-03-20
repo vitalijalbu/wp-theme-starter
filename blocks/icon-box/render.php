@@ -4,7 +4,7 @@
  */
 
 $icon_id    = (int) ($attributes['iconImageId']  ?? 0);
-$icon_url   = esc_url($attributes['iconImageUrl'] ?? ($icon_id ? wp_get_attachment_image_url($icon_id, 'thumbnail') : ''));
+$icon_url   = esc_url($attributes['iconImageUrl'] ?? ($icon_id ? wp_get_attachment_image_url($icon_id, 'thumbnail') : '')) ?: esc_url(\App\get_placeholder_url());
 $icon_size  = (int) ($attributes['iconSize']     ?? 48);
 $title      = wp_kses_post($attributes['title']  ?? '');
 $text       = wp_kses_post($attributes['text']   ?? '');
@@ -28,19 +28,17 @@ $wrap_flex     = $is_horizontal
   class="icon-box <?= $wrap_flex ?> <?= $border_class ?>"
   <?= get_block_wrapper_attributes() ?>
 >
-  <?php if ($icon_url) : ?>
-    <img
-      src="<?= $icon_url ?>"
-      alt=""
-      aria-hidden="true"
-      width="<?= $icon_size ?>"
-      height="<?= $icon_size ?>"
-      class="shrink-0 object-contain"
-      style="width:<?= esc_attr($icon_size) ?>px;height:<?= esc_attr($icon_size) ?>px"
-      loading="lazy"
-      decoding="async"
-    >
-  <?php endif; ?>
+  <img
+    src="<?= $icon_url ?>"
+    alt=""
+    aria-hidden="true"
+    width="<?= $icon_size ?>"
+    height="<?= $icon_size ?>"
+    class="shrink-0 object-contain"
+    style="width:<?= esc_attr($icon_size) ?>px;height:<?= esc_attr($icon_size) ?>px"
+    loading="lazy"
+    decoding="async"
+  >
 
   <div>
     <?php if ($title) : ?>

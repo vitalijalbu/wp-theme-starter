@@ -43,7 +43,7 @@
             class="whitespace-nowrap font-sans text-xs font-semibold tracking-[0.15em] uppercase text-muted hover:text-ink transition-colors pb-1 border-b-2 border-transparent hover:border-ink"
           >
             {{ esc_html($term->name) }}
-            <span class="ml-1 text-[10px] text-border">({{ $term->count }})</span>
+            <span class="ml-1     text-border">({{ $term->count }})</span>
           </a>
         @endforeach
       </div>

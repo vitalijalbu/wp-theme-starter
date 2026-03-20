@@ -9,7 +9,7 @@
  */
 
 $image_id   = (int) ($attributes['imageId']   ?? 0);
-$image_url  = esc_url($attributes['imageUrl'] ?? ($image_id ? wp_get_attachment_image_url($image_id, 'full') : ''));
+$image_url  = esc_url($attributes['imageUrl'] ?? ($image_id ? wp_get_attachment_image_url($image_id, 'full') : '')) ?: esc_url(\App\get_placeholder_url());
 $image_alt  = esc_attr($attributes['imageAlt'] ?? ($image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : ''));
 $label      = esc_html($attributes['label']   ?? '');
 $heading    = wp_kses_post($attributes['heading'] ?? '');
@@ -35,26 +35,24 @@ $align_class = match($align) {
   <?= get_block_wrapper_attributes() ?>
 >
   {{-- Background image --}}
-  <?php if ($image_url) : ?>
-    <?php if ($image_id) : ?>
-      <?= wp_get_attachment_image($image_id, 'full', false, [
-          'class'         => 'absolute inset-0 w-full h-full object-cover',
-          'loading'       => 'eager',
-          'fetchpriority' => 'high',
-          'aria-hidden'   => 'true',
-          'decoding'      => 'async',
-      ]) ?>
-    <?php else : ?>
-      <img
-        src="<?= $image_url ?>"
-        alt=""
-        aria-hidden="true"
-        class="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      >
-    <?php endif; ?>
+  <?php if ($image_id) : ?>
+    <?= wp_get_attachment_image($image_id, 'full', false, [
+        'class'         => 'absolute inset-0 w-full h-full object-cover',
+        'loading'       => 'eager',
+        'fetchpriority' => 'high',
+        'aria-hidden'   => 'true',
+        'decoding'      => 'async',
+    ]) ?>
+  <?php else : ?>
+    <img
+      src="<?= $image_url ?>"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    >
   <?php endif; ?>
 
   {{-- Overlay --}}

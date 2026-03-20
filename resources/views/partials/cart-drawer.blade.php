@@ -43,7 +43,7 @@
     role="dialog"
     aria-modal="true"
     aria-label="{{ __('Carrello', 'sage') }}"
-    class="fixed inset-y-0 right-0 z-70 w-full max-w-sm bg-white shadow-2xl flex flex-col"
+    class="fixed inset-y-0 right-0 z-70 w-full max-w-md bg-white shadow-2xl flex flex-col"
     style="display:none"
   >
 
@@ -157,10 +157,16 @@ function cartDrawer() {
     loading: false,
 
     init() {
-      // Listen to WooCommerce AJAX add-to-cart events
-      document.body.addEventListener('added_to_cart', (e) => {
-        this.count = e.detail?.cart_count ?? this.count;
-        this.refreshFragment();
+      // WooCommerce fires added_to_cart as a jQuery custom event, not a native DOM event
+      jQuery(document.body).on('added_to_cart', (e, fragments, cart_hash) => {
+        if (fragments) {
+          jQuery.each(fragments, (selector, html) => jQuery(selector).replaceWith(html));
+          const countEl = document.querySelector('[data-cart-count]');
+          if (countEl) this.count = parseInt(countEl.dataset.cartCount || '0', 10);
+          this.loading = false;
+        } else {
+          this.refreshFragment();
+        }
         this.open();
       });
 

@@ -15,24 +15,24 @@
  */
 @theme {
   --font-sans:   'Poppins', system-ui, sans-serif;
-  --font-serif:  'Cormorant Garamond', Georgia, serif;
+  --font-serif:  'Inter', system-ui, sans-serif;
 
-  /* ── Accent (NAP signature red — replaces "gold" everywhere) ── */
-  --color-accent:       #e4002b;   /* NAP red — buttons, labels, hover cues   */
-  --color-accent-light: #fff0f2;   /* Tint for backgrounds/badges             */
+  /* ── Accent (blue) ────────────────────────────────────────────── */
+  --color-accent:       #0074C7;   /* Blue — buttons, labels, hover cues      */
+  --color-accent-light: #eff6ff;   /* Tint for backgrounds/badges             */
   /* Keep gold as alias so legacy Tailwind classes (text-gold) still compile  */
-  --color-gold:         #e4002b;
-  --color-gold-light:   #fff0f2;
+  --color-gold:         #0074C7;
+  --color-gold-light:   #eff6ff;
 
   /* ── Primary (alias → accent for WC notices/buttons) ────────── */
-  --color-primary:      #e4002b;
-  --color-primary-dark: #c0001f;
-  --color-primary-50:   #fff0f2;
+  --color-primary:      #0074C7;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-50:   #eff6ff;
 
   /* ── Neutrals ────────────────────────────────────────────────── */
   --color-ink:          #0a0a0a;   /* Near-black for headings & body text     */
   --color-ink-light:    #1a1a1a;   /* Slightly lighter black for hover states */
-  --color-muted:        #6b6b6b;   /* Secondary / caption text                */
+  --color-muted:        #fafafa;   /* Secondary / caption text                */
   --color-border:       #e0e0e0;   /* Dividers, card borders — cool grey      */
 
   /* ── Surfaces ────────────────────────────────────────────────── */
@@ -45,8 +45,7 @@
 
 /* ── Base ────────────────────────────────────────────────────────────────── */
 html {
-  /* Locomotive Scroll (Lenis) handles smooth scrolling — CSS auto is correct */
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1714,9 +1713,8 @@ mark.order-status {
   display:        inline-flex;
   align-items:    center;
   font-family:    var(--font-sans);
-  font-size:      10px;
+  font-size:      1rem;
   font-weight:    600;
-  letter-spacing: 0.17em;
   text-transform: uppercase;
   color:          var(--color-ink);
   opacity:        0.7;

@@ -39,7 +39,7 @@
       >
       <button
         type="submit"
-        class="shrink-0 px-5 py-2 font-sans text-[10px] font-semibold tracking-[0.18em] uppercase transition-colors {{ $btn_class }}"
+        class="shrink-0 px-5 py-2 font-sans     font-semibold tracking-[0.18em] uppercase transition-colors {{ $btn_class }}"
         :disabled="loading"
         :class="loading ? 'opacity-60 cursor-wait' : ''"
       >

@@ -30,13 +30,13 @@
   $cta_url              = function_exists('App\\theme_cta_url') ? \App\theme_cta_url() : esc_url(home_url('/contatti'));
 @endphp
 
-<footer class="bg-ink text-white" role="contentinfo">
+<footer class="bg-primary text-white" role="contentinfo">
 
   {{-- ─── Newsletter band ─────────────────────────────────────────────────── --}}
   <div class="border-b border-white/10">
     <div class="max-w-360 mx-auto px-6 lg:px-10 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <p class="text-[9px] font-sans font-semibold tracking-[0.25em] uppercase text-gold mb-1">Newsletter</p>
+        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-gold mb-1">Newsletter</p>
         <p class="font-serif text-xl font-light text-white/90">{{ esc_html($newsletter_heading) }}</p>
       </div>
 
@@ -73,7 +73,7 @@
             <button
               type="submit"
               :disabled="state === 'loading'"
-              class="bg-gold text-ink text-[10px] font-sans font-semibold tracking-[0.2em] uppercase px-5 py-3 hover:bg-gold/90 transition-colors whitespace-nowrap disabled:opacity-60"
+              class="bg-gold text-ink     font-sans font-semibold tracking-[0.2em] uppercase px-5 py-3 hover:bg-gold/90 transition-colors whitespace-nowrap disabled:opacity-60"
             >
               <span x-show="state !== 'loading'">{{ __('Iscriviti', 'sage') }}</span>
               <span x-show="state === 'loading'" aria-live="polite">…</span>
@@ -136,7 +136,7 @@
 
       {{-- Explore nav --}}
       <div class="col-span-1 lg:col-span-2 lg:col-start-6">
-        <p class="text-[9px] font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Esplora', 'sage') }}</p>
+        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Esplora', 'sage') }}</p>
         <ul class="space-y-3">
           @if(has_nav_menu('footer_navigation'))
             @php
@@ -157,7 +157,7 @@
 
       {{-- Shop categories --}}
       <div class="col-span-1 lg:col-span-2">
-        <p class="text-[9px] font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Shop', 'sage') }}</p>
+        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Shop', 'sage') }}</p>
         <ul class="space-y-3">
           @foreach($shop_cats as $cat)
             <li>
@@ -178,7 +178,7 @@
 
       {{-- Info links --}}
       <div class="col-span-2 lg:col-span-2">
-        <p class="text-[9px] font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Informazioni', 'sage') }}</p>
+        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Informazioni', 'sage') }}</p>
         <ul class="space-y-3">
           @foreach([
             [home_url('/chi-siamo'), __('Chi siamo', 'sage')],
@@ -199,11 +199,11 @@
   </div>
 
   {{-- Gold gradient divider --}}
-  <div class="h-px bg-linear-to-r from-transparent via-gold/30 to-transparent mx-6 lg:mx-10" data-scroll="line-in"></div>
+  <div class="h-px bg-linear-to-r from-transparent via-white/20 to-transparent mx-6 lg:mx-10" data-scroll="line-in"></div>
 
   {{-- Legal bar --}}
   <div class="max-w-360 mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-    <p class="text-[10px] font-sans text-white/20">
+    <p class="    font-sans text-white/20">
       © {{ date('Y') }} {{ get_bloginfo('name') }}. {{ __('Tutti i diritti riservati.', 'sage') }}
     </p>
     <div class="flex items-center gap-5">
@@ -212,7 +212,7 @@
         [home_url('/cookie-policy'),        __('Cookie Policy',  'sage')],
         [home_url('/termini-e-condizioni'), __('Termini',        'sage')],
       ] as [$url, $label])
-        <a href="{{ esc_url($url) }}" class="text-[10px] font-sans text-white/20 hover:text-white/50 transition-colors">
+        <a href="{{ esc_url($url) }}" class="    font-sans text-white/20 hover:text-white/50 transition-colors">
           {{ $label }}
         </a>
       @endforeach

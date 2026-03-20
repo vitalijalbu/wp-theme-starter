@@ -9,6 +9,14 @@ namespace App;
 use Illuminate\Support\Facades\Vite;
 
 /**
+ * Return the URL of the static placeholder image.
+ */
+function get_placeholder_url(): string
+{
+    return get_template_directory_uri() . '/public/placeholder.png';
+}
+
+/**
  * Inject styles into the block editor.
  *
  * @return array
@@ -34,7 +42,7 @@ add_action('admin_head', function () {
     }
 
     // Load Google Fonts for the block editor via <link> (avoids CSS @import order warnings).
-    $font_url = esc_url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+    $font_url = esc_url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
     echo '<link rel="stylesheet" href="' . $font_url . '">' . "\n";
@@ -197,7 +205,7 @@ add_filter('loop_shop_columns', fn() => 3);
  * preconnect hints reduce DNS + TLS handshake latency.
  */
 add_action('wp_head', function () {
-    $font_url = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap';
+    $font_url = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap';
     $url      = esc_url($font_url);
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
@@ -303,7 +311,7 @@ add_action('wp_head', function () {
     $site_name   = esc_attr(get_bloginfo('name'));
     $site_url    = esc_url(home_url('/'));
     $og_type     = is_singular() ? 'article' : 'website';
-    $og_url      = esc_url(get_canonical_url() ?: (is_singular() ? get_permalink() : $site_url));
+    $og_url      = esc_url(is_singular() ? get_permalink() : $site_url);
     $og_title    = esc_attr(wp_get_document_title());
     $og_desc     = '';
     $og_image    = '';
@@ -397,3 +405,30 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+// ── Mega-menu checkbox on nav menu items ──────────────────────────────────────
+// Adds a "Dropdown (mega menu)" checkbox to each item in Appearance > Menus.
+// When checked, the item renders as a dropdown button (not a link) in the header,
+// showing its child menu items in a panel.
+
+add_action('wp_nav_menu_item_custom_fields', function (int $item_id, \WP_Post $item): void {
+    $checked = get_post_meta($item_id, '_menu_item_megamenu', true) === '1';
+    printf(
+        '<p class="field-megamenu description description-wide" style="margin-top:8px">
+            <label for="edit-menu-item-megamenu-%1$d">
+                <input type="checkbox" id="edit-menu-item-megamenu-%1$d"
+                       name="menu-item-megamenu[%1$d]" value="1" %2$s style="margin-right:5px">
+                %3$s
+            </label>
+        </p>',
+        $item_id,
+        checked($checked, true, false),
+        esc_html__('Mostra come dropdown (mega menu)', 'sage')
+    );
+}, 10, 2);
+
+add_action('wp_update_nav_menu_item', function (int $menu_id, int $item_id): void {
+    // phpcs:ignore WordPress.Security.NonceVerification
+    $value = isset($_POST['menu-item-megamenu'][$item_id]) ? '1' : '';
+    update_post_meta($item_id, '_menu_item_megamenu', $value);
+}, 10, 2);

@@ -24,20 +24,26 @@
     }
   }
 
-  $top_items = [];
+  // Load all nav items and build a parent→children map for dropdown support
+  $top_items    = [];
+  $children_map = [];
   if (has_nav_menu('primary_navigation')) {
-    $loc   = get_nav_menu_locations()['primary_navigation'] ?? 0;
-    $items = wp_get_nav_menu_items($loc) ?: [];
-    $top_items = array_values(array_filter($items, fn($i) => !$i->menu_item_parent));
+    $loc       = get_nav_menu_locations()['primary_navigation'] ?? 0;
+    $all_items = $loc ? (wp_get_nav_menu_items($loc) ?: []) : [];
+    foreach ($all_items as $_it) {
+      if ($_it->menu_item_parent) {
+        $children_map[(int) $_it->menu_item_parent][] = $_it;
+      }
+    }
+    $top_items = array_values(array_filter($all_items, fn($i) => !$i->menu_item_parent));
   }
 
   $cart_count = (function_exists('WC') && WC()->cart)
     ? (int) WC()->cart->get_cart_contents_count()
     : 0;
 
-  $cta_url = function_exists('App\\theme_cta_url')
-    ? \App\theme_cta_url()
-    : esc_url(home_url('/contatti'));
+  $cta_url   = function_exists('App\\theme_cta_url')  ? \App\theme_cta_url()  : esc_url(home_url('/contatti'));
+  $cta_label = function_exists('App\\theme_cta_label') ? \App\theme_cta_label() : __('Contattaci', 'sage');
 @endphp
 
 @include('partials.announcement-bar')
@@ -103,11 +109,33 @@
           @endif
 
           @foreach($top_items as $item)
-            <a
-              href="{{ esc_url($item->url) }}"
-              class="nav-link-t"
-              :class="hasHero && !scrolled ? 'text-white/80 hover:text-white' : ''"
-            >{{ esc_html($item->title) }}</a>
+            @php
+              $is_mega       = get_post_meta($item->ID, '_menu_item_megamenu', true) === '1';
+              $item_children = $children_map[$item->ID] ?? [];
+              $mega_id       = 'nav-' . $item->ID;
+            @endphp
+            @if($is_mega && !empty($item_children))
+              <button
+                type="button"
+                id="btn-mega-{{ $mega_id }}"
+                class="nav-link-t flex items-center gap-1"
+                :class="hasHero && !scrolled ? 'text-white/80 hover:text-white' : ''"
+                @mouseenter="openMenu('{{ $mega_id }}')"
+                @click="openMenu('{{ $mega_id }}')"
+                :aria-expanded="(activeMenu === '{{ $mega_id }}').toString()"
+                aria-controls="mega-{{ $mega_id }}"
+                aria-haspopup="true"
+              >
+                {{ esc_html($item->title) }}
+                <svg class="w-2.5 h-2.5 transition-transform duration-200" :class="activeMenu==='{{ $mega_id }}'?'rotate-180':''" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/></svg>
+              </button>
+            @else
+              <a
+                href="{{ esc_url($item->url) }}"
+                class="nav-link-t"
+                :class="hasHero && !scrolled ? 'text-white/80 hover:text-white' : ''"
+              >{{ esc_html($item->title) }}</a>
+            @endif
           @endforeach
 
         </nav>
@@ -140,7 +168,7 @@
             >
               <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
               <span
-                class="cart-count-fragment absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-gold text-ink text-[9px] font-bold font-sans rounded-full flex items-center justify-center px-0.5 leading-none transition-opacity"
+                class="cart-count-fragment absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-gold text-ink     font-bold font-sans rounded-full flex items-center justify-center px-0.5 leading-none transition-opacity"
                 data-cart-count="{{ $cart_count }}"
                 :class="cartCount === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'"
                 x-text="cartCount"
@@ -155,7 +183,7 @@
             :class="hasHero && !scrolled
               ? 'border-white/40 text-white hover:bg-white hover:text-ink'
               : 'border-ink/25 text-ink hover:bg-ink hover:text-white'"
-          >{{ __('Contattaci', 'sage') }}</a>
+          >{{ esc_html($cta_label) }}</a>
 
         </div>
       </div>
@@ -172,7 +200,7 @@
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
             <span
-              class="cart-count-fragment absolute -top-1 -right-1 min-w-4 h-4 bg-gold text-ink text-[9px] font-bold font-sans rounded-full flex items-center justify-center px-0.5 leading-none"
+              class="cart-count-fragment absolute -top-1 -right-1 min-w-4 h-4 bg-gold text-ink     font-bold font-sans rounded-full flex items-center justify-center px-0.5 leading-none"
               data-cart-count="{{ $cart_count }}"
               :class="cartCount === 0 ? 'hidden' : 'flex'"
               x-text="cartCount"
@@ -192,95 +220,6 @@
           <svg x-show="mobileOpen"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
         </button>
       </div>
-
-    </div>
-  </div>
-
-  {{-- ════════════════════════════════════════════════════════════════════════
-       SCROLLED COMPACT BAR — revealed by GSAP when scrolled > 80px
-       ════════════════════════════════════════════════════════════════════════ --}}
-  <div
-    x-ref="scrolledBar"
-    class="header-scrolled-bar bg-ink/97 backdrop-blur-md border-b border-white/8"
-    style="display:none"
-  >
-    <div class="flex items-center justify-between max-w-360 mx-auto px-8 lg:px-12 h-[58px]">
-
-      {{-- Logo ─────────────────────────────────────────────────────────────── --}}
-      <a
-        href="{{ esc_url(home_url('/')) }}"
-        class="shrink-0 flex items-center"
-        aria-label="{{ esc_attr(get_bloginfo('name')) }}"
-      >
-        @if(has_custom_logo())
-          {!! get_custom_logo() !!}
-        @else
-          <span class="font-serif text-lg font-light tracking-[0.22em] uppercase text-white">
-            {{ get_bloginfo('name') }}
-          </span>
-        @endif
-      </a>
-
-      {{-- Right: Nav + Actions ─────────────────────────────────────────────── --}}
-      <div class="hidden lg:flex items-center gap-7">
-
-        <nav aria-label="{{ __('Menu principale', 'sage') }}" class="flex items-center gap-6">
-          @if(!empty($wc_cats))
-            <button
-              type="button"
-              class="nav-link-t text-white/75 hover:text-gold"
-              style="font-size: 10px"
-              @mouseenter="openMenu('shop')"
-              @click="openMenu('shop')"
-              :aria-expanded="(activeMenu === 'shop').toString()"
-              aria-controls="mega-shop"
-              aria-haspopup="true"
-            >
-              {{ __('Shop', 'sage') }}
-              <svg class="w-2 h-2 inline-block ml-0.5 transition-transform" :class="activeMenu==='shop'?'rotate-180':''" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/></svg>
-            </button>
-          @endif
-          @foreach($top_items as $item)
-            <a href="{{ esc_url($item->url) }}" class="nav-link-t text-white/75 hover:text-gold" style="font-size: 10px">
-              {{ esc_html($item->title) }}
-            </a>
-          @endforeach
-        </nav>
-
-        <span class="w-px h-3.5 bg-white/15" aria-hidden="true"></span>
-
-        <div class="flex items-center gap-4">
-          <button type="button" class="icon-btn text-white/60 hover:text-white" aria-label="{{ __('Cerca', 'sage') }}" @click="$dispatch('open-search')">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
-          </button>
-          @if(function_exists('WC'))
-            <a href="{{ esc_url(wc_get_cart_url()) }}" class="icon-btn relative text-white/60 hover:text-white" aria-label="{{ __('Carrello', 'sage') }}">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
-              <span
-                class="cart-count-fragment absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-gold text-ink text-[9px] font-bold font-sans rounded-full flex items-center justify-center px-0.5 leading-none transition-opacity"
-                data-cart-count="{{ $cart_count }}"
-                :class="cartCount === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'"
-                x-text="cartCount"
-              >{{ $cart_count }}</span>
-            </a>
-          @endif
-          <a href="{{ $cta_url }}" class="btn-slide border-white/30 text-white hover:bg-white hover:text-ink" style="padding: 6px 16px; font-size: 9px">
-            {{ __('Contattaci', 'sage') }}
-          </a>
-        </div>
-      </div>
-
-      {{-- Mobile toggle in compact bar ─────────────────────────────────────── --}}
-      <button
-        type="button"
-        class="lg:hidden icon-btn text-white"
-        @click="toggleMobile()"
-        :aria-expanded="mobileOpen.toString()"
-        aria-controls="mobile-drawer"
-      >
-        <svg x-show="!mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
-        <svg x-show="mobileOpen"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
-      </button>
 
     </div>
   </div>
@@ -352,7 +291,7 @@
           {{-- Featured dark CTA card ─────────────────────────────────────── --}}
           <div class="mega-item bg-ink p-8 flex flex-col justify-between">
             <div>
-              <p class="text-[9px] font-sans font-semibold tracking-[0.28em] uppercase text-gold mb-5">
+              <p class="    font-sans font-semibold tracking-[0.28em] uppercase text-gold mb-5">
                 {{ __('In evidenza', 'sage') }}
               </p>
               <h3 class="font-serif text-[22px] font-light text-white leading-snug mb-3">
@@ -377,6 +316,43 @@
   @endif
 
   {{-- ════════════════════════════════════════════════════════════════════════
+       DROPDOWN PANELS — nav items with "Megamenu" checkbox
+       ════════════════════════════════════════════════════════════════════════ --}}
+  @foreach($top_items as $item)
+    @php
+      $is_mega       = get_post_meta($item->ID, '_menu_item_megamenu', true) === '1';
+      $item_children = $children_map[$item->ID] ?? [];
+      $mega_id       = 'nav-' . $item->ID;
+    @endphp
+    @if($is_mega && !empty($item_children))
+      <div
+        id="mega-{{ $mega_id }}"
+        role="region"
+        aria-labelledby="btn-mega-{{ $mega_id }}"
+        x-show="activeMenu === '{{ $mega_id }}'"
+        x-cloak
+        @mouseenter="activeMenu = '{{ $mega_id }}'"
+        @mouseleave="closeMenu()"
+        class="absolute top-full left-0 right-0 bg-surface shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden border-b border-border"
+        style="display:none; clip-path: inset(0% 0% 100% 0%)"
+      >
+        <div class="max-w-360 mx-auto px-8 lg:px-12 py-6">
+          <ul class="flex flex-wrap gap-x-8 gap-y-1">
+            @foreach($item_children as $child)
+              <li>
+                <a
+                  href="{{ esc_url($child->url) }}"
+                  class="mega-item block font-sans text-[13px] text-ink/70 hover:text-primary transition-colors py-2"
+                >{{ esc_html($child->title) }}</a>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    @endif
+  @endforeach
+
+  {{-- ════════════════════════════════════════════════════════════════════════
        MOBILE DRAWER
        ════════════════════════════════════════════════════════════════════════ --}}
   <div
@@ -389,7 +365,7 @@
     x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 translate-x-0"
     x-transition:leave-end="opacity-0 translate-x-full"
-    class="fixed inset-0 top-[72px] bg-ink z-40 overflow-y-auto flex flex-col lg:hidden"
+    class="fixed inset-0 top-[72px] bg-primary z-40 overflow-y-auto flex flex-col lg:hidden"
     style="display:none"
     role="dialog"
     aria-modal="true"
@@ -424,20 +400,50 @@
             </div>
             <a
               href="{{ esc_url(function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop')) }}"
-              class="mt-5 inline-flex items-center gap-2 text-[10px] font-sans font-semibold tracking-[0.2em] uppercase text-gold"
+              class="mt-5 inline-flex items-center gap-2     font-sans font-semibold tracking-[0.2em] uppercase text-gold"
               @click="closeMobile()"
             >{{ __('Vedi tutto lo shop', 'sage') }} →</a>
           </div>
         </div>
       @endif
 
-      {{-- Regular nav items ────────────────────────────────────────────────── --}}
+      {{-- Regular nav items (or dropdown accordions for megamenu items) ──────── --}}
       @foreach($top_items as $item)
-        <a
-          href="{{ esc_url($item->url) }}"
-          class="flex items-center justify-between py-5 border-b border-white/8 font-serif text-[28px] font-light text-white hover:text-gold transition-colors tracking-wide"
-          @click="closeMobile()"
-        >{{ esc_html($item->title) }}</a>
+        @php
+          $is_mega_mob   = get_post_meta($item->ID, '_menu_item_megamenu', true) === '1';
+          $mob_children  = $children_map[$item->ID] ?? [];
+        @endphp
+        @if($is_mega_mob && !empty($mob_children))
+          <div x-data="{ open: false }">
+            <button
+              type="button"
+              @click="open = !open"
+              :aria-expanded="open.toString()"
+              class="w-full flex items-center justify-between py-5 border-b border-white/8"
+            >
+              <span class="font-serif text-[28px] font-light text-white tracking-wide">{{ esc_html($item->title) }}</span>
+              <svg class="w-4 h-4 text-white/30 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/></svg>
+            </button>
+            <div x-show="open" x-collapse class="py-3 space-y-1">
+              @foreach($mob_children as $child)
+                <a
+                  href="{{ esc_url($child->url) }}"
+                  class="flex items-center gap-2 py-2 text-[13px] font-sans text-white/50 hover:text-gold transition-colors"
+                  @click="closeMobile()"
+                >
+                  <span class="w-1 h-1 bg-gold/40 rounded-full shrink-0" aria-hidden="true"></span>
+                  {{ esc_html($child->title) }}
+                </a>
+              @endforeach
+            </div>
+          </div>
+        @else
+          <a
+            href="{{ esc_url($item->url) }}"
+            class="flex items-center justify-between py-5 border-b border-white/8 font-serif text-[28px] font-light text-white hover:text-gold transition-colors tracking-wide"
+            @click="closeMobile()"
+          >{{ esc_html($item->title) }}</a>
+        @endif
       @endforeach
 
     </nav>
@@ -446,9 +452,9 @@
     <div class="px-6 py-8 border-t border-white/8 space-y-4">
       <a
         href="{{ $cta_url }}"
-        class="block w-full text-center py-4 bg-gold text-ink text-[10px] font-sans font-semibold tracking-[0.22em] uppercase hover:bg-gold/90 transition-colors"
+        class="block w-full text-center py-4 bg-gold text-ink     font-sans font-semibold tracking-[0.22em] uppercase hover:bg-gold/90 transition-colors"
         @click="closeMobile()"
-      >{{ __('Contattaci', 'sage') }}</a>
+      >{{ esc_html($cta_label) }}</a>
 
       @php
         $social_ig = get_theme_mod('social_instagram', '');
@@ -458,7 +464,7 @@
       @if($social_ig || $social_fb || $social_tk)
         <div class="flex items-center gap-5 justify-center pt-1">
           @foreach(array_filter(['instagram' => $social_ig, 'facebook' => $social_fb, 'tiktok' => $social_tk]) as $name => $url)
-            <a href="{{ esc_url($url) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ ucfirst($name) }}" class="text-[10px] font-sans font-semibold tracking-[0.15em] uppercase text-white/25 hover:text-gold transition-colors">
+            <a href="{{ esc_url($url) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ ucfirst($name) }}" class="    font-sans font-semibold tracking-[0.15em] uppercase text-white/25 hover:text-gold transition-colors">
               {{ ucfirst($name) }}
             </a>
           @endforeach

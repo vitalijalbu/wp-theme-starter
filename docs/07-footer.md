@@ -104,7 +104,7 @@ La grid è `grid-cols-12`. Per aggiungere una colonna:
 ```blade
 {{-- Dopo la colonna Informazioni --}}
 <div class="col-span-1 lg:col-span-2">
-  <p class="text-[9px] font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">
+  <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">
     {{ __('Contatti', 'sage') }}
   </p>
   <address class="text-[12px] font-sans text-white/40 not-italic space-y-2">
