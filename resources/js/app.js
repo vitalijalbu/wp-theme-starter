@@ -13,6 +13,7 @@ import { initCarousels } from './modules/carousel.js'
 import { initLuxuryAnimations } from './modules/luxury-animations.js'
 import { initMagneticHover } from './modules/magnetic-hover.js'
 import { initScrollEffects } from './modules/scroll-effects.js'
+import './modules/wishlist.js'
 
 // ── Accessibility: reduced motion ─────────────────────────────────────────────
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches

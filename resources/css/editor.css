@@ -41,7 +41,7 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 0;
-  background-color: #0a0a0a;
+  background-color: #0074C7;
   color: #ffffff;
   padding: 0.875rem 2rem;
 }
@@ -49,8 +49,8 @@ body {
 /* Button — Outline */
 .editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
   background-color: transparent;
-  color: #0a0a0a;
-  border: 1px solid #0a0a0a;
+  color: #0074C7;
+  border: 1px solid #0074C7;
   box-shadow: none;
 }
 

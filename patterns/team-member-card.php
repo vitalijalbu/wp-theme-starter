@@ -37,34 +37,11 @@
 				<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink mt-2"} -->
 				<h3 class="font-serif text-lg font-light text-ink mt-2">Nome Cognome</h3>
 				<!-- /wp:heading -->
-				<!-- wp:paragraph {"className":"font-sans text-xs tracking-widest uppercase text-muted mt-1"} -->
-				<p class="font-sans text-xs tracking-widest uppercase text-muted mt-1">Ruolo / Titolo</p>
+				<!-- wp:paragraph {"className":"text-xs tracking-widest uppercase text-muted mt-1"} -->
+				<p class="text-xs tracking-widest uppercase text-muted mt-1">Ruolo / Titolo</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"className":"font-sans text-xs text-primary mt-2"} -->
-				<p class="font-sans text-xs text-primary mt-2"><a href="#">LinkedIn</a></p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:group -->
-		</div>
-		<!-- /wp:column -->
-
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:group {"className":"team-card group","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} -->
-			<div class="wp-block-group team-card group">
-				<!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"team-card__img overflow-hidden"} -->
-				<figure class="wp-block-image team-card__img overflow-hidden">
-					<img src="" alt="Foto membro team" style="aspect-ratio:3/4;object-fit:cover"/>
-				</figure>
-				<!-- /wp:image -->
-				<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink mt-2"} -->
-				<h3 class="font-serif text-lg font-light text-ink mt-2">Nome Cognome</h3>
-				<!-- /wp:heading -->
-				<!-- wp:paragraph {"className":"font-sans text-xs tracking-widest uppercase text-muted mt-1"} -->
-				<p class="font-sans text-xs tracking-widest uppercase text-muted mt-1">Ruolo / Titolo</p>
-				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"className":"font-sans text-xs text-primary mt-2"} -->
-				<p class="font-sans text-xs text-primary mt-2"><a href="#">LinkedIn</a></p>
+				<!-- wp:paragraph {"className":"text-xs text-primary mt-2"} -->
+				<p class="text-xs text-primary mt-2"><a href="#">LinkedIn</a></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -83,11 +60,34 @@
 				<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink mt-2"} -->
 				<h3 class="font-serif text-lg font-light text-ink mt-2">Nome Cognome</h3>
 				<!-- /wp:heading -->
-				<!-- wp:paragraph {"className":"font-sans text-xs tracking-widest uppercase text-muted mt-1"} -->
-				<p class="font-sans text-xs tracking-widest uppercase text-muted mt-1">Ruolo / Titolo</p>
+				<!-- wp:paragraph {"className":"text-xs tracking-widest uppercase text-muted mt-1"} -->
+				<p class="text-xs tracking-widest uppercase text-muted mt-1">Ruolo / Titolo</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"className":"font-sans text-xs text-primary mt-2"} -->
-				<p class="font-sans text-xs text-primary mt-2"><a href="#">LinkedIn</a></p>
+				<!-- wp:paragraph {"className":"text-xs text-primary mt-2"} -->
+				<p class="text-xs text-primary mt-2"><a href="#">LinkedIn</a></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:group {"className":"team-card group","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} -->
+			<div class="wp-block-group team-card group">
+				<!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"team-card__img overflow-hidden"} -->
+				<figure class="wp-block-image team-card__img overflow-hidden">
+					<img src="" alt="Foto membro team" style="aspect-ratio:3/4;object-fit:cover"/>
+				</figure>
+				<!-- /wp:image -->
+				<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink mt-2"} -->
+				<h3 class="font-serif text-lg font-light text-ink mt-2">Nome Cognome</h3>
+				<!-- /wp:heading -->
+				<!-- wp:paragraph {"className":"text-xs tracking-widest uppercase text-muted mt-1"} -->
+				<p class="text-xs tracking-widest uppercase text-muted mt-1">Ruolo / Titolo</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"className":"text-xs text-primary mt-2"} -->
+				<p class="text-xs text-primary mt-2"><a href="#">LinkedIn</a></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->

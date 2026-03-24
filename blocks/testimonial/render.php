@@ -27,7 +27,7 @@ if ($style === 'large') {
 } else {
     // card
     $wrap_class  = "p-8 {$card_bg}";
-    $quote_size  = 'font-sans text-sm leading-relaxed';
+    $quote_size  = 'text-sm leading-relaxed';
 }
 ?>
 <figure
@@ -67,9 +67,9 @@ if ($style === 'large') {
       >
     <?php endif; ?>
     <div>
-      <p class="font-sans text-sm font-semibold <?= $meta_class ?>"><?= $author_name ?></p>
+      <p class="text-sm font-semibold <?= $meta_class ?>"><?= $author_name ?></p>
       <?php if ($author_role) : ?>
-        <p class="font-sans text-xs <?= $sub_class ?>"><?= $author_role ?></p>
+        <p class="text-xs <?= $sub_class ?>"><?= $author_role ?></p>
       <?php endif; ?>
     </div>
   </figcaption>

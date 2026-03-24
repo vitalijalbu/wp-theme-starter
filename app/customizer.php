@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WordPress Customizer options for 4 Zampe theme.
+ * WordPress Customizer options for Sage theme.
  *
  * Provides admin-configurable settings for:
  *  - Social media profile URLs
@@ -50,15 +50,16 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize):
 
     // CTA button label + URL
     $wp_customize->add_setting('header_cta_label', [
-        'default'           => __('Contattaci', 'sage'),
+        'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'postMessage',
     ]);
     $wp_customize->add_control('header_cta_label', [
-        'label'    => __('Testo pulsante CTA header', 'sage'),
-        'section'  => 'theme_theme',
-        'type'     => 'text',
-        'priority' => 10,
+        'label'       => __('Testo pulsante CTA header', 'sage'),
+        'description' => __('Lascia vuoto per nascondere il pulsante.', 'sage'),
+        'section'     => 'theme_theme',
+        'type'        => 'text',
+        'priority'    => 10,
     ]);
 
     $wp_customize->add_setting('cta_url', [
@@ -76,29 +77,44 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize):
 
     // Footer tagline
     $wp_customize->add_setting('footer_tagline', [
-        'default'           => __('Il tuo punto di riferimento per la cura e il benessere del tuo animale domestico.', 'sage'),
+        'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'postMessage',
     ]);
     $wp_customize->add_control('footer_tagline', [
-        'label'    => __('Tagline footer', 'sage'),
-        'section'  => 'theme_theme',
-        'type'     => 'textarea',
-        'priority' => 20,
+        'label'       => __('Tagline footer', 'sage'),
+        'description' => __('Lascia vuoto per nascondere.', 'sage'),
+        'section'     => 'theme_theme',
+        'type'        => 'textarea',
+        'priority'    => 20,
     ]);
 
     // Newsletter heading
     $wp_customize->add_setting('newsletter_heading', [
-        'default'           => __('Offerte esclusive, novità e consigli per il tuo animale.', 'sage'),
+        'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'postMessage',
     ]);
     $wp_customize->add_control('newsletter_heading', [
-        'label'    => __('Titolo newsletter footer', 'sage'),
-        'section'  => 'theme_theme',
-        'type'     => 'text',
-        'priority' => 30,
+        'label'       => __('Titolo newsletter footer', 'sage'),
+        'description' => __('Visibile solo se newsletter attiva.', 'sage'),
+        'section'     => 'theme_theme',
+        'type'        => 'text',
+        'priority'    => 30,
     ]);
+
+    // Newsletter active toggle
+    $wp_customize->add_setting('newsletter_active', [
+        'default'           => false,
+        'sanitize_callback' => 'rest_sanitize_boolean',
+    ]);
+    $wp_customize->add_control('newsletter_active', [
+        'label'   => __('Mostra newsletter nel footer', 'sage'),
+        'section' => 'theme_theme',
+        'type'    => 'checkbox',
+        'priority' => 25,
+    ]);
+
     // ── Section: Homepage ────────────────────────────────────────────────────
     $wp_customize->add_section('theme_homepage', [
         'title'    => __('Homepage', 'sage'),

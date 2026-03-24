@@ -22,7 +22,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"align":"center","textColor":"white","fontSize":"lg"} -->
-			<p class="has-text-align-center has-white-color has-text-color has-lg-font-size">Breve descrizione della pagina o del servizio offerto da 4 Zampe.</p>
+			<p class="has-text-align-center has-white-color has-text-color has-lg-font-size">Breve descrizione della pagina o del servizio offerto.</p>
 			<!-- /wp:paragraph -->
 
 		</div>

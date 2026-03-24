@@ -33,13 +33,13 @@
         placeholder="{{ $placeholder }}"
         autocomplete="email"
         required
-        class="flex-1 py-3 pr-4 bg-transparent font-sans text-sm {{ $input_class }} focus:outline-none"
+        class="flex-1 py-3 pr-4 bg-transparent text-sm {{ $input_class }} focus:outline-none"
         :class="error ? 'text-red-400' : ''"
         :aria-describedby="error ? 'nl-error' : undefined"
       >
       <button
         type="submit"
-        class="shrink-0 px-5 py-2 font-sans     font-semibold tracking-[0.18em] uppercase transition-colors {{ $btn_class }}"
+        class="shrink-0 px-5 py-2     font-semibold tracking-[0.18em] uppercase transition-colors {{ $btn_class }}"
         :disabled="loading"
         :class="loading ? 'opacity-60 cursor-wait' : ''"
       >
@@ -51,7 +51,7 @@
     <p
       x-show="error"
       id="nl-error"
-      class="mt-2 font-sans text-xs text-red-400"
+      class="mt-2 text-xs text-red-400"
       x-text="error"
       role="alert"
       aria-live="assertive"
@@ -62,7 +62,7 @@
   <div
     x-show="success"
     x-transition
-    class="py-3 font-sans text-sm {{ $bg === 'ink' ? 'text-white/70' : 'text-muted' }}"
+    class="py-3 text-sm {{ $bg === 'ink' ? 'text-white/70' : 'text-muted' }}"
     role="status"
     aria-live="polite"
   >
@@ -70,7 +70,7 @@
   </div>
 
   {{-- Privacy note --}}
-  <p class="mt-3 font-sans text-[11px] leading-relaxed {{ $meta_class }}">
+  <p class="mt-3 leading-relaxed {{ $meta_class }}">
     {!! $privacy_label ?? '' !!}
   </p>
 </div>

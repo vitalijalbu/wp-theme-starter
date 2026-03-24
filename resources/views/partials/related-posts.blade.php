@@ -16,7 +16,7 @@
 @if($related)
   <aside class="mt-16 pt-12 border-t border-border" aria-labelledby="related-heading">
 
-    <p class="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-2" aria-hidden="true">
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-2" aria-hidden="true">
       {{ __('Continua a leggere', 'sage') }}
     </p>
     <h2 id="related-heading" class="font-serif text-2xl font-light text-ink mb-8">
@@ -52,7 +52,7 @@
           @endif
 
           @if($rcats)
-            <span class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-muted mb-2 block">
+            <span class="text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-muted mb-2 block">
               {{ esc_html($rcats[0]->name) }}
             </span>
           @endif
@@ -63,7 +63,7 @@
             </a>
           </h3>
 
-          <div class="flex items-center gap-2 font-sans text-xs text-muted mt-auto pt-3 border-t border-border">
+          <div class="flex items-center gap-2 text-xs text-muted mt-auto pt-3 border-t border-border">
             <time datetime="{{ get_post_time('c', true, $post) }}">{{ get_the_date('j M Y', $post) }}</time>
             <span aria-hidden="true">·</span>
             <span>{{ $rmin }}&nbsp;min</span>

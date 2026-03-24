@@ -149,7 +149,7 @@
           type="button"
           :aria-pressed="activeCategory === 'all'"
           @click="filterByCategory('all')"
-          class="px-5 py-2 font-sans text-xs font-500 tracking-wider uppercase transition-all duration-200"
+          class="px-5 py-2 text-xs font-500 tracking-wider uppercase transition-all duration-200"
           :class="activeCategory === 'all'
             ? 'bg-ink text-surface border border-ink'
             : 'bg-transparent text-muted border border-border hover:border-ink hover:text-ink'"
@@ -160,7 +160,7 @@
             type="button"
             :aria-pressed="activeCategory === '{{ $tab['slug'] }}'"
             @click="filterByCategory('{{ $tab['slug'] }}')"
-            class="px-5 py-2 font-sans text-xs font-500 tracking-wider uppercase transition-all duration-200"
+            class="px-5 py-2 text-xs font-500 tracking-wider uppercase transition-all duration-200"
             :class="activeCategory === '{{ $tab['slug'] }}'
               ? 'bg-ink text-surface border border-ink'
               : 'bg-transparent text-muted border border-border hover:border-ink hover:text-ink'"
@@ -225,7 +225,7 @@
       style="display: none"
     >
       <p class="font-serif text-2xl text-ink mb-3">{{ __('Nessun prodotto trovato', 'sage') }}</p>
-      <p class="font-sans text-sm text-muted">{{ __('Prova a selezionare un\'altra categoria.', 'sage') }}</p>
+      <p class="text-sm text-muted">{{ __('Prova a selezionare un\'altra categoria.', 'sage') }}</p>
     </div>
 
   </div>

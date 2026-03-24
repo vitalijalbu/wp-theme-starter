@@ -79,7 +79,7 @@
               <div class="max-w-2xl">
 
                 @if($label)
-                  <p class="font-sans text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-5">
+                  <p class="font-semibold tracking-[0.25em] uppercase text-gold mb-5">
                     {{ $label }}
                   </p>
                 @endif

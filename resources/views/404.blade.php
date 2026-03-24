@@ -14,7 +14,7 @@
     <h1 id="error-heading" class="font-serif text-[clamp(1.75rem,4vw,3rem)] font-light text-ink mb-4">
       {{ __('Pagina non trovata', 'sage') }}
     </h1>
-    <p class="font-sans text-base text-muted max-w-md mx-auto mb-10">
+    <p class="text-base text-muted max-w-md mx-auto mb-10">
       {{ __('La pagina che stai cercando potrebbe essere stata spostata, rinominata o non esiste più.', 'sage') }}
     </p>
 
@@ -27,11 +27,11 @@
         name="s"
         value="{{ get_search_query() }}"
         placeholder="{{ __('Cerca nel sito…', 'sage') }}"
-        class="flex-1 border border-border border-r-0 px-4 py-3 text-sm font-sans text-ink bg-white placeholder-muted focus:outline-none focus:border-primary transition-colors"
+        class="flex-1 border border-border border-r-0 px-4 py-3 text-sm text-ink bg-white placeholder-muted focus:outline-none focus:border-primary transition-colors"
       >
       <button
         type="submit"
-        class="bg-ink text-white px-5 py-3 text-xs font-sans font-semibold tracking-wider uppercase hover:bg-primary transition-colors"
+        class="bg-ink text-white px-5 py-3 text-xs font-semibold tracking-wider uppercase hover:bg-primary transition-colors"
       >{{ __('Cerca', 'sage') }}</button>
     </form>
 

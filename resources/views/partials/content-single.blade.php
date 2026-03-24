@@ -30,7 +30,7 @@
     @php($cats = get_the_category($post_id))
     @if($cats)
       <a href="{{ esc_url(get_category_link($cats[0]->term_id)) }}"
-         class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-gold hover:text-primary transition-colors mb-4 inline-block">
+         class="text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-gold hover:text-primary transition-colors mb-4 inline-block">
         {{ esc_html($cats[0]->name) }}
       </a>
     @endif
@@ -64,10 +64,10 @@
   {{-- Tags --}}
   @if($tags)
     <footer class="mt-10 pt-6 border-t border-border flex flex-wrap items-center gap-2">
-      <span class="font-sans text-xs text-muted uppercase tracking-wider mr-2">{{ __('Tag:', 'sage') }}</span>
+      <span class="text-xs text-muted uppercase tracking-wider mr-2">{{ __('Tag:', 'sage') }}</span>
       @foreach($tags as $tag)
         <a href="{{ esc_url(get_tag_link($tag->term_id)) }}"
-           class="inline-block font-sans text-xs border border-border px-3 py-1 hover:border-primary hover:text-primary transition-colors">
+           class="inline-block text-xs border border-border px-3 py-1 hover:border-primary hover:text-primary transition-colors">
           {{ esc_html($tag->name) }}
         </a>
       @endforeach
@@ -76,26 +76,26 @@
 
   {{-- Share --}}
   <div class="mt-8 pt-6 border-t border-border flex items-center gap-4 flex-wrap">
-    <span class="font-sans text-xs font-semibold tracking-widest uppercase text-muted">{{ __('Condividi', 'sage') }}</span>
+    <span class="text-xs font-semibold tracking-widest uppercase text-muted">{{ __('Condividi', 'sage') }}</span>
 
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ rawurlencode($post_url) }}"
        target="_blank" rel="noopener noreferrer"
-       class="font-sans text-xs font-medium text-ink hover:text-primary transition-colors"
+       class="text-xs font-medium text-ink hover:text-primary transition-colors"
        aria-label="{{ __('Condividi su Facebook', 'sage') }}">Facebook</a>
 
     <a href="https://twitter.com/intent/tweet?url={{ rawurlencode($post_url) }}&text={{ rawurlencode($post_title) }}"
        target="_blank" rel="noopener noreferrer"
-       class="font-sans text-xs font-medium text-ink hover:text-primary transition-colors"
+       class="text-xs font-medium text-ink hover:text-primary transition-colors"
        aria-label="{{ __('Condividi su X (Twitter)', 'sage') }}">X / Twitter</a>
 
     <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ rawurlencode($post_url) }}&title={{ rawurlencode($post_title) }}"
        target="_blank" rel="noopener noreferrer"
-       class="font-sans text-xs font-medium text-ink hover:text-primary transition-colors"
+       class="text-xs font-medium text-ink hover:text-primary transition-colors"
        aria-label="{{ __('Condividi su LinkedIn', 'sage') }}">LinkedIn</a>
 
     <a href="https://api.whatsapp.com/send?text={{ rawurlencode($post_title . ' ' . $post_url) }}"
        target="_blank" rel="noopener noreferrer"
-       class="font-sans text-xs font-medium text-ink hover:text-primary transition-colors"
+       class="text-xs font-medium text-ink hover:text-primary transition-colors"
        aria-label="{{ __('Condividi su WhatsApp', 'sage') }}">WhatsApp</a>
   </div>
 

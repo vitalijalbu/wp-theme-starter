@@ -26,7 +26,7 @@
         </div>
         @php
           wp_link_pages([
-            'before' => '<nav class="page-links mt-8 font-sans text-sm" aria-label="' . __('Pagine', 'sage') . '">',
+            'before' => '<nav class="page-links mt-8 text-sm" aria-label="' . __('Pagine', 'sage') . '">',
             'after'  => '</nav>',
           ]);
         @endphp

@@ -168,15 +168,15 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: var(--color-ink);
-  color: var(--color-surface);
+  background-color: var(--color-accent);
+  color: #ffffff;
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: 0.8125rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.875rem 2rem;
-  border: 1px solid var(--color-ink);
+  border: 1px solid var(--color-accent);
   text-decoration: none;
   transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
   cursor: pointer;
@@ -184,9 +184,9 @@ img {
 }
 
 .btn-primary:hover {
-  background-color: var(--color-ink-light);
-  border-color: var(--color-ink-light);
-  color: var(--color-surface);
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #ffffff;
 }
 
 .btn-outline {
@@ -195,14 +195,14 @@ img {
   justify-content: center;
   gap: 0.5rem;
   background: transparent;
-  color: var(--color-ink);
+  color: var(--color-accent);
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: 0.8125rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.875rem 2rem;
-  border: 1px solid var(--color-ink);
+  border: 1px solid var(--color-accent);
   text-decoration: none;
   transition: background-color 250ms ease, color 250ms ease;
   cursor: pointer;
@@ -210,8 +210,8 @@ img {
 }
 
 .btn-outline:hover {
-  background-color: var(--color-ink);
-  color: var(--color-surface);
+  background-color: var(--color-accent);
+  color: #ffffff;
 }
 
 .btn-outline-white {
@@ -291,34 +291,34 @@ img {
 }
 
 /* WordPress block buttons */
-.wp-block-button:not(.is-style-outline) .wp-block-button__link {
-  background-color: var(--color-ink) !important;
-  color: var(--color-surface) !important;
+.wp-block-button:not(.is-style-outline):not(.is-style-ghost) .wp-block-button__link {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
   font-family: var(--font-sans) !important;
   font-weight: 500 !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
   font-size: 0.8125rem !important;
-  border: 1px solid var(--color-ink) !important;
+  border: 1px solid var(--color-accent) !important;
   border-radius: 0 !important;
   padding: 0.875rem 2rem !important;
 }
 
-.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover {
-  background-color: var(--color-ink-light) !important;
-  border-color: var(--color-ink-light) !important;
+.wp-block-button:not(.is-style-outline):not(.is-style-ghost) .wp-block-button__link:hover {
+  background-color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark) !important;
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link {
   background: transparent !important;
-  color: var(--color-ink) !important;
-  border-color: var(--color-ink) !important;
+  color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
   border-radius: 0 !important;
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link:hover {
-  background: var(--color-ink) !important;
-  color: var(--color-surface) !important;
+  background: var(--color-accent) !important;
+  color: #ffffff !important;
 }
 
 /* ── Badge ────────────────────────────────────────────────────────────────── */
@@ -625,6 +625,15 @@ img {
   cursor: pointer;
   opacity: 0;
   transition: opacity 250ms ease;
+}
+
+.product-card__wishlist.active {
+  opacity: 1;
+}
+
+.product-card__wishlist.active svg {
+  fill: currentColor;
+  color: var(--color-gold, #c8a96e);
 }
 
 .product-card:hover .product-card__wishlist {
@@ -1106,6 +1115,22 @@ select:focus {
 .aspect-portrait { aspect-ratio: 3 / 4; }
 .aspect-landscape { aspect-ratio: 16 / 9; }
 .aspect-square-custom { aspect-ratio: 1 / 1; }
+
+/* ============================================================
+   Block Layout — Constrained fallback
+   ============================================================ */
+
+/*
+ * wp:group con layout "flow" e colore di sfondo non hanno automaticamente
+ * il vincolo di larghezza che "constrained" applica ai figli.
+ * Questa regola replica il comportamento is-layout-constrained:
+ * i figli diretti vengono centrati e limitati a contentSize (1200px).
+ * Figli con .alignleft / .alignright / .alignfull escono dal vincolo.
+ */
+:where(.wp-block-group.has-background.is-layout-flow) > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: var(--wp--style--global--content-size, 1200px);
+    margin-inline: auto;
+}
 
 /* ============================================================
    Block Pattern Classes

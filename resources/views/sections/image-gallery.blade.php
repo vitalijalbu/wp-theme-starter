@@ -98,7 +98,7 @@
               />
             </div>
             @if($caption)
-              <figcaption class="mt-2 font-sans text-xs {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}">
+              <figcaption class="mt-2 text-xs {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}">
                 {{ esc_html($caption) }}
               </figcaption>
             @endif
@@ -145,7 +145,7 @@
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
         </button>
 
-        <span class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xs text-white/30" aria-live="polite">
+        <span class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/30" aria-live="polite">
           <span x-text="current + 1"></span> / {{ count($images) }}
         </span>
       </div>

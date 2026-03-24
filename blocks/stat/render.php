@@ -32,9 +32,9 @@ $line_class  = $bg === 'ink' ? 'bg-white/10'   : 'bg-border';
   <?php endif; ?>
 
   <?php if ($label) : ?>
-    <p class="font-sans text-xs font-semibold tracking-[0.15em] uppercase mt-3 <?= $label_class ?>"><?= $label ?></p>
+    <p class="text-xs font-semibold tracking-[0.15em] uppercase mt-3 <?= $label_class ?>"><?= $label ?></p>
   <?php endif; ?>
   <?php if ($description) : ?>
-    <p class="font-sans text-xs mt-1 <?= $desc_class ?>"><?= $description ?></p>
+    <p class="text-xs mt-1 <?= $desc_class ?>"><?= $description ?></p>
   <?php endif; ?>
 </div>

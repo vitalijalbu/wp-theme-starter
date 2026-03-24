@@ -51,7 +51,7 @@
     <div class="flex items-center justify-between px-6 py-5 border-b border-border shrink-0">
       <h2 class="font-serif text-lg font-light text-ink">
         {{ __('Carrello', 'sage') }}
-        <span x-text="'(' + count + ')'" class="font-sans text-sm text-muted ml-1"></span>
+        <span x-text="'(' + count + ')'" class="text-sm text-muted ml-1"></span>
       </h2>
       <button
         @click="close()"
@@ -90,7 +90,7 @@
         <div class="flex flex-col items-center justify-center h-full text-center py-12">
           <svg class="w-12 h-12 text-border mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
           <p class="font-serif text-lg font-light text-ink mb-1">{{ __('Il carrello è vuoto', 'sage') }}</p>
-          <p class="font-sans text-sm text-muted mb-6">{{ __('Aggiungi qualcosa di bello!', 'sage') }}</p>
+          <p class="text-sm text-muted mb-6">{{ __('Aggiungi qualcosa di bello!', 'sage') }}</p>
           <a href="{{ esc_url(wc_get_page_permalink('shop')) }}" @click="close()"
              class="btn-primary text-sm">{{ __('Vai allo shop', 'sage') }}</a>
         </div>
@@ -108,13 +108,13 @@
                 {!! $img !!}
               </a>
               <div class="flex-1 min-w-0">
-                <p class="font-sans text-sm font-medium text-ink leading-snug line-clamp-2">
+                <p class="text-sm font-medium text-ink leading-snug line-clamp-2">
                   <a href="{{ esc_url(get_permalink($item['product_id'])) }}" class="hover:text-primary transition-colors">
                     {{ $product->get_name() }}
                   </a>
                 </p>
-                <p class="font-sans text-xs text-muted mt-0.5">{{ __('Qta:', 'sage') }} {{ $qty }}</p>
-                <p class="font-sans text-sm font-semibold text-ink mt-1">{!! $subtotal !!}</p>
+                <p class="text-xs text-muted mt-0.5">{{ __('Qta:', 'sage') }} {{ $qty }}</p>
+                <p class="text-sm font-semibold text-ink mt-1">{!! $subtotal !!}</p>
               </div>
               <a href="{{ esc_url(wc_get_cart_remove_url($key)) }}"
                  aria-label="{{ __('Rimuovi', 'sage') . ' ' . esc_attr($product->get_name()) }}"
@@ -130,17 +130,17 @@
     {{-- Footer: totals + CTA --}}
     @if(!empty($cart_items))
       <div class="shrink-0 border-t border-border px-6 py-5 space-y-3 bg-white">
-        <div class="flex justify-between font-sans text-sm">
+        <div class="flex justify-between text-sm">
           <span class="text-muted">{{ __('Subtotale', 'sage') }}</span>
           <span class="font-semibold text-ink">{!! WC()->cart->get_cart_subtotal() !!}</span>
         </div>
-        <p class="font-sans text-xs text-muted">{{ __('Spese di spedizione calcolate al checkout.', 'sage') }}</p>
+        <p class="text-xs text-muted">{{ __('Spese di spedizione calcolate al checkout.', 'sage') }}</p>
         <a href="{{ esc_url(wc_get_checkout_url()) }}"
            class="btn-primary w-full text-center block">
           {{ __('Vai al checkout', 'sage') }}
         </a>
         <a href="{{ esc_url(wc_get_cart_url()) }}"
-           class="block text-center font-sans text-xs text-muted hover:text-primary transition-colors underline underline-offset-2">
+           class="block text-center text-xs text-muted hover:text-primary transition-colors underline underline-offset-2">
           {{ __('Vedi carrello completo', 'sage') }}
         </a>
       </div>

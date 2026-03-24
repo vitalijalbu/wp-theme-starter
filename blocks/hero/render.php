@@ -74,7 +74,7 @@ $align_class = match($align) {
     </h1>
 
     <?php if ($subtext) : ?>
-      <p class="mt-6 font-sans text-white/70 text-lg leading-relaxed max-w-2xl <?= $align === 'center' ? 'mx-auto' : '' ?>">
+      <p class="mt-6 text-white/70 text-lg leading-relaxed max-w-2xl <?= $align === 'center' ? 'mx-auto' : '' ?>">
         <?= $subtext ?>
       </p>
     <?php endif; ?>
@@ -82,7 +82,7 @@ $align_class = match($align) {
     <div class="flex flex-wrap gap-4 mt-10 <?= $align === 'center' ? 'justify-center' : '' ?>">
       <a href="<?= $cta_url ?>" class="btn-primary"><?= $cta_label ?></a>
       <?php if ($cta2_label && $cta2_url) : ?>
-        <a href="<?= $cta2_url ?>" class="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-white/60 border-b border-white/20 pb-0.5 hover:text-white hover:border-white transition-colors">
+        <a href="<?= $cta2_url ?>" class="text-xs font-semibold tracking-[0.15em] uppercase text-white/60 border-b border-white/20 pb-0.5 hover:text-white hover:border-white transition-colors">
           <?= $cta2_label ?>
         </a>
       <?php endif; ?>

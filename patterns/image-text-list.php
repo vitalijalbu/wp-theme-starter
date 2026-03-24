@@ -37,8 +37,8 @@
 			<h2 class="section-title text-ink">Perché sceglierci</h2>
 			<!-- /wp:heading -->
 
-			<!-- wp:paragraph {"className":"font-sans text-sm text-muted mt-4 leading-relaxed"} -->
-			<p class="font-sans text-sm text-muted mt-4 leading-relaxed">Una breve introduzione che contestualizza la lista sottostante e invita il lettore a scoprire di più sul brand o sul prodotto.</p>
+			<!-- wp:paragraph {"className":"text-sm text-muted mt-4 leading-relaxed"} -->
+			<p class="text-sm text-muted mt-4 leading-relaxed">Una breve introduzione che contestualizza la lista sottostante e invita il lettore a scoprire di più sul brand o sul prodotto.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0","marginTop":"2rem"}}} -->
@@ -55,8 +55,8 @@
 						<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink"} -->
 						<h3 class="font-serif text-lg font-light text-ink">Qualità artigianale</h3>
 						<!-- /wp:heading -->
-						<!-- wp:paragraph {"className":"font-sans text-sm text-muted"} -->
-						<p class="font-sans text-sm text-muted">Ogni prodotto è realizzato a mano con cura e attenzione al dettaglio.</p>
+						<!-- wp:paragraph {"className":"text-sm text-muted"} -->
+						<p class="text-sm text-muted">Ogni prodotto è realizzato a mano con cura e attenzione al dettaglio.</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -74,8 +74,8 @@
 						<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink"} -->
 						<h3 class="font-serif text-lg font-light text-ink">Materiali sostenibili</h3>
 						<!-- /wp:heading -->
-						<!-- wp:paragraph {"className":"font-sans text-sm text-muted"} -->
-						<p class="font-sans text-sm text-muted">Selezioniamo solo materie prime certificate e a basso impatto ambientale.</p>
+						<!-- wp:paragraph {"className":"text-sm text-muted"} -->
+						<p class="text-sm text-muted">Selezioniamo solo materie prime certificate e a basso impatto ambientale.</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -93,8 +93,8 @@
 						<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink"} -->
 						<h3 class="font-serif text-lg font-light text-ink">Consegna garantita</h3>
 						<!-- /wp:heading -->
-						<!-- wp:paragraph {"className":"font-sans text-sm text-muted"} -->
-						<p class="font-sans text-sm text-muted">Spedizione rapida e tracciata, con reso gratuito entro 30 giorni.</p>
+						<!-- wp:paragraph {"className":"text-sm text-muted"} -->
+						<p class="text-sm text-muted">Spedizione rapida e tracciata, con reso gratuito entro 30 giorni.</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->

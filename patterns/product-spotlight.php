@@ -37,8 +37,8 @@
 				<h2 class="font-serif text-4xl font-light text-ink leading-tight">Nome del Prodotto<br>in Evidenza</h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:paragraph {"className":"font-sans text-sm text-muted leading-relaxed"} -->
-				<p class="font-sans text-sm text-muted leading-relaxed">Descrizione breve del prodotto. Racconta cosa lo rende speciale, i materiali, l'artigianalità o la storia che lo ispira. Qualità e stile in un unico oggetto.</p>
+				<!-- wp:paragraph {"className":"text-sm text-muted leading-relaxed"} -->
+				<p class="text-sm text-muted leading-relaxed">Descrizione breve del prodotto. Racconta cosa lo rende speciale, i materiali, l'artigianalità o la storia che lo ispira. Qualità e stile in un unico oggetto.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"font-serif text-3xl font-light text-ink"} -->
@@ -54,8 +54,8 @@
 						<!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
-					<!-- wp:paragraph {"className":"font-sans text-xs text-muted self-center"} -->
-					<p class="font-sans text-xs text-muted self-center"><a href="#" class="hover:text-ink transition-colors">Scopri tutti i dettagli →</a></p>
+					<!-- wp:paragraph {"className":"text-xs text-muted self-center"} -->
+					<p class="text-xs text-muted self-center"><a href="#" class="hover:text-ink transition-colors">Scopri tutti i dettagli →</a></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -68,21 +68,21 @@
 				<div class="wp-block-group">
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0.125rem"}}} -->
 					<div class="wp-block-group">
-						<!-- wp:paragraph {"className":"font-sans     font-semibold tracking-widest uppercase text-muted"} -->
-						<p class="font-sans font-semibold tracking-widest uppercase text-muted">Materiale</p>
+						<!-- wp:paragraph {"className":"    font-semibold tracking-widest uppercase text-muted"} -->
+						<p class="font-semibold tracking-widest uppercase text-muted">Materiale</p>
 						<!-- /wp:paragraph -->
-						<!-- wp:paragraph {"className":"font-sans text-sm text-ink"} -->
-						<p class="font-sans text-sm text-ink">100% Cotone biologico</p>
+						<!-- wp:paragraph {"className":"text-sm text-ink"} -->
+						<p class="text-sm text-ink">100% Cotone biologico</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0.125rem"}}} -->
 					<div class="wp-block-group">
-						<!-- wp:paragraph {"className":"font-sans     font-semibold tracking-widest uppercase text-muted"} -->
-						<p class="font-sans     font-semibold tracking-widest uppercase text-muted">Produzione</p>
+						<!-- wp:paragraph {"className":"    font-semibold tracking-widest uppercase text-muted"} -->
+						<p class="    font-semibold tracking-widest uppercase text-muted">Produzione</p>
 						<!-- /wp:paragraph -->
-						<!-- wp:paragraph {"className":"font-sans text-sm text-ink"} -->
-						<p class="font-sans text-sm text-ink">Made in Italy</p>
+						<!-- wp:paragraph {"className":"text-sm text-ink"} -->
+						<p class="text-sm text-ink">Made in Italy</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->

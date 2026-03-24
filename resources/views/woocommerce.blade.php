@@ -28,7 +28,13 @@
   {{-- WooCommerce content --}}
   <div class="woocommerce-page bg-surface">
     <div class="max-w-360 mx-auto px-6 lg:px-10 py-12 lg:py-16">
-      @php woocommerce_content() @endphp
+      @if(is_cart() || is_checkout() || is_account_page())
+        @while(have_posts()) @php the_post() @endphp
+          @php the_content() @endphp
+        @endwhile
+      @else
+        @php woocommerce_content() @endphp
+      @endif
     </div>
   </div>
 @endsection

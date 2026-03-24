@@ -14,7 +14,7 @@
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"52rem"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"align":"center","textColor":"gold","fontSize":"sm","className":"theme-section-label"} -->
-<p class="has-text-align-center has-gold-color has-text-color has-sm-font-size theme-section-label">Benvenuto in 4 Zampe</p>
+<p class="has-text-align-center has-gold-color has-text-color has-sm-font-size theme-section-label">Benvenuto in Sage</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":1,"textAlign":"center","textColor":"white","fontSize":"hero","className":"theme-hero-title","fontFamily":"serif"} -->
 <h1 class="wp-block-heading has-text-align-center has-white-color has-text-color has-hero-font-size has-serif-font-family theme-hero-title">Scopri la nostra<br>collezione esclusiva</h1>

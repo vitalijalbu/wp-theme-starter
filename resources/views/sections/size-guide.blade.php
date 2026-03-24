@@ -133,7 +133,7 @@
     @endif
 
     @if($note)
-      <p class="mt-6 font-sans text-xs leading-relaxed {{ $sub_class }}" data-scroll="fade">{!! wp_kses_post($note) !!}</p>
+      <p class="mt-6 text-xs leading-relaxed {{ $sub_class }}" data-scroll="fade">{!! wp_kses_post($note) !!}</p>
     @endif
 
   </div>

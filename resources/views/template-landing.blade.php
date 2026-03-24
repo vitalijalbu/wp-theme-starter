@@ -160,7 +160,7 @@
 
             <div class="w-10 h-px bg-gold mb-10" data-scroll="line-in" aria-hidden="true"></div>
 
-            <div class="prose prose-lg max-w-none font-sans text-muted leading-relaxed" data-scroll="slide-up">
+            <div class="prose prose-lg max-w-none text-muted leading-relaxed" data-scroll="slide-up">
               {!! apply_filters('the_content', get_the_content()) !!}
             </div>
 

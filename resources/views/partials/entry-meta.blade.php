@@ -7,7 +7,7 @@
   $cats      = get_the_category($post_id);
 @endphp
 
-<div class="flex flex-wrap items-center gap-4 font-sans text-sm text-muted">
+<div class="flex flex-wrap items-center gap-4 text-sm text-muted">
 
   {{-- Avatar + author --}}
   <a href="{{ esc_url(get_author_posts_url($author_id)) }}" class="flex items-center gap-2 hover:text-primary transition-colors">

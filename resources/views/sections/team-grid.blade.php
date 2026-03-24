@@ -86,11 +86,11 @@
               <a href="{{ $perma }}" class="hover:text-primary transition-colors">{{ esc_html(get_the_title($pid)) }}</a>
             </h3>
             @if($show_role && $role)
-              <p class="font-sans text-xs tracking-[0.12em] uppercase mt-1 {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}">{{ esc_html($role) }}</p>
+              <p class="text-xs tracking-[0.12em] uppercase mt-1 {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}">{{ esc_html($role) }}</p>
             @endif
             @if($linkedin)
               <a href="{{ esc_url($linkedin) }}" target="_blank" rel="noopener noreferrer"
-                 class="mt-2 inline-block font-sans     font-semibold tracking-[0.15em] uppercase {{ $bg === 'ink' ? 'text-gold' : 'text-primary' }} hover:underline"
+                 class="mt-2 inline-block     font-semibold tracking-[0.15em] uppercase {{ $bg === 'ink' ? 'text-gold' : 'text-primary' }} hover:underline"
                  aria-label="{{ __('LinkedIn di', 'sage') }} {{ esc_attr(get_the_title($pid)) }}">
                 LinkedIn
               </a>

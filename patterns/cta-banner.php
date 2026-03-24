@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: 4 Zampe – CTA Banner – Sfondo Blu
+ * Title: CTA Banner
  * Slug: theme/cta-banner
  * Categories: theme-sections
  * Keywords: cta, call to action, blu, prenota, contatti, consulenza

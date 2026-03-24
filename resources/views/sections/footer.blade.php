@@ -27,16 +27,18 @@
 
   $footer_tagline       = get_theme_mod('footer_tagline',    __('Il tuo punto di riferimento per la cura e il benessere del tuo animale domestico.', 'sage'));
   $newsletter_heading   = get_theme_mod('newsletter_heading', __('Offerte esclusive, novità e consigli per il tuo animale.', 'sage'));
+  $newsletter_active    = get_theme_mod('newsletter_active', false);
   $cta_url              = function_exists('App\\theme_cta_url') ? \App\theme_cta_url() : esc_url(home_url('/contatti'));
 @endphp
 
 <footer class="bg-primary text-white" role="contentinfo">
 
   {{-- ─── Newsletter band ─────────────────────────────────────────────────── --}}
+  @if($newsletter_active)
   <div class="border-b border-white/10">
     <div class="max-w-360 mx-auto px-6 lg:px-10 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-gold mb-1">Newsletter</p>
+        <p class="    font-semibold tracking-[0.25em] uppercase text-gold mb-1">Newsletter</p>
         <p class="font-serif text-xl font-light text-white/90">{{ esc_html($newsletter_heading) }}</p>
       </div>
 
@@ -67,13 +69,13 @@
               x-model="email"
               placeholder="{{ __('La tua email', 'sage') }}"
               :disabled="state === 'loading'"
-              class="flex-1 bg-white/5 border border-white/15 border-r-0 px-4 py-3 text-sm font-sans text-white placeholder-white/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-50"
+              class="flex-1 bg-white/5 border border-white/15 border-r-0 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-50"
               required
             >
             <button
               type="submit"
               :disabled="state === 'loading'"
-              class="bg-gold text-ink     font-sans font-semibold tracking-[0.2em] uppercase px-5 py-3 hover:bg-gold/90 transition-colors whitespace-nowrap disabled:opacity-60"
+              class="bg-gold text-ink     font-semibold tracking-[0.2em] uppercase px-5 py-3 hover:bg-gold/90 transition-colors whitespace-nowrap disabled:opacity-60"
             >
               <span x-show="state !== 'loading'">{{ __('Iscriviti', 'sage') }}</span>
               <span x-show="state === 'loading'" aria-live="polite">…</span>
@@ -82,19 +84,20 @@
         </template>
         <p
           x-show="state === 'done'"
-          class="text-sm font-sans text-gold py-3"
+          class="text-sm text-gold py-3"
           aria-live="polite"
           x-text="message"
         ></p>
         <p
           x-show="state === 'error'"
-          class="text-sm font-sans text-red-400 py-3"
+          class="text-sm text-red-400 py-3"
           aria-live="assertive"
           x-text="message"
         ></p>
       </form>
     </div>
   </div>
+  @endif
 
   {{-- ─── Main grid ───────────────────────────────────────────────────────── --}}
   <div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
@@ -109,9 +112,11 @@
             <span class="font-serif text-2xl font-light tracking-[0.25em] uppercase text-white">{{ get_bloginfo('name') }}</span>
           @endif
         </a>
-        <p class="text-[12px] font-sans text-white/40 leading-relaxed max-w-xs mb-8">
-          {{ esc_html($footer_tagline) }}
-        </p>
+        @if($footer_tagline)
+          <p class="text-white/40 leading-relaxed max-w-xs mb-8">
+            {{ esc_html($footer_tagline) }}
+          </p>
+        @endif
 
         {{-- Social icons — only renders if URLs are set in Customizer --}}
         @if(!empty($socials))
@@ -136,7 +141,7 @@
 
       {{-- Explore nav --}}
       <div class="col-span-1 lg:col-span-2 lg:col-start-6">
-        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Esplora', 'sage') }}</p>
+        <p class="    font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Esplora', 'sage') }}</p>
         <ul class="space-y-3">
           @if(has_nav_menu('footer_navigation'))
             @php
@@ -146,7 +151,7 @@
             @endphp
             @foreach($footer_items as $item)
               <li>
-                <a href="{{ esc_url($item->url) }}" class="text-[12px] font-sans text-white/40 hover:text-white transition-colors duration-150">
+                <a href="{{ esc_url($item->url) }}" class="text-white/40 hover:text-white transition-colors duration-150">
                   {{ esc_html($item->title) }}
                 </a>
               </li>
@@ -157,18 +162,18 @@
 
       {{-- Shop categories --}}
       <div class="col-span-1 lg:col-span-2">
-        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Shop', 'sage') }}</p>
+        <p class="    font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Shop', 'sage') }}</p>
         <ul class="space-y-3">
           @foreach($shop_cats as $cat)
             <li>
-              <a href="{{ esc_url(get_term_link($cat)) }}" class="text-[12px] font-sans text-white/40 hover:text-white transition-colors duration-150">
+              <a href="{{ esc_url(get_term_link($cat)) }}" class="text-white/40 hover:text-white transition-colors duration-150">
                 {{ esc_html($cat->name) }}
               </a>
             </li>
           @endforeach
           @if(function_exists('wc_get_page_permalink'))
             <li>
-              <a href="{{ esc_url(wc_get_page_permalink('shop')) }}" class="text-[12px] font-sans text-gold/70 hover:text-gold transition-colors duration-150">
+              <a href="{{ esc_url(wc_get_page_permalink('shop')) }}" class="text-gold/70 hover:text-gold transition-colors duration-150">
                 {{ __('Tutti i prodotti →', 'sage') }}
               </a>
             </li>
@@ -178,7 +183,7 @@
 
       {{-- Info links --}}
       <div class="col-span-2 lg:col-span-2">
-        <p class="    font-sans font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Informazioni', 'sage') }}</p>
+        <p class="    font-semibold tracking-[0.25em] uppercase text-white/30 mb-5">{{ __('Informazioni', 'sage') }}</p>
         <ul class="space-y-3">
           @foreach([
             [home_url('/chi-siamo'), __('Chi siamo', 'sage')],
@@ -187,7 +192,7 @@
             [home_url('/faq'),       __('FAQ',       'sage')],
           ] as [$url, $label])
             <li>
-              <a href="{{ esc_url($url) }}" class="text-[12px] font-sans text-white/40 hover:text-white transition-colors duration-150">
+              <a href="{{ esc_url($url) }}" class="text-white/40 hover:text-white transition-colors duration-150">
                 {{ $label }}
               </a>
             </li>
@@ -203,7 +208,7 @@
 
   {{-- Legal bar --}}
   <div class="max-w-360 mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-    <p class="    font-sans text-white/20">
+    <p class="    text-white/20">
       © {{ date('Y') }} {{ get_bloginfo('name') }}. {{ __('Tutti i diritti riservati.', 'sage') }}
     </p>
     <div class="flex items-center gap-5">
@@ -212,7 +217,7 @@
         [home_url('/cookie-policy'),        __('Cookie Policy',  'sage')],
         [home_url('/termini-e-condizioni'), __('Termini',        'sage')],
       ] as [$url, $label])
-        <a href="{{ esc_url($url) }}" class="    font-sans text-white/20 hover:text-white/50 transition-colors">
+        <a href="{{ esc_url($url) }}" class="    text-white/20 hover:text-white/50 transition-colors">
           {{ $label }}
         </a>
       @endforeach

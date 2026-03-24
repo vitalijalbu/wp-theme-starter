@@ -18,7 +18,7 @@
   <div class="max-w-360 mx-auto px-6 lg:px-10">
     @include('partials.breadcrumb')
     @if($dept_name)
-      <p class="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3">
         {{ $dept_name }}
       </p>
     @endif
@@ -26,7 +26,7 @@
       {{ get_the_title() }}
     </h1>
     @if($role_label)
-      <p class="font-sans text-sm text-muted mt-2">{{ esc_html($role_label) }}</p>
+      <p class="text-sm text-muted mt-2">{{ esc_html($role_label) }}</p>
     @endif
   </div>
 </div>
@@ -49,7 +49,7 @@
       <div class="space-y-2">
         @if($email)
           <a href="mailto:{{ esc_attr($email) }}"
-             class="flex items-center gap-2 font-sans text-sm text-muted hover:text-primary transition-colors">
+             class="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
@@ -59,7 +59,7 @@
         @endif
         @if($linkedin)
           <a href="{{ $linkedin }}" target="_blank" rel="noopener noreferrer"
-             class="flex items-center gap-2 font-sans text-sm text-muted hover:text-primary transition-colors">
+             class="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
             </svg>

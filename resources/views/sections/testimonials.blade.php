@@ -22,7 +22,7 @@
       'rating' => 5,
     ],
     [
-      'quote'  => __('Ho consigliato 4Zampe a tutti i miei amici. La qualità supera le aspettative e si vede che c\'è davvero passione dietro ogni prodotto.', 'sage'),
+      'quote'  => __('Ho consigliato a tutti i miei amici. La qualità supera le aspettative e si vede che c\'è davvero passione dietro ogni prodotto.', 'sage'),
       'name'   => 'Alessia R.',
       'role'   => __('Proprietaria di Border Collie', 'sage'),
       'avatar' => '',

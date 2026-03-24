@@ -28,10 +28,10 @@
 
     {{-- Text --}}
     <div class="flex-1 min-w-0">
-      <p id="cookie-banner-title" class="font-sans text-sm font-semibold text-ink mb-1">
+      <p id="cookie-banner-title" class="text-sm font-semibold text-ink mb-1">
         {{ __('Questo sito utilizza i cookie', 'sage') }}
       </p>
-      <p id="cookie-banner-desc" class="font-sans text-xs text-muted leading-relaxed">
+      <p id="cookie-banner-desc" class="text-xs text-muted leading-relaxed">
         {{ __('Usiamo cookie tecnici necessari e, con il tuo consenso, cookie analitici e di marketing per migliorare l\'esperienza. Puoi accettare tutto o solo i cookie essenziali.', 'sage') }}
         <a href="{{ esc_url(get_privacy_policy_url() ?: home_url('/privacy-policy')) }}"
            class="underline hover:text-primary transition-colors ml-1">
@@ -45,14 +45,14 @@
       <button
         @click="accept('essential')"
         type="button"
-        class="font-sans text-xs font-semibold tracking-wider uppercase border border-border px-4 py-2 hover:border-primary hover:text-primary transition-colors"
+        class="text-xs font-semibold tracking-wider uppercase border border-border px-4 py-2 hover:border-primary hover:text-primary transition-colors"
       >
         {{ __('Solo essenziali', 'sage') }}
       </button>
       <button
         @click="accept('all')"
         type="button"
-        class="font-sans text-xs font-semibold tracking-wider uppercase bg-ink text-white px-4 py-2 hover:bg-primary transition-colors"
+        class="text-xs font-semibold tracking-wider uppercase bg-ink text-white px-4 py-2 hover:bg-primary transition-colors"
       >
         {{ __('Accetta tutto', 'sage') }}
       </button>

@@ -20,7 +20,7 @@
   <div class="max-w-360 mx-auto px-6 lg:px-10">
     @include('partials.breadcrumb')
     @if($cat_name)
-      <a href="{{ $cat_link }}" class="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3 inline-block hover:text-primary transition-colors">
+      <a href="{{ $cat_link }}" class="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3 inline-block hover:text-primary transition-colors">
         {{ $cat_name }}
       </a>
     @endif
@@ -50,7 +50,7 @@
     </article>
 
     {{-- Sidebar: project details --}}
-    <aside class="space-y-6 font-sans text-sm lg:sticky lg:top-28">
+    <aside class="space-y-6 text-sm lg:sticky lg:top-28">
 
       <div class="w-10 h-px bg-gold"></div>
 
@@ -84,7 +84,7 @@
 
       {{-- Back to archive --}}
       <a href="{{ esc_url(get_post_type_archive_link('portfolio')) }}"
-         class="block font-sans text-xs text-muted hover:text-primary transition-colors underline underline-offset-2">
+         class="block text-xs text-muted hover:text-primary transition-colors underline underline-offset-2">
         ← {{ __('Tutti i progetti', 'sage') }}
       </a>
 

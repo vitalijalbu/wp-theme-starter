@@ -66,7 +66,7 @@
     {{-- Expired message --}}
     <p
       x-show="expired"
-      class="mt-12 font-sans text-sm {{ $sub_class }}"
+      class="mt-12 text-sm {{ $sub_class }}"
       aria-live="polite"
     >{{ $expired_text }}</p>
 

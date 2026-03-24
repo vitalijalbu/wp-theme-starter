@@ -30,12 +30,12 @@
     {{-- Category + reading time --}}
     <div class="flex items-center gap-3 mb-3">
       @if($cat_name)
-        <a href="{{ $cat_url }}" class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-gold hover:text-primary transition-colors">
+        <a href="{{ $cat_url }}" class="text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-gold hover:text-primary transition-colors">
           {{ $cat_name }}
         </a>
         <span class="w-px h-3 bg-border" aria-hidden="true"></span>
       @endif
-      <span class="font-sans text-[0.65rem] text-muted">
+      <span class="text-[0.65rem] text-muted">
         {{ $read_min }}&nbsp;{{ __('min', 'sage') }}
       </span>
     </div>
@@ -48,16 +48,16 @@
     </h2>
 
     {{-- Excerpt --}}
-    <p class="font-sans text-sm text-muted leading-relaxed line-clamp-3 mb-5 flex-1">
+    <p class="text-sm text-muted leading-relaxed line-clamp-3 mb-5 flex-1">
       {!! wp_trim_words(get_the_excerpt(), 22, '…') !!}
     </p>
 
     {{-- Footer: date + read more --}}
     <div class="flex items-center justify-between mt-auto pt-4 border-t border-border">
-      <time datetime="{{ get_post_time('c', true) }}" class="font-sans text-xs text-muted">
+      <time datetime="{{ get_post_time('c', true) }}" class="text-xs text-muted">
         {{ get_the_date('j M Y') }}
       </time>
-      <span class="font-sans text-xs font-semibold tracking-wider uppercase text-primary" aria-hidden="true">
+      <span class="text-xs font-semibold tracking-wider uppercase text-primary" aria-hidden="true">
         {{ __('Leggi →', 'sage') }}
       </span>
     </div>

@@ -126,13 +126,13 @@
           </a>
           <div>
             @if($cat_name)
-              <span class="font-sans text-[0.625rem] font-semibold tracking-[0.2em] uppercase {{ $bg === 'ink' ? 'text-gold' : 'text-muted' }}">{{ $cat_name }}</span>
+              <span class="text-[0.625rem] font-semibold tracking-[0.2em] uppercase {{ $bg === 'ink' ? 'text-gold' : 'text-muted' }}">{{ $cat_name }}</span>
             @endif
             <h3 class="font-serif text-xl font-light mt-1 {{ $bg === 'ink' ? 'text-white group-hover:text-gold' : 'text-ink group-hover:text-primary' }} transition-colors leading-snug">
               <a href="{{ $perma }}" class="relative after:absolute after:inset-0">{{ esc_html(get_the_title($pid)) }}</a>
             </h3>
             @if($client)
-              <p class="font-sans text-xs mt-1 {{ $bg === 'ink' ? 'text-white/30' : 'text-muted' }}">{{ esc_html($client) }}</p>
+              <p class="text-xs mt-1 {{ $bg === 'ink' ? 'text-white/30' : 'text-muted' }}">{{ esc_html($client) }}</p>
             @endif
           </div>
         </article>

@@ -30,7 +30,7 @@
     class="relative bg-ink text-white text-center px-10 py-2.5"
     style="display:none"
   >
-    <p class="font-sans text-xs font-medium tracking-wide inline">
+    <p class="text-xs font-medium tracking-wide inline">
       {!! wp_kses_post($text) !!}
       @if($cta_text && $cta_url)
         <a href="{{ $cta_url }}"

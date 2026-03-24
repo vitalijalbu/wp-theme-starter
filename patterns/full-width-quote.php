@@ -32,11 +32,11 @@
 
 		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical","justifyContent":"center"},"style":{"spacing":{"blockGap":"0.25rem"}}} -->
 		<div class="wp-block-group">
-			<!-- wp:paragraph {"className":"font-sans text-sm font-semibold tracking-[0.15em] uppercase text-white"} -->
-			<p class="font-sans text-sm font-semibold tracking-[0.15em] uppercase text-white">Nome Autore</p>
+			<!-- wp:paragraph {"className":"text-sm font-semibold tracking-[0.15em] uppercase text-white"} -->
+			<p class="text-sm font-semibold tracking-[0.15em] uppercase text-white">Nome Autore</p>
 			<!-- /wp:paragraph -->
-			<!-- wp:paragraph {"className":"font-sans text-xs text-white/40"} -->
-			<p class="font-sans text-xs text-white/40">Fondatore &amp; CEO</p>
+			<!-- wp:paragraph {"className":"text-xs text-white/40"} -->
+			<p class="text-xs text-white/40">Fondatore &amp; CEO</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

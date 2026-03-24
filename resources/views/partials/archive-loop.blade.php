@@ -69,13 +69,13 @@
                 </a>
               </h2>
               @if($excerpt)
-                <p class="font-sans text-sm text-muted leading-relaxed line-clamp-3 flex-1 mb-4">
+                <p class="text-sm text-muted leading-relaxed line-clamp-3 flex-1 mb-4">
                   {{ $excerpt }}
                 </p>
               @endif
               <time
                 datetime="{{ get_post_time('c') }}"
-                class="font-sans text-xs text-muted/60 mt-auto pt-4 border-t border-border"
+                class="text-xs text-muted/60 mt-auto pt-4 border-t border-border"
               >
                 {{ get_the_date('j M Y') }}
               </time>

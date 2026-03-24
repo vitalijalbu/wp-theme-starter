@@ -45,10 +45,10 @@ $wrap_flex     = $is_horizontal
       <h3 class="font-serif text-xl font-light <?= $title_class ?> leading-snug"><?= $title ?></h3>
     <?php endif; ?>
     <?php if ($text) : ?>
-      <p class="font-sans text-sm <?= $text_class ?> mt-2 leading-relaxed"><?= $text ?></p>
+      <p class="text-sm <?= $text_class ?> mt-2 leading-relaxed"><?= $text ?></p>
     <?php endif; ?>
     <?php if ($link_label && $link_url) : ?>
-      <a href="<?= $link_url ?>" class="mt-3 inline-block font-sans text-xs font-semibold tracking-[0.12em] uppercase <?= $link_class ?> hover:underline">
+      <a href="<?= $link_url ?>" class="mt-3 inline-block text-xs font-semibold tracking-[0.12em] uppercase <?= $link_class ?> hover:underline">
         <?= $link_label ?> →
       </a>
     <?php endif; ?>

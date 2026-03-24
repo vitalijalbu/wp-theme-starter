@@ -44,6 +44,9 @@
 
   $cta_url   = function_exists('App\\theme_cta_url')  ? \App\theme_cta_url()  : esc_url(home_url('/contatti'));
   $cta_label = function_exists('App\\theme_cta_label') ? \App\theme_cta_label() : __('Contattaci', 'sage');
+  $cta_raw_url   = get_theme_mod('cta_url', '');
+  $cta_raw_label = get_theme_mod('header_cta_label', '');
+  $show_cta  = !empty($cta_raw_url) || !empty($cta_raw_label);
 @endphp
 
 @include('partials.announcement-bar')
@@ -67,7 +70,7 @@
       'border-border/60 bg-surface/95 backdrop-blur-md': !hasHero || scrolled
     }"
   >
-    <div class="flex items-center justify-between max-w-360 mx-auto px-8 lg:px-12 h-[72px]">
+    <div class="flex items-center justify-between container h-16">
 
       {{-- LEFT: Logo ───────────────────────────────────────────────────────── --}}
       <a
@@ -79,7 +82,7 @@
           {!! get_custom_logo() !!}
         @else
           <span
-            class="font-serif text-[22px] font-light tracking-[0.22em] uppercase transition-colors duration-300"
+            class="font-sans text-xl font-light tracking-[0.22em] uppercase transition-colors duration-300"
             :class="hasHero && !scrolled ? 'text-white' : 'text-ink'"
           >{{ get_bloginfo('name') }}</span>
         @endif
@@ -157,6 +160,19 @@
             <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
           </button>
 
+          {{-- Wishlist --}}
+          <a
+            href="{{ esc_url(home_url('/wishlist')) }}"
+            class="icon-btn relative"
+            :class="hasHero && !scrolled ? 'text-white/70 hover:text-white' : ''"
+            aria-label="{{ __('Wishlist', 'sage') }}"
+          >
+            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+            <span
+              class="wishlist-count-bubble absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-gold text-ink font-bold rounded-full flex items-center justify-center px-0.5 leading-none text-[10px]" style="display:none"
+            ></span>
+          </a>
+
           {{-- Cart --}}
           @if(function_exists('WC'))
             <button
@@ -168,7 +184,7 @@
             >
               <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
               <span
-                class="cart-count-fragment absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-gold text-ink     font-bold font-sans rounded-full flex items-center justify-center px-0.5 leading-none transition-opacity"
+                class="cart-count-fragment absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-gold text-ink     font-bold rounded-full flex items-center justify-center px-0.5 leading-none transition-opacity"
                 data-cart-count="{{ $cart_count }}"
                 :class="cartCount === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'"
                 x-text="cartCount"
@@ -177,13 +193,15 @@
           @endif
 
           {{-- CTA --}}
-          <a
-            href="{{ $cta_url }}"
-            class="btn-slide"
-            :class="hasHero && !scrolled
-              ? 'border-white/40 text-white hover:bg-white hover:text-ink'
-              : 'border-ink/25 text-ink hover:bg-ink hover:text-white'"
-          >{{ esc_html($cta_label) }}</a>
+          @if($show_cta)
+            <a
+              href="{{ $cta_url }}"
+              class="btn-slide"
+              :class="hasHero && !scrolled
+                ? 'border-white/40 text-white hover:bg-white hover:text-ink'
+                : 'border-ink/25 text-ink hover:bg-ink hover:text-white'"
+            >{{ esc_html($cta_label) }}</a>
+          @endif
 
         </div>
       </div>
@@ -200,7 +218,7 @@
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
             <span
-              class="cart-count-fragment absolute -top-1 -right-1 min-w-4 h-4 bg-gold text-ink     font-bold font-sans rounded-full flex items-center justify-center px-0.5 leading-none"
+              class="cart-count-fragment absolute -top-1 -right-1 min-w-4 h-4 bg-gold text-ink     font-bold rounded-full flex items-center justify-center px-0.5 leading-none"
               data-cart-count="{{ $cart_count }}"
               :class="cartCount === 0 ? 'hidden' : 'flex'"
               x-text="cartCount"
@@ -267,7 +285,7 @@
               @endif
               <a
                 href="{{ esc_url($cat_link) }}"
-                class="block font-sans text-[11px] font-semibold tracking-[0.15em] uppercase text-ink/80 hover:text-gold transition-colors duration-200 mb-4"
+                class="block font-semibold tracking-[0.15em] uppercase text-ink/80 hover:text-gold transition-colors duration-200 mb-4"
               >{{ esc_html($cat->name) }}</a>
 
               @if(!is_wp_error($sub_cats) && !empty($sub_cats))
@@ -276,7 +294,7 @@
                     <li>
                       <a
                         href="{{ esc_url(get_term_link($sub)) }}"
-                        class="flex items-center gap-2 text-[11px] font-sans text-muted hover:text-ink transition-colors duration-150"
+                        class="flex items-center gap-2 text-muted hover:text-ink transition-colors duration-150"
                       >
                         <span class="w-3 h-px bg-border inline-block shrink-0" aria-hidden="true"></span>
                         {{ esc_html($sub->name) }}
@@ -291,13 +309,13 @@
           {{-- Featured dark CTA card ─────────────────────────────────────── --}}
           <div class="mega-item bg-ink p-8 flex flex-col justify-between">
             <div>
-              <p class="    font-sans font-semibold tracking-[0.28em] uppercase text-gold mb-5">
+              <p class="    font-semibold tracking-[0.28em] uppercase text-gold mb-5">
                 {{ __('In evidenza', 'sage') }}
               </p>
-              <h3 class="font-serif text-[22px] font-light text-white leading-snug mb-3">
+              <h3 class="font-sans text-xl font-light text-white leading-snug mb-3">
                 {{ __('Tutto per il tuo animale', 'sage') }}
               </h3>
-              <p class="text-[11px] font-sans text-white/40 leading-relaxed">
+              <p class="text-white/40 leading-relaxed">
                 {{ __('Selezione premium, consegna rapida.', 'sage') }}
               </p>
             </div>
@@ -342,7 +360,7 @@
               <li>
                 <a
                   href="{{ esc_url($child->url) }}"
-                  class="mega-item block font-sans text-[13px] text-ink/70 hover:text-primary transition-colors py-2"
+                  class="mega-item block text-sm text-ink/70 hover:text-primary transition-colors py-2"
                 >{{ esc_html($child->title) }}</a>
               </li>
             @endforeach
@@ -382,7 +400,7 @@
             :aria-expanded="open.toString()"
             class="w-full flex items-center justify-between py-5 border-b border-white/8"
           >
-            <span class="font-serif text-[28px] font-light text-white tracking-wide">{{ __('Shop', 'sage') }}</span>
+            <span class="font-sans text-2xl font-light text-white tracking-wide">{{ __('Shop', 'sage') }}</span>
             <svg class="w-4 h-4 text-white/30 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/></svg>
           </button>
           <div x-show="open" x-collapse class="py-4">
@@ -390,7 +408,7 @@
               @foreach($wc_cats as $cat)
                 <a
                   href="{{ esc_url(get_term_link($cat)) }}"
-                  class="flex items-center gap-2 py-2 text-[12px] font-sans font-medium tracking-wide text-white/50 hover:text-gold transition-colors"
+                  class="flex items-center gap-2 py-2 font-medium tracking-wide text-white/50 hover:text-gold transition-colors"
                   @click="closeMobile()"
                 >
                   <span class="w-1 h-1 bg-gold/40 rounded-full shrink-0" aria-hidden="true"></span>
@@ -400,7 +418,7 @@
             </div>
             <a
               href="{{ esc_url(function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop')) }}"
-              class="mt-5 inline-flex items-center gap-2     font-sans font-semibold tracking-[0.2em] uppercase text-gold"
+              class="mt-5 inline-flex items-center gap-2     font-semibold tracking-[0.2em] uppercase text-gold"
               @click="closeMobile()"
             >{{ __('Vedi tutto lo shop', 'sage') }} →</a>
           </div>
@@ -421,14 +439,14 @@
               :aria-expanded="open.toString()"
               class="w-full flex items-center justify-between py-5 border-b border-white/8"
             >
-              <span class="font-serif text-[28px] font-light text-white tracking-wide">{{ esc_html($item->title) }}</span>
+              <span class="font-sans text-2xl font-light text-white tracking-wide">{{ esc_html($item->title) }}</span>
               <svg class="w-4 h-4 text-white/30 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/></svg>
             </button>
             <div x-show="open" x-collapse class="py-3 space-y-1">
               @foreach($mob_children as $child)
                 <a
                   href="{{ esc_url($child->url) }}"
-                  class="flex items-center gap-2 py-2 text-[13px] font-sans text-white/50 hover:text-gold transition-colors"
+                  class="flex items-center gap-2 py-2 text-[13px] text-white/50 hover:text-gold transition-colors"
                   @click="closeMobile()"
                 >
                   <span class="w-1 h-1 bg-gold/40 rounded-full shrink-0" aria-hidden="true"></span>
@@ -440,7 +458,7 @@
         @else
           <a
             href="{{ esc_url($item->url) }}"
-            class="flex items-center justify-between py-5 border-b border-white/8 font-serif text-[28px] font-light text-white hover:text-gold transition-colors tracking-wide"
+            class="flex items-center justify-between py-5 border-b border-white/8 font-sans text-2xl font-light text-white hover:text-gold transition-colors tracking-wide"
             @click="closeMobile()"
           >{{ esc_html($item->title) }}</a>
         @endif
@@ -450,11 +468,13 @@
 
     {{-- Drawer footer ────────────────────────────────────────────────────────── --}}
     <div class="px-6 py-8 border-t border-white/8 space-y-4">
-      <a
-        href="{{ $cta_url }}"
-        class="block w-full text-center py-4 bg-gold text-ink     font-sans font-semibold tracking-[0.22em] uppercase hover:bg-gold/90 transition-colors"
-        @click="closeMobile()"
-      >{{ esc_html($cta_label) }}</a>
+      @if($show_cta)
+        <a
+          href="{{ $cta_url }}"
+          class="block w-full text-center py-4 bg-gold text-ink     font-semibold tracking-[0.22em] uppercase hover:bg-gold/90 transition-colors"
+          @click="closeMobile()"
+        >{{ esc_html($cta_label) }}</a>
+      @endif
 
       @php
         $social_ig = get_theme_mod('social_instagram', '');
@@ -464,7 +484,7 @@
       @if($social_ig || $social_fb || $social_tk)
         <div class="flex items-center gap-5 justify-center pt-1">
           @foreach(array_filter(['instagram' => $social_ig, 'facebook' => $social_fb, 'tiktok' => $social_tk]) as $name => $url)
-            <a href="{{ esc_url($url) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ ucfirst($name) }}" class="    font-sans font-semibold tracking-[0.15em] uppercase text-white/25 hover:text-gold transition-colors">
+            <a href="{{ esc_url($url) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ ucfirst($name) }}" class="    font-semibold tracking-[0.15em] uppercase text-white/25 hover:text-gold transition-colors">
               {{ ucfirst($name) }}
             </a>
           @endforeach

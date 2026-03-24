@@ -157,7 +157,7 @@
         ":hover": { "color": { "text": "#0074C7" } }
       },
       "button": {
-        "color": { "background": "#0a0a0a", "text": "#ffffff" },
+        "color": { "background": "#0074C7", "text": "#ffffff" },
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--sans)",
           "fontWeight": "500",
@@ -192,7 +192,7 @@
       },
       "core/button": {
         "color": {
-          "background": "#0a0a0a",
+          "background": "#0074C7",
           "text": "#ffffff"
         },
         "typography": {
@@ -215,10 +215,10 @@
           "outline": {
             "color": {
               "background": "transparent",
-              "text": "#0a0a0a"
+              "text": "#0074C7"
             },
             "border": {
-              "color": "#0a0a0a",
+              "color": "#0074C7",
               "width": "1px",
               "style": "solid",
               "radius": "0px"

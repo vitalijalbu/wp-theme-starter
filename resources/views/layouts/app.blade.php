@@ -51,7 +51,7 @@
 
         {{-- Input --}}
         <form @submit.prevent="submit()" role="search">
-          <label for="search-overlay-input" class="block text-[11px] font-sans font-semibold tracking-[0.25em] uppercase text-gold mb-6">
+          <label for="search-overlay-input" class="block font-semibold tracking-[0.25em] uppercase text-gold mb-6">
             {{ __('Cosa stai cercando?', 'sage') }}
           </label>
           <div class="flex items-end border-b border-white/20 pb-3 gap-4 focus-within:border-white/60 transition-colors">
@@ -122,10 +122,10 @@
                   </div>
                   <div class="flex-1 min-w-0">
                     <p class="font-serif text-base font-light text-white group-hover:text-gold transition-colors truncate" x-text="item.title"></p>
-                    <p class="font-sans text-xs text-white/40 truncate mt-0.5" x-text="item.excerpt"></p>
+                    <p class="text-xs text-white/40 truncate mt-0.5" x-text="item.excerpt"></p>
                   </div>
                   <div class="shrink-0 text-right" x-show="item.price">
-                    <span class="font-sans text-sm font-medium text-gold" x-html="item.price"></span>
+                    <span class="text-sm font-medium text-gold" x-html="item.price"></span>
                   </div>
                 </a>
               </li>
@@ -137,7 +137,7 @@
             <a
               :href="'{{ home_url("/?s=") }}' + encodeURIComponent(query)"
               @click="hide()"
-              class="font-sans text-xs font-semibold tracking-[0.18em] uppercase text-white/40 hover:text-gold transition-colors"
+              class="text-xs font-semibold tracking-[0.18em] uppercase text-white/40 hover:text-gold transition-colors"
             >
               {{ __('Vedi tutti i risultati', 'sage') }}
               <span x-show="totalCount > 0">(<span x-text="totalCount"></span>)</span>
@@ -148,7 +148,7 @@
           {{-- No results --}}
           <p
             x-show="noResults && !loading"
-            class="font-sans text-sm text-white/30 py-4"
+            class="text-sm text-white/30 py-4"
           >
             {{ __('Nessun risultato trovato.', 'sage') }}
           </p>
@@ -157,7 +157,7 @@
         {{-- Close --}}
         <button
           @click="hide()"
-          class="mt-8 flex items-center gap-2     font-sans font-semibold tracking-[0.2em] uppercase text-white/30 hover:text-white/60 transition-colors"
+          class="mt-8 flex items-center gap-2     font-semibold tracking-[0.2em] uppercase text-white/30 hover:text-white/60 transition-colors"
         >
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>

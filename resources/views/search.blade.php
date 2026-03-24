@@ -11,7 +11,7 @@
         {{ sprintf(__('Risultati per: "%s"', 'sage'), esc_html(get_search_query())) }}
       </h1>
       @if(have_posts())
-        <p class="font-sans text-sm text-muted mt-2">
+        <p class="text-sm text-muted mt-2">
           {{ sprintf(
             _n('%d risultato trovato', '%d risultati trovati', $wp_query->found_posts, 'sage'),
             $wp_query->found_posts
@@ -32,7 +32,7 @@
   @if(!have_posts())
     <div class="max-w-lg mx-auto text-center py-12">
       <p class="font-serif text-2xl text-ink mb-3">{{ __('Nessun risultato trovato.', 'sage') }}</p>
-      <p class="font-sans text-sm text-muted mb-8">
+      <p class="text-sm text-muted mb-8">
         {{ __('Prova con parole chiave diverse o naviga il sito.', 'sage') }}
       </p>
       <form role="search" method="get" action="{{ home_url('/') }}" class="flex max-w-sm mx-auto gap-0">
@@ -42,9 +42,9 @@
           type="search"
           name="s"
           placeholder="{{ __('Nuova ricerca…', 'sage') }}"
-          class="flex-1 border border-border border-r-0 px-4 py-3 text-sm font-sans text-ink focus:outline-none focus:border-primary transition-colors"
+          class="flex-1 border border-border border-r-0 px-4 py-3 text-sm text-ink focus:outline-none focus:border-primary transition-colors"
         >
-        <button type="submit" class="bg-ink text-white px-5 py-3 text-xs font-sans font-semibold tracking-wider uppercase hover:bg-primary transition-colors">
+        <button type="submit" class="bg-ink text-white px-5 py-3 text-xs font-semibold tracking-wider uppercase hover:bg-primary transition-colors">
           {{ __('Cerca', 'sage') }}
         </button>
       </form>

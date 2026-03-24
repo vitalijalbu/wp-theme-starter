@@ -126,7 +126,7 @@
                   class="mt-1 w-4 h-4 border-border accent-primary"
                   x-model="fields.privacy"
                 >
-                <label for="contact-privacy" class="font-sans text-sm text-muted leading-relaxed">
+                <label for="contact-privacy" class="text-sm text-muted leading-relaxed">
                   {{ __('Ho letto e accetto la', 'sage') }}
                   <a href="{{ esc_url(get_privacy_policy_url()) }}" target="_blank" rel="noopener" class="text-primary underline-offset-2 hover:underline">{{ __('Privacy Policy', 'sage') }}</a>
                 </label>
@@ -149,7 +149,7 @@
                 x-show="status"
                 x-transition
                 :class="success ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'"
-                class="border p-4 font-sans text-sm"
+                class="border p-4 text-sm"
                 role="alert"
                 aria-live="assertive"
               >
@@ -172,7 +172,7 @@
                 <dt class="shrink-0 mt-0.5">
                   <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-label="{{ __('Indirizzo', 'sage') }}"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
                 </dt>
-                <dd class="font-sans text-sm text-muted leading-relaxed">{!! nl2br(esc_html($address)) !!}</dd>
+                <dd class="text-sm text-muted leading-relaxed">{!! nl2br(esc_html($address)) !!}</dd>
               </div>
             @endif
 
@@ -182,7 +182,7 @@
                   <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-label="{{ __('Telefono', 'sage') }}"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
                 </dt>
                 <dd>
-                  <a href="tel:{{ preg_replace('/\s+/', '', $phone) }}" class="font-sans text-sm text-muted hover:text-ink transition-colors">
+                  <a href="tel:{{ preg_replace('/\s+/', '', $phone) }}" class="text-sm text-muted hover:text-ink transition-colors">
                     {{ $phone }}
                   </a>
                 </dd>
@@ -195,7 +195,7 @@
                   <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-label="{{ __('Email', 'sage') }}"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
                 </dt>
                 <dd>
-                  <a href="mailto:{{ esc_attr($email) }}" class="font-sans text-sm text-muted hover:text-ink transition-colors">
+                  <a href="mailto:{{ esc_attr($email) }}" class="text-sm text-muted hover:text-ink transition-colors">
                     {{ $email }}
                   </a>
                 </dd>
@@ -207,7 +207,7 @@
                 <dt class="shrink-0 mt-0.5">
                   <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-label="{{ __('Orari', 'sage') }}"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
                 </dt>
-                <dd class="font-sans text-sm text-muted leading-relaxed">{!! nl2br(esc_html($hours)) !!}</dd>
+                <dd class="text-sm text-muted leading-relaxed">{!! nl2br(esc_html($hours)) !!}</dd>
               </div>
             @endif
 
@@ -216,7 +216,7 @@
           {{-- Social links --}}
           @if($social_ig || $social_fb || $social_tk)
             <div class="mt-10 pt-8 border-t border-border">
-              <p class="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-4">
+              <p class="text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-4">
                 {{ __('Seguici', 'sage') }}
               </p>
               <div class="flex items-center gap-4">
@@ -225,7 +225,7 @@
                     href="{{ esc_url($url) }}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="font-sans text-xs font-semibold tracking-[0.12em] uppercase text-muted hover:text-ink transition-colors pb-0.5 border-b border-transparent hover:border-ink"
+                    class="text-xs font-semibold tracking-[0.12em] uppercase text-muted hover:text-ink transition-colors pb-0.5 border-b border-transparent hover:border-ink"
                   >{{ $name }}</a>
                 @endforeach
               </div>

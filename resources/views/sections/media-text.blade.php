@@ -88,7 +88,7 @@
 
         @if($text)
           <div
-            class="font-sans text-base leading-relaxed {{ $muted_class }} mb-8 space-y-4"
+            class="text-base leading-relaxed {{ $muted_class }} mb-8 space-y-4"
             data-scroll="slide-up"
           >{!! wpautop($text) !!}</div>
         @endif

@@ -46,7 +46,7 @@
         <a href="{{ esc_url($cta_url) }}" class="btn-primary">{{ $cta_label }}</a>
         @if($cta2_label && $cta2_url)
           <a href="{{ esc_url($cta2_url) }}"
-             class="font-sans text-xs font-semibold tracking-[0.15em] uppercase pb-0.5 border-b transition-colors {{ $bg === 'ink' ? 'text-white/60 border-white/20 hover:text-white hover:border-white' : 'text-muted border-muted/40 hover:text-ink hover:border-ink' }}">
+             class="text-xs font-semibold tracking-[0.15em] uppercase pb-0.5 border-b transition-colors {{ $bg === 'ink' ? 'text-white/60 border-white/20 hover:text-white hover:border-white' : 'text-muted border-muted/40 hover:text-ink hover:border-ink' }}">
             {{ $cta2_label }}
           </a>
         @endif

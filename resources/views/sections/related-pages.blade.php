@@ -126,7 +126,7 @@
           {{-- Body --}}
           <div class="related-page-card__body flex flex-col flex-1">
             @if($label)
-              <span class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-2 {{ $bg === 'ink' ? 'text-gold' : 'text-muted' }}">
+              <span class="text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-2 {{ $bg === 'ink' ? 'text-gold' : 'text-muted' }}">
                 {{ $label }}
               </span>
             @endif
@@ -138,14 +138,14 @@
             </h3>
 
             @if($excerpt)
-              <p class="font-sans text-sm leading-relaxed line-clamp-3 mb-6 flex-1 {{ $bg === 'ink' ? 'text-white/50' : 'text-muted' }}">
+              <p class="text-sm leading-relaxed line-clamp-3 mb-6 flex-1 {{ $bg === 'ink' ? 'text-white/50' : 'text-muted' }}">
                 {{ $excerpt }}
               </p>
             @endif
 
             <a
               href="{{ $perma }}"
-              class="related-page-card__cta self-start font-sans text-xs font-semibold tracking-[0.15em] uppercase pb-0.5 border-b transition-colors
+              class="related-page-card__cta self-start text-xs font-semibold tracking-[0.15em] uppercase pb-0.5 border-b transition-colors
                 {{ $bg === 'ink'
                   ? 'text-white/60 border-white/20 hover:text-white hover:border-white'
                   : 'text-primary border-primary/40 hover:border-primary' }}"

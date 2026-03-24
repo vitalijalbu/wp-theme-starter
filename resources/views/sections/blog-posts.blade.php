@@ -113,12 +113,12 @@
           {{-- Meta --}}
           <div class="flex items-center gap-3 mb-3">
             @if($cat_name)
-              <a href="{{ $cat_url }}" class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-primary hover:text-ink transition-colors">
+              <a href="{{ $cat_url }}" class="text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-primary hover:text-ink transition-colors">
                 {{ $cat_name }}
               </a>
               <span class="w-px h-3 bg-border" aria-hidden="true"></span>
             @endif
-            <span class="font-sans text-[0.65rem] {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}">
+            <span class="text-[0.65rem] {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}">
               {{ $read_min }}&nbsp;min
             </span>
           </div>
@@ -132,7 +132,7 @@
 
           {{-- Excerpt --}}
           @if($excerpt)
-            <p class="font-sans text-sm leading-relaxed line-clamp-3 mb-5 flex-1 {{ $bg === 'ink' ? 'text-white/50' : 'text-muted' }}">
+            <p class="text-sm leading-relaxed line-clamp-3 mb-5 flex-1 {{ $bg === 'ink' ? 'text-white/50' : 'text-muted' }}">
               {{ $excerpt }}
             </p>
           @endif
@@ -141,11 +141,11 @@
           <div class="flex items-center justify-between mt-auto pt-4 border-t {{ $bg === 'ink' ? 'border-white/10' : 'border-border' }}">
             <time
               datetime="{{ get_post_time('c', true, $post) }}"
-              class="font-sans text-xs {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}"
+              class="text-xs {{ $bg === 'ink' ? 'text-white/40' : 'text-muted' }}"
             >
               {{ get_the_date('j M Y', $post) }}
             </time>
-            <span class="font-sans text-xs font-semibold tracking-wider uppercase {{ $bg === 'ink' ? 'text-white/40' : 'text-primary' }}" aria-hidden="true">
+            <span class="text-xs font-semibold tracking-wider uppercase {{ $bg === 'ink' ? 'text-white/40' : 'text-primary' }}" aria-hidden="true">
               {{ __('Leggi →', 'sage') }}
             </span>
           </div>

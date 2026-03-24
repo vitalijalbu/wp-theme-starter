@@ -40,7 +40,7 @@
         @foreach($terms as $term)
           <a
             href="#faq-cat-{{ $term->term_id }}"
-            class="whitespace-nowrap font-sans text-xs font-semibold tracking-[0.15em] uppercase text-muted hover:text-ink transition-colors pb-1 border-b-2 border-transparent hover:border-ink"
+            class="whitespace-nowrap text-xs font-semibold tracking-[0.15em] uppercase text-muted hover:text-ink transition-colors pb-1 border-b-2 border-transparent hover:border-ink"
           >
             {{ esc_html($term->name) }}
             <span class="ml-1     text-border">({{ $term->count }})</span>

@@ -42,7 +42,7 @@
           }
 
           $bc_html = '<nav aria-label="' . esc_attr(__('Breadcrumb', 'sage')) . '" class="breadcrumb">'
-                   . '<ol class="flex flex-wrap items-center font-sans text-xs text-muted gap-0">'
+                   . '<ol class="flex flex-wrap items-center text-xs text-muted gap-0">'
                    . '<li>' . $items . '</li>'
                    . '</ol></nav>';
       }
@@ -50,7 +50,7 @@
 @endphp
 
 @if($bc_html)
-  <div class="mb-4 font-sans text-xs text-muted [&_a]:hover:text-primary [&_a]:transition-colors [&_ol]:flex [&_ol]:flex-wrap [&_ol]:items-center [&_ol]:gap-1">
+  <div class="mb-4 text-xs text-muted [&_a]:hover:text-primary [&_a]:transition-colors [&_ol]:flex [&_ol]:flex-wrap [&_ol]:items-center [&_ol]:gap-1">
     {!! $bc_html !!}
   </div>
 @endif

@@ -12,7 +12,7 @@
 <div class="bg-cream border-b border-border pt-20 pb-10">
   <div class="max-w-360 mx-auto px-6 lg:px-10">
     @include('partials.breadcrumb')
-    <p class="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3">
+    <p class="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3">
       {{ __('Lavori', 'sage') }}
     </p>
     <h1 class="font-serif text-[clamp(1.75rem,3.5vw,3rem)] font-light text-ink leading-tight">
@@ -30,13 +30,13 @@
          class="flex flex-wrap gap-2 mb-10">
       @php($current_cat = get_queried_object())
       <a href="{{ esc_url(get_post_type_archive_link('portfolio')) }}"
-         class="font-sans text-xs font-semibold tracking-wider uppercase px-4 py-2 border transition-colors
+         class="text-xs font-semibold tracking-wider uppercase px-4 py-2 border transition-colors
                 {{ !is_tax('portfolio_category') ? 'bg-ink text-white border-ink' : 'border-border text-muted hover:border-primary hover:text-primary' }}">
         {{ __('Tutti', 'sage') }}
       </a>
       @foreach($port_cats as $cat)
         <a href="{{ esc_url(get_term_link($cat)) }}"
-           class="font-sans text-xs font-semibold tracking-wider uppercase px-4 py-2 border transition-colors
+           class="text-xs font-semibold tracking-wider uppercase px-4 py-2 border transition-colors
                   {{ (is_tax('portfolio_category') && $current_cat->term_id === $cat->term_id) ? 'bg-ink text-white border-ink' : 'border-border text-muted hover:border-primary hover:text-primary' }}">
           {{ esc_html($cat->name) }}
         </a>
@@ -67,7 +67,7 @@
           </a>
 
           @if($cat_label)
-            <p class="font-sans text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-gold mb-1">
+            <p class="text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-gold mb-1">
               {{ $cat_label }}
             </p>
           @endif
@@ -77,7 +77,7 @@
           </h2>
 
           @if(get_the_excerpt())
-            <p class="font-sans text-sm text-muted mt-2 line-clamp-2">{{ get_the_excerpt() }}</p>
+            <p class="text-sm text-muted mt-2 line-clamp-2">{{ get_the_excerpt() }}</p>
           @endif
         </article>
       @endwhile

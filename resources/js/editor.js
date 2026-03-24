@@ -12,7 +12,12 @@ import {
   MediaUploadCheck,
   useBlockProps,
 } from '@wordpress/block-editor'
-import { registerBlockStyle, registerBlockType, registerBlockVariation, unregisterBlockStyle } from '@wordpress/blocks'
+import {
+  registerBlockStyle,
+  registerBlockType,
+  registerBlockVariation,
+  unregisterBlockStyle,
+} from '@wordpress/blocks'
 import {
   Button,
   PanelBody,
