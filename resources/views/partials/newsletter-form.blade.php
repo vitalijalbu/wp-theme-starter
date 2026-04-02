@@ -34,7 +34,7 @@
         autocomplete="email"
         required
         class="flex-1 py-3 pr-4 bg-transparent text-sm {{ $input_class }} focus:outline-none"
-        :class="error ? 'text-red-400' : ''"
+        :class="error ? 'text-error' : ''"
         :aria-describedby="error ? 'nl-error' : undefined"
       >
       <button
@@ -51,7 +51,7 @@
     <p
       x-show="error"
       id="nl-error"
-      class="mt-2 text-xs text-red-400"
+      class="mt-2 text-xs text-error"
       x-text="error"
       role="alert"
       aria-live="assertive"

@@ -42,7 +42,7 @@
             </div>
             <a href="{{ esc_url(wc_get_cart_remove_url($key)) }}"
                aria-label="{{ __('Rimuovi', 'sage') . ' ' . esc_attr($product->get_name()) }}"
-               class="text-muted hover:text-red-500 transition-colors shrink-0 mt-0.5">
+               class="text-muted hover:text-error transition-colors shrink-0 mt-0.5">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </a>
           </li>

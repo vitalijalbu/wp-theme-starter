@@ -107,7 +107,7 @@
             >
           @else
             <div
-              class="category-card__image bg-linear-to-br from-cream via-gold-light to-border flex items-center justify-center"
+              class="category-card__image bg-linear-to-br from-cream via-accent-light to-border flex items-center justify-center"
               aria-hidden="true"
             >
               <svg class="w-12 h-12 text-accent/40" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" aria-hidden="true">

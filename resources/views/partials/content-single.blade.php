@@ -49,7 +49,7 @@
   <div class="e-content prose prose-lg prose-ink max-w-none
     prose-headings:font-serif prose-headings:font-light
     prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-    prose-blockquote:border-l-gold prose-blockquote:font-serif prose-blockquote:font-light prose-blockquote:text-xl
+    prose-blockquote:border-l-accent prose-blockquote:font-serif prose-blockquote:font-light prose-blockquote:text-xl
     prose-img:rounded">
     @php(the_content())
   </div>

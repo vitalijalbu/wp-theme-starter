@@ -115,4 +115,57 @@ export function initCarousels() {
       },
     })
   })
+
+  // ── Product gallery (Swiper + Thumbs) ─────────────────────────────────────
+  document.querySelectorAll('.js-product-gallery').forEach((el) => {
+    const wrapper = el.closest('.product-gallery')
+    const thumbsEl = wrapper?.querySelector('.js-product-thumbs')
+
+    // Init thumbs swiper first (if gallery has > 1 image)
+    let thumbsSwiper = null
+    if (thumbsEl) {
+      thumbsSwiper = new Swiper(thumbsEl, {
+        modules: [FreeMode, A11y],
+        slidesPerView: 4,
+        spaceBetween: 8,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+          640: { slidesPerView: 5, spaceBetween: 10 },
+          1024: { slidesPerView: 5, spaceBetween: 12 },
+        },
+        a11y: {
+          slideRole: 'tab',
+          slideLabelMessage: 'Miniatura {{index}} di {{slidesLength}}',
+        },
+      })
+    }
+
+    // Main gallery swiper
+    const mainSwiper = new Swiper(el, {
+      modules: [Navigation, EffectFade, Thumbs, A11y],
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      speed: 600,
+      loop: false,
+      navigation: {
+        prevEl: wrapper?.querySelector('.product-gallery__prev'),
+        nextEl: wrapper?.querySelector('.product-gallery__next'),
+      },
+      thumbs: thumbsSwiper ? { swiper: thumbsSwiper } : undefined,
+      a11y: {
+        prevSlideMessage: 'Immagine precedente',
+        nextSlideMessage: 'Immagine successiva',
+      },
+      on: {
+        slideChange(swiper) {
+          const counter = wrapper?.querySelector('.js-gallery-current')
+          if (counter) counter.textContent = swiper.activeIndex + 1
+        },
+      },
+    })
+
+    // Store reference for potential external use
+    el._swiper = mainSwiper
+  })
 }

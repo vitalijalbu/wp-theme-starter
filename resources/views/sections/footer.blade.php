@@ -90,7 +90,7 @@
         ></p>
         <p
           x-show="state === 'error'"
-          class="text-sm text-red-400 py-3"
+          class="text-sm text-error py-3"
           aria-live="assertive"
           x-text="message"
         ></p>

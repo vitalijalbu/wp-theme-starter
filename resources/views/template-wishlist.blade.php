@@ -49,7 +49,7 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
         <button
           type="button"
           onclick="localStorage.removeItem('theme:wishlist'); window.location.reload();"
-          class="text-xs font-semibold tracking-wider uppercase text-muted hover:text-red-500 transition-colors"
+          class="text-xs font-semibold tracking-wider uppercase text-muted hover:text-error transition-colors"
         >
           {{ __('Svuota wishlist', 'sage') }}
         </button>

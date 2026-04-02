@@ -162,6 +162,14 @@ add_filter('pre_render_block', function ($pre_render, array $block) {
 // Move breadcrumb above the product div (before single-product summary hooks)
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
+// Wrap result-count + ordering in a flex row
+add_action('woocommerce_before_shop_loop', function () {
+    echo '<div class="shop-sort-bar">';
+}, 19);
+add_action('woocommerce_before_shop_loop', function () {
+    echo '</div>';
+}, 31);
+
 // Change default columns: 2-col gallery on single product (WC default = 1/2 split via flex)
 add_filter('woocommerce_product_thumbnails_columns', fn () => 4);
 

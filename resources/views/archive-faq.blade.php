@@ -33,7 +33,7 @@
   @if($has_terms)
     {{-- Category navigation --}}
     <nav
-      class="sticky top-[72px] z-30 bg-surface border-b border-border"
+      class="sticky top-[var(--header-height)] z-30 bg-surface border-b border-border"
       aria-label="{{ __('Categorie FAQ', 'sage') }}"
     >
       <div class="container flex items-center gap-6 overflow-x-auto scrollbar-hide py-4">
