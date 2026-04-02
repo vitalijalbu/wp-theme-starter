@@ -13,7 +13,7 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
 
   {{-- Page header --}}
   <div class="bg-cream border-b border-border pt-16 pb-10">
-    <div class="max-w-360 mx-auto px-6 lg:px-10">
+    <div class="container">
       @include('partials.breadcrumb')
       <h1 class="font-serif text-[clamp(1.75rem,3.5vw,3rem)] font-light text-ink leading-tight">
         {{ __('La mia wishlist', 'sage') }}
@@ -22,7 +22,7 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
   </div>
 
   {{-- Wishlist content --}}
-  <div class="max-w-360 mx-auto px-6 lg:px-10 py-12 lg:py-16"
+  <div class="container py-12 lg:py-16"
        x-data="{ hasItems: (JSON.parse(localStorage.getItem('theme:wishlist') || '[]')).length > 0 }">
 
     {{-- Empty state (no JS / truly empty) --}}

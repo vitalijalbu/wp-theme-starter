@@ -10,7 +10,7 @@
 
 {{-- Page header --}}
 <div class="bg-cream border-b border-border pt-20 pb-10">
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
     @include('partials.breadcrumb')
     <p class="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
       {{ __('Lavori', 'sage') }}
@@ -22,7 +22,7 @@
 </div>
 
 {{-- Portfolio grid --}}
-<div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+<div class="container py-14 lg:py-20">
 
   {{-- Category filters --}}
   @if($port_cats && !is_wp_error($port_cats))

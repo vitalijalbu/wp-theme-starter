@@ -25,7 +25,7 @@
   x-data="countdown('{{ esc_js($end_date) }}')"
   x-init="start()"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10 text-center">
+  <div class="container text-center">
 
     @if($section_label)
       <span class="section-label {{ $label_class }}" data-scroll="fade">{{ $section_label }}</span>

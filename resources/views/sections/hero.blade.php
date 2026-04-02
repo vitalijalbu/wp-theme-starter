@@ -63,7 +63,7 @@
 
   {{-- Content --}}
   <div class="hero-content pb-20 lg:pb-28">
-    <div class="max-w-360 mx-auto px-6 lg:px-10">
+    <div class="container">
       <div class="max-w-3xl {{ $align_classes }}">
 
         {{-- Label --}}

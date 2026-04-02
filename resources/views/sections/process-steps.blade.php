@@ -54,7 +54,7 @@
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ strip_tags($section_title) }}"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     {{-- Header --}}
     @if($section_label || $section_title)

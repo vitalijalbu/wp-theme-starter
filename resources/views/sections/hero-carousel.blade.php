@@ -75,7 +75,7 @@
 
           {{-- Slide content --}}
           <div class="relative z-10 h-full flex items-end pb-24 lg:pb-32">
-            <div class="max-w-360 mx-auto px-6 lg:px-10 w-full">
+            <div class="container w-full">
               <div class="max-w-2xl">
 
                 @if($label)

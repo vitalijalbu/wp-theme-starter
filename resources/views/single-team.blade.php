@@ -15,7 +15,7 @@
 
 {{-- Page header --}}
 <div class="bg-cream border-b border-border pt-20 pb-10">
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
     @include('partials.breadcrumb')
     @if($dept_name)
       <p class="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
@@ -32,7 +32,7 @@
 </div>
 
 {{-- Content --}}
-<div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+<div class="container py-14 lg:py-20">
   <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
 
     {{-- Portrait --}}

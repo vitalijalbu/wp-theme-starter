@@ -39,7 +39,7 @@
   aria-roledescription="{{ __('carosello', 'sage') }}"
   aria-label="{{ strip_tags($section_title) }}"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     {{-- Section header --}}
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">

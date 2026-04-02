@@ -77,7 +77,7 @@ Esempio di template con layout content + sidebar:
 @extends('layouts.app')
 
 @section('content')
-  <div class="max-w-360 mx-auto px-6 lg:px-10 py-16">
+  <div class="container py-16">
     <div class="flex gap-12">
 
       {{-- Contenuto principale --}}

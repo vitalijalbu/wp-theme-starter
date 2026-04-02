@@ -23,7 +23,7 @@
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ strip_tags($section_title) }}"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     @if($layout === 'split')
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

@@ -19,7 +19,7 @@
 
   {{-- Page header --}}
   <div class="bg-cream border-b border-border pt-16 pb-10">
-    <div class="max-w-360 mx-auto px-6 lg:px-10">
+    <div class="container">
       @include('partials.breadcrumb')
       <h1 class="font-serif text-[clamp(1.75rem,3.5vw,3rem)] font-light text-ink leading-tight mt-4">
         {{ __('Domande frequenti', 'sage') }}
@@ -36,7 +36,7 @@
       class="sticky top-[72px] z-30 bg-surface border-b border-border"
       aria-label="{{ __('Categorie FAQ', 'sage') }}"
     >
-      <div class="max-w-360 mx-auto px-6 lg:px-10 flex items-center gap-6 overflow-x-auto scrollbar-hide py-4">
+      <div class="container flex items-center gap-6 overflow-x-auto scrollbar-hide py-4">
         @foreach($terms as $term)
           <a
             href="#faq-cat-{{ $term->term_id }}"

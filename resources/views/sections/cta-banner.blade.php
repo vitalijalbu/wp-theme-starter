@@ -56,7 +56,7 @@
     </div>
   @endif
 
-  <div class="max-w-360 mx-auto px-6 lg:px-10 relative z-10">
+  <div class="container relative z-10">
     <div class="max-w-2xl {{ $align_class }} flex flex-col gap-6">
 
       @if($label)

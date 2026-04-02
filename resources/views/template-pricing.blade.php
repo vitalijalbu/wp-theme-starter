@@ -116,7 +116,7 @@ $faqs = [
   </div>
 
   {{-- Pricing cards --}}
-  <div class="max-w-360 mx-auto px-6 lg:px-10 py-16">
+  <div class="container py-16">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
       @foreach($plans as $plan)
         <div class="pricing-card {{ $plan['featured'] ? 'pricing-card--featured' : '' }}">

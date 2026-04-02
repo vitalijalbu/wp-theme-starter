@@ -13,7 +13,7 @@
 
   {{-- Page header --}}
   <div class="bg-cream border-b border-border pt-16 pb-10">
-    <div class="max-w-360 mx-auto px-6 lg:px-10">
+    <div class="container">
       @if(function_exists('woocommerce_breadcrumb'))
         <div class="text-xs text-muted mb-4 [&_a]:text-muted [&_a:hover]:text-primary [&_.breadcrumb-separator]:mx-1">
           @php woocommerce_breadcrumb() @endphp
@@ -27,7 +27,7 @@
 
   {{-- WooCommerce content --}}
   <div class="woocommerce-page bg-surface">
-    <div class="max-w-360 mx-auto px-6 lg:px-10 py-12 lg:py-16">
+    <div class="container py-12 lg:py-16">
       @if(is_cart() || is_checkout() || is_account_page())
         @while(have_posts()) @php the_post() @endphp
           @php the_content() @endphp

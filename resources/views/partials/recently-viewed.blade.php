@@ -13,7 +13,7 @@
   style="display:none"
   aria-label="{{ __('Visti di recente', 'sage') }}"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
     <div class="flex items-center justify-between mb-8">
       <h2 class="font-serif text-2xl font-light text-ink">{{ __('Visti di recente', 'sage') }}</h2>
       <button

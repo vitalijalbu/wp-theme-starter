@@ -14,7 +14,7 @@
 
 {{-- Archive / Blog header --}}
 <div class="bg-cream border-b border-border pt-20 pb-10">
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
     @include('partials.breadcrumb')
 
     @if($is_archive)
@@ -42,7 +42,7 @@
 </div>
 
 {{-- Posts grid --}}
-<div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+<div class="container py-14 lg:py-20">
 
   @if(!have_posts())
     <div class="text-center py-12">

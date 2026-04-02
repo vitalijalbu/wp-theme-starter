@@ -38,7 +38,7 @@
   class="section-luxury {{ $bg_class }}"
   aria-label="{{ $heading ?: __('Prima e dopo', 'sage') }}"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     @if($section_label || $heading)
       <div class="mb-12 text-center">

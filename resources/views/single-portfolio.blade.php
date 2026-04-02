@@ -17,7 +17,7 @@
 
 {{-- Page header --}}
 <div class="bg-cream border-b border-border pt-20 pb-10">
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
     @include('partials.breadcrumb')
     @if($cat_name)
       <a href="{{ $cat_link }}" class="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3 inline-block hover:text-primary transition-colors">
@@ -31,7 +31,7 @@
 </div>
 
 {{-- Content --}}
-<div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+<div class="container py-14 lg:py-20">
 
   {{-- Hero image --}}
   @if($thumb_url)

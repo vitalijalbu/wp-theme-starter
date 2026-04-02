@@ -11,7 +11,7 @@
 <!-- wp:group {"className":"section-luxury bg-surface","layout":{"type":"default"}} -->
 <div class="wp-block-group section-luxury bg-surface">
 
-	<div class="max-w-360 mx-auto px-6 lg:px-10">
+	<div class="container">
 
 	<!-- wp:columns {"isStackedOnMobile":true,"style":{"spacing":{"blockGap":{"left":"5rem","top":"3rem"}},"verticalAlignment":"center"}} -->
 	<div class="wp-block-columns" style="align-items:center">

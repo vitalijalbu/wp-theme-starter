@@ -1,0 +1,107 @@
+{{--
+  Cart Drawer inner content — rendered as a WC AJAX fragment.
+  Fragment selector: div.wc-cart-drawer-fragment
+--}}
+@php
+  $cart_items = WC()->cart ? WC()->cart->get_cart() : [];
+@endphp
+
+<div class="wc-cart-drawer-fragment flex-1 flex flex-col min-h-0">
+
+  {{-- Cart items --}}
+  <div class="flex-1 overflow-y-auto px-6 py-4 min-h-0">
+    @if(empty($cart_items))
+      <div class="flex flex-col items-center justify-center h-full text-center py-12">
+        <svg class="w-12 h-12 text-border mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+        <p class="font-serif text-lg font-light text-ink mb-1">{{ __('Il carrello è vuoto', 'sage') }}</p>
+        <p class="text-sm text-muted mb-6">{{ __('Aggiungi qualcosa di bello!', 'sage') }}</p>
+        <a href="{{ esc_url(wc_get_page_permalink('shop')) }}"
+           class="btn-primary text-sm">{{ __('Vai allo shop', 'sage') }}</a>
+      </div>
+    @else
+      <ul class="space-y-5" aria-label="{{ __('Prodotti nel carrello', 'sage') }}">
+        @foreach($cart_items as $key => $item)
+          @php
+            $product  = $item['data'];
+            $img      = $product->get_image('thumbnail', ['class' => 'w-full h-full object-cover']);
+            $qty      = $item['quantity'];
+            $subtotal = WC()->cart->get_product_subtotal($product, $qty);
+          @endphp
+          <li class="flex gap-4 items-start">
+            <a href="{{ esc_url(get_permalink($item['product_id'])) }}" class="shrink-0 w-16 h-16 overflow-hidden bg-surface block">
+              {!! $img !!}
+            </a>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-ink leading-snug line-clamp-2">
+                <a href="{{ esc_url(get_permalink($item['product_id'])) }}" class="hover:text-primary transition-colors">
+                  {{ $product->get_name() }}
+                </a>
+              </p>
+              <p class="text-xs text-muted mt-0.5">{{ __('Qta:', 'sage') }} {{ $qty }}</p>
+              <p class="text-sm font-semibold text-ink mt-1">{!! $subtotal !!}</p>
+            </div>
+            <a href="{{ esc_url(wc_get_cart_remove_url($key)) }}"
+               aria-label="{{ __('Rimuovi', 'sage') . ' ' . esc_attr($product->get_name()) }}"
+               class="text-muted hover:text-red-500 transition-colors shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </a>
+          </li>
+        @endforeach
+      </ul>
+    @endif
+  </div>
+
+  {{-- Footer: totals + CTA --}}
+  @if(!empty($cart_items))
+    @php
+      $threshold  = (float) get_theme_mod('free_shipping_threshold', 0);
+      $cart_total = (float) (WC()->cart ? WC()->cart->get_cart_contents_total() : 0);
+      $remaining  = max(0, $threshold - $cart_total);
+      $progress   = $threshold > 0 ? min(100, round(($cart_total / $threshold) * 100)) : 0;
+    @endphp
+
+    {{-- Free shipping progress bar --}}
+    @if($threshold > 0)
+      <div class="free-shipping-bar shrink-0 bg-cream border-t border-border px-6 py-3">
+        @if($remaining > 0)
+          <p class="text-xs text-muted text-center mb-2">
+            {!! sprintf(__('Aggiungi %s per la spedizione gratuita', 'sage'), '<strong class="text-ink">' . wc_price($remaining) . '</strong>') !!}
+          </p>
+        @else
+          <p class="text-xs text-success font-semibold text-center mb-2">
+            ✓ {{ __('Hai ottenuto la spedizione gratuita!', 'sage') }}
+          </p>
+        @endif
+        <div class="h-1 bg-border rounded-full overflow-hidden">
+          <div
+            class="h-full transition-all duration-500 ease-out {{ $remaining <= 0 ? 'bg-success' : 'bg-accent' }}"
+            style="width: {{ $progress }}%"
+            role="progressbar"
+            aria-valuenow="{{ $progress }}"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+    @endif
+
+    <div class="shrink-0 border-t border-border px-6 py-5 space-y-3 bg-white">
+      <div class="flex justify-between text-sm">
+        <span class="text-muted">{{ __('Subtotale', 'sage') }}</span>
+        <span class="font-semibold text-ink">{!! WC()->cart->get_cart_subtotal() !!}</span>
+      </div>
+      @if($threshold <= 0)
+        <p class="text-xs text-muted">{{ __('Spese di spedizione calcolate al checkout.', 'sage') }}</p>
+      @endif
+      <a href="{{ esc_url(wc_get_checkout_url()) }}"
+         class="btn-primary w-full text-center block">
+        {{ __('Vai al checkout', 'sage') }}
+      </a>
+      <a href="{{ esc_url(wc_get_cart_url()) }}"
+         class="block text-center text-xs text-muted hover:text-primary transition-colors underline underline-offset-2">
+        {{ __('Vedi carrello completo', 'sage') }}
+      </a>
+    </div>
+  @endif
+
+</div>

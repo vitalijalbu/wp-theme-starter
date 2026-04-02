@@ -35,7 +35,7 @@ Tutte le pagine WooCommerce (shop, categoria, prodotto, carrello, checkout, acco
 
   {{-- Page header: breadcrumb + titolo --}}
   <div class="bg-cream border-b pt-16 pb-10">
-    <div class="max-w-360 mx-auto px-6 lg:px-10">
+    <div class="container">
       @php woocommerce_breadcrumb() @endphp
       <h1>{{ $page_title }}</h1>
     </div>
@@ -43,7 +43,7 @@ Tutte le pagine WooCommerce (shop, categoria, prodotto, carrello, checkout, acco
 
   {{-- Contenuto WC --}}
   <div class="woocommerce-page bg-surface">
-    <div class="max-w-360 mx-auto px-6 lg:px-10 py-12 lg:py-16">
+    <div class="container py-12 lg:py-16">
       @php woocommerce_content() @endphp
     </div>
   </div>

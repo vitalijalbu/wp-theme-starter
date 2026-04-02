@@ -122,7 +122,7 @@
     }
   }"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     {{-- Section header --}}
     @if($section_label || $section_title)

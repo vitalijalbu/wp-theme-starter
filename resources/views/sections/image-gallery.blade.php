@@ -35,7 +35,7 @@
   aria-label="{{ $section_title ?: __('Galleria immagini', 'sage') }}"
   @if($lightbox) x-data="imageLightbox()" @endif
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     @if($section_label || $section_title)
       <div class="mb-12">

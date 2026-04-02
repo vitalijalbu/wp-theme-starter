@@ -16,7 +16,7 @@ if (empty($related_products)) {
   class="related-products section-luxury bg-cream"
   aria-label="<?php esc_attr_e('Prodotti correlati', 'sage'); ?>"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     <div class="mb-10">
       <span class="section-label text-muted"><?php esc_html_e('Potrebbe interessarti', 'sage'); ?></span>

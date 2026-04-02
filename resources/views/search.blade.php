@@ -4,7 +4,7 @@
 
 {{-- Page header --}}
 <div class="bg-cream border-b border-border pt-20 pb-10">
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
     @include('partials.breadcrumb')
     @if(get_search_query())
       <h1 class="font-serif text-[clamp(1.75rem,3.5vw,3rem)] font-light text-ink leading-tight">
@@ -27,7 +27,7 @@
 </div>
 
 {{-- Results / empty state --}}
-<div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+<div class="container py-14 lg:py-20">
 
   @if(!have_posts())
     <div class="max-w-lg mx-auto text-center py-12">

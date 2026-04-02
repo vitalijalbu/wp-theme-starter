@@ -25,6 +25,13 @@ add_filter('woocommerce_add_to_cart_fragments', function (array $fragments): arr
     // Target ALL .cart-count-fragment spans (desktop + mobile)
     $fragments['span.cart-count-fragment'] = $html;
 
+    // Drawer content fragment — replaces the entire cart items + footer block
+    try {
+        $fragments['div.wc-cart-drawer-fragment'] = \Roots\view('partials.cart-drawer-content')->render();
+    } catch (\Throwable $e) {
+        // Silently skip if Blade rendering fails during AJAX
+    }
+
     return $fragments;
 });
 

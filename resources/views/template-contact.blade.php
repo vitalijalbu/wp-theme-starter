@@ -22,7 +22,7 @@
 
   {{-- Page header --}}
   <div class="bg-cream border-b border-border pt-16 pb-10">
-    <div class="max-w-360 mx-auto px-6 lg:px-10">
+    <div class="container">
       @include('partials.breadcrumb')
       <h1 class="font-serif text-[clamp(1.75rem,3.5vw,3rem)] font-light text-ink leading-tight mt-4">
         {!! get_the_title() !!}
@@ -35,7 +35,7 @@
   </div>
 
   <div class="bg-surface">
-    <div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+    <div class="container py-14 lg:py-20">
 
       <div class="grid lg:grid-cols-[1fr_420px] gap-16 lg:gap-20">
 

@@ -36,7 +36,7 @@
   {{-- ─── Newsletter band ─────────────────────────────────────────────────── --}}
   @if($newsletter_active)
   <div class="border-b border-white/10">
-    <div class="max-w-360 mx-auto px-6 lg:px-10 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="container py-10 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
         <p class="    font-semibold tracking-[0.25em] uppercase text-accent mb-1">Newsletter</p>
         <p class="font-serif text-xl font-light text-white/90">{{ esc_html($newsletter_heading) }}</p>
@@ -100,7 +100,7 @@
   @endif
 
   {{-- ─── Main grid ───────────────────────────────────────────────────────── --}}
-  <div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+  <div class="container py-14 lg:py-20">
     <div class="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-6">
 
       {{-- Brand column --}}
@@ -209,7 +209,7 @@
   <div class="h-px bg-linear-to-r from-transparent via-white/20 to-transparent mx-6 lg:mx-10" data-scroll="line-in"></div>
 
   {{-- Legal bar --}}
-  <div class="max-w-360 mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+  <div class="container py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
     <p class="    text-white/20">
       © {{ date('Y') }} {{ get_bloginfo('name') }}. {{ __('Tutti i diritti riservati.', 'sage') }}
     </p>

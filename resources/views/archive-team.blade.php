@@ -8,7 +8,7 @@
 
 {{-- Page header --}}
 <div class="bg-cream border-b border-border pt-20 pb-10">
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
     @include('partials.breadcrumb')
     <p class="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
       {{ __('Chi siamo', 'sage') }}
@@ -20,7 +20,7 @@
 </div>
 
 {{-- Team grid --}}
-<div class="max-w-360 mx-auto px-6 lg:px-10 py-14 lg:py-20">
+<div class="container py-14 lg:py-20">
 
   @if(!have_posts())
     <p class="font-serif text-xl text-ink text-center py-12">{{ __('Nessun membro trovato.', 'sage') }}</p>

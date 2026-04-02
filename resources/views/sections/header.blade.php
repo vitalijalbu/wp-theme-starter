@@ -70,7 +70,7 @@
       'border-border/60 bg-surface/95 backdrop-blur-md': !hasHero || scrolled
     }"
   >
-    <div class="flex items-center justify-between container h-16">
+    <div class="container flex items-center justify-between h-16">
 
       {{-- LEFT: Logo ───────────────────────────────────────────────────────── --}}
       <a

@@ -2476,7 +2476,7 @@ textarea.contact-input {
 /* ── Container ───────────────────────────────────────────────────────────── */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 90rem;
   margin-inline: auto;
   padding-inline: clamp(1.5rem, 4vw, 2.5rem);
 }
@@ -2682,6 +2682,40 @@ textarea.contact-input {
 
 .wishlist-dot.is-visible {
   display: block;
+}
+
+/* ── Burger icon (CSS only, open/close animation) ───────────────────────── */
+.burger-icon {
+  display:         inline-flex;
+  flex-direction:  column;
+  justify-content: center;
+  gap:             3px;
+  width:           16px;
+  height:          16px;
+  flex-shrink:     0;
+}
+
+.burger-icon__line {
+  display:          block;
+  width:            100%;
+  height:           2px;
+  background-color: currentColor;
+  border-radius:    1px;
+  transition:       transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Active state → X */
+.burger-icon.is-active .burger-icon__line:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.burger-icon.is-active .burger-icon__line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-icon.is-active .burger-icon__line:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 /* ── Accessibility: prefers-reduced-motion ──────────────────────────────── */

@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="min-h-[70vh] flex items-center bg-surface" aria-labelledby="error-heading">
-  <div class="max-w-360 mx-auto px-6 lg:px-10 py-24 text-center">
+  <div class="container py-24 text-center">
 
     {{-- 404 number --}}
     <p class="font-serif text-[clamp(6rem,20vw,14rem)] font-light leading-none text-border select-none" aria-hidden="true">

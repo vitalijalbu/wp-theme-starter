@@ -51,7 +51,7 @@
   aria-label="{{ strip_tags($heading) }}"
   @if($accordion && count($tables) > 1) x-data="{ openTab: 0 }" @endif
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     {{-- Header --}}
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">

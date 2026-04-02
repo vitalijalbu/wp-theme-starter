@@ -24,7 +24,7 @@
   class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-border shadow-xl"
   style="display:none"
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+  <div class="container py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
 
     {{-- Text --}}
     <div class="flex-1 min-w-0">

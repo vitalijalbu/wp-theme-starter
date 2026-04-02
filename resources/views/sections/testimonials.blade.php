@@ -49,7 +49,7 @@
   aria-label="{{ strip_tags($section_title) }}"
   data-testimonials
 >
-  <div class="max-w-360 mx-auto px-6 lg:px-10">
+  <div class="container">
 
     {{-- Header + nav --}}
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
