@@ -16,7 +16,7 @@
 
 		{{-- Main content column (2/3) --}}
 		<!-- wp:column {"width":"65%"} -->
-		<div class="wp-block-column" style="width:65%">
+		<div class="wp-block-column basis-[65%]">
 
 			<!-- wp:paragraph {"className":"section-label text-muted"} -->
 			<p class="section-label text-muted">IL NOSTRO APPROCCIO</p>
@@ -43,7 +43,7 @@
 
 		{{-- Aside column (1/3) --}}
 		<!-- wp:column {"width":"35%"} -->
-		<div class="wp-block-column" style="width:35%">
+		<div class="wp-block-column basis-[35%]">
 
 			<!-- wp:group {"className":"bg-cream p-8 sticky top-8","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"1.5rem"}}} -->
 			<div class="wp-block-group bg-cream p-8 sticky top-8">
@@ -53,7 +53,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:list {"className":"text-sm text-muted space-y-2","style":{"typography":{"lineHeight":"1.8"}}} -->
-				<ul class="text-sm text-muted space-y-2" style="line-height:1.8">
+				<ul class="text-sm text-muted space-y-2 leading-relaxed">
 					<!-- wp:list-item -->
 					<li>Produzione artigianale italiana</li>
 					<!-- /wp:list-item -->

@@ -27,7 +27,7 @@
 	<!-- /wp:group -->
 
 	<!-- wp:spacer {"height":"2.5rem"} -->
-	<div style="height:2.5rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-10" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- Confronto immagini -->
@@ -38,16 +38,16 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"1px","style":"solid","color":"#e0e0e0"},"spacing":{"padding":{"all":"0"}}},"backgroundColor":"surface","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-surface-background-color has-background" style="border:1px solid var(--wp--preset--color--border, #e0e0e0)">
+			<div class="wp-block-group has-surface-background-color has-background ba-card">
 				<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"large"} -->
 				<figure class="wp-block-image size-large">
-					<img src="" alt="Immagine Prima" style="aspect-ratio:4/3;object-fit:cover"/>
+					<img src="" alt="Immagine Prima" class="aspect-[4/3] object-cover"/>
 				</figure>
 				<!-- /wp:image -->
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"1.25rem","bottom":"1.25rem","left":"1.5rem","right":"1.5rem"}}}} -->
-				<div class="wp-block-group" style="padding:1.25rem 1.5rem">
+				<div class="wp-block-group ba-card-body">
 					<!-- wp:paragraph {"textColor":"muted","fontSize":"xs","className":"section-label","style":{"spacing":{"margin":{"bottom":"0.25rem"}}}} -->
-					<p class="has-muted-color has-text-color has-xs-font-size section-label" style="margin-bottom:0.25rem">PRIMA</p>
+					<p class="has-muted-color has-text-color has-xs-font-size section-label mb-1">PRIMA</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":4,"fontSize":"lg"} -->
 					<h4 class="wp-block-heading has-lg-font-size">Situazione di partenza</h4>
@@ -66,16 +66,16 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"style":{"border":{"width":"2px","style":"solid","color":"#0074C7"},"spacing":{"padding":{"all":"0"}}},"backgroundColor":"surface","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-surface-background-color has-background" style="border:2px solid var(--wp--preset--color--accent, #0074C7)">
+			<div class="wp-block-group has-surface-background-color has-background ba-card-accent">
 				<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"large"} -->
 				<figure class="wp-block-image size-large">
-					<img src="" alt="Immagine Dopo" style="aspect-ratio:4/3;object-fit:cover"/>
+					<img src="" alt="Immagine Dopo" class="aspect-[4/3] object-cover"/>
 				</figure>
 				<!-- /wp:image -->
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"1.25rem","bottom":"1.25rem","left":"1.5rem","right":"1.5rem"}}}} -->
-				<div class="wp-block-group" style="padding:1.25rem 1.5rem">
+				<div class="wp-block-group ba-card-body">
 					<!-- wp:paragraph {"textColor":"accent","fontSize":"xs","className":"section-label","style":{"spacing":{"margin":{"bottom":"0.25rem"}}}} -->
-					<p class="has-accent-color has-text-color has-xs-font-size section-label" style="margin-bottom:0.25rem">DOPO</p>
+					<p class="has-accent-color has-text-color has-xs-font-size section-label mb-1">DOPO</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":4,"fontSize":"lg"} -->
 					<h4 class="wp-block-heading has-lg-font-size">Il risultato ottenuto</h4>
@@ -94,7 +94,7 @@
 	<!-- /wp:columns -->
 
 	<!-- wp:spacer {"height":"2.5rem"} -->
-	<div style="height:2.5rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-10" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- CTA -->

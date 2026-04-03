@@ -10,7 +10,7 @@
   x-data="recentlyViewed({{ $exclude_id ?? 0 }})"
   x-init="load()"
   x-show="items.length > 0"
-  style="display:none"
+  x-cloak
   aria-label="{{ __('Visti di recente', 'sage') }}"
 >
   <div class="container">

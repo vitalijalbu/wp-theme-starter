@@ -27,7 +27,7 @@
 	<!-- /wp:group -->
 
 	<!-- wp:spacer {"height":"3rem"} -->
-	<div style="height:3rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-12" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- Timeline steps -->
@@ -36,16 +36,16 @@
 
 		<!-- Step 1 -->
 		<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem","padding":{"bottom":"3rem"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
-		<div class="wp-block-group" style="padding-bottom:3rem;gap:1.5rem">
+		<div class="wp-block-group timeline-step">
 			<!-- wp:group {"style":{"spacing":{"padding":{"all":"0"}},"dimensions":{"minWidth":"3rem"}},"layout":{"type":"default"}} -->
-			<div class="wp-block-group" style="min-width:3rem">
+			<div class="wp-block-group timeline-step__num-wrap">
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"accent","fontSize":"2xl","fontFamily":"serif","style":{"border":{"width":"2px","style":"solid","color":"#0074C7"},"spacing":{"padding":{"all":"0.75rem"}}},"className":"process-step__num"} -->
-				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num" style="border:2px solid var(--wp--preset--color--accent, #0074C7);padding:0.75rem">01</h3>
+				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num timeline-step__num">01</h3>
 				<!-- /wp:heading -->
 			</div>
 			<!-- /wp:group -->
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"0.5rem"}}}} -->
-			<div class="wp-block-group" style="padding-top:0.5rem">
+			<div class="wp-block-group timeline-step__body">
 				<!-- wp:heading {"level":4,"fontSize":"xl"} -->
 				<h4 class="wp-block-heading has-xl-font-size">Scoperta e analisi</h4>
 				<!-- /wp:heading -->
@@ -59,16 +59,16 @@
 
 		<!-- Step 2 -->
 		<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem","padding":{"bottom":"3rem"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
-		<div class="wp-block-group" style="padding-bottom:3rem;gap:1.5rem">
+		<div class="wp-block-group timeline-step">
 			<!-- wp:group {"style":{"spacing":{"padding":{"all":"0"}},"dimensions":{"minWidth":"3rem"}},"layout":{"type":"default"}} -->
-			<div class="wp-block-group" style="min-width:3rem">
+			<div class="wp-block-group timeline-step__num-wrap">
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"accent","fontSize":"2xl","fontFamily":"serif","style":{"border":{"width":"2px","style":"solid","color":"#0074C7"},"spacing":{"padding":{"all":"0.75rem"}}},"className":"process-step__num"} -->
-				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num" style="border:2px solid var(--wp--preset--color--accent, #0074C7);padding:0.75rem">02</h3>
+				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num timeline-step__num">02</h3>
 				<!-- /wp:heading -->
 			</div>
 			<!-- /wp:group -->
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"0.5rem"}}}} -->
-			<div class="wp-block-group" style="padding-top:0.5rem">
+			<div class="wp-block-group timeline-step__body">
 				<!-- wp:heading {"level":4,"fontSize":"xl"} -->
 				<h4 class="wp-block-heading has-xl-font-size">Progettazione</h4>
 				<!-- /wp:heading -->
@@ -82,16 +82,16 @@
 
 		<!-- Step 3 -->
 		<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem","padding":{"bottom":"3rem"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
-		<div class="wp-block-group" style="padding-bottom:3rem;gap:1.5rem">
+		<div class="wp-block-group timeline-step">
 			<!-- wp:group {"style":{"spacing":{"padding":{"all":"0"}},"dimensions":{"minWidth":"3rem"}},"layout":{"type":"default"}} -->
-			<div class="wp-block-group" style="min-width:3rem">
+			<div class="wp-block-group timeline-step__num-wrap">
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"accent","fontSize":"2xl","fontFamily":"serif","style":{"border":{"width":"2px","style":"solid","color":"#0074C7"},"spacing":{"padding":{"all":"0.75rem"}}},"className":"process-step__num"} -->
-				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num" style="border:2px solid var(--wp--preset--color--accent, #0074C7);padding:0.75rem">03</h3>
+				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num timeline-step__num">03</h3>
 				<!-- /wp:heading -->
 			</div>
 			<!-- /wp:group -->
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"0.5rem"}}}} -->
-			<div class="wp-block-group" style="padding-top:0.5rem">
+			<div class="wp-block-group timeline-step__body">
 				<!-- wp:heading {"level":4,"fontSize":"xl"} -->
 				<h4 class="wp-block-heading has-xl-font-size">Sviluppo e test</h4>
 				<!-- /wp:heading -->
@@ -105,16 +105,16 @@
 
 		<!-- Step 4 -->
 		<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
-		<div class="wp-block-group" style="gap:1.5rem">
+		<div class="wp-block-group timeline-step">
 			<!-- wp:group {"style":{"spacing":{"padding":{"all":"0"}},"dimensions":{"minWidth":"3rem"}},"layout":{"type":"default"}} -->
-			<div class="wp-block-group" style="min-width:3rem">
+			<div class="wp-block-group timeline-step__num-wrap">
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"accent","fontSize":"2xl","fontFamily":"serif","style":{"border":{"width":"2px","style":"solid","color":"#0074C7"},"spacing":{"padding":{"all":"0.75rem"}}},"className":"process-step__num"} -->
-				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num" style="border:2px solid var(--wp--preset--color--accent, #0074C7);padding:0.75rem">04</h3>
+				<h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color has-serif-font-family has-2-xl-font-size process-step__num timeline-step__num">04</h3>
 				<!-- /wp:heading -->
 			</div>
 			<!-- /wp:group -->
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"0.5rem"}}}} -->
-			<div class="wp-block-group" style="padding-top:0.5rem">
+			<div class="wp-block-group timeline-step__body">
 				<!-- wp:heading {"level":4,"fontSize":"xl"} -->
 				<h4 class="wp-block-heading has-xl-font-size">Lancio e supporto</h4>
 				<!-- /wp:heading -->

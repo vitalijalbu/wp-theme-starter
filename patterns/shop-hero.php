@@ -8,7 +8,7 @@
  */
 ?>
 <!-- wp:cover {"dimRatio":50,"minHeight":95,"minHeightUnit":"vh","contentPosition":"center center","className":"theme-hero","align":"full"} -->
-<div class="wp-block-cover alignfull theme-hero" style="min-height:95vh">
+<div class="wp-block-cover alignfull theme-hero min-h-[95vh]">
 <span aria-hidden="true" class="wp-block-cover__background has-background-dim has-background-dim-50"></span>
 <div class="wp-block-cover__inner-container">
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"52rem"}} -->

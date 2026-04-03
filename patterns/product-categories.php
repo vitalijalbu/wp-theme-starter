@@ -8,7 +8,7 @@
  */
 ?>
 <!-- wp:group {"backgroundColor":"surface","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"}}}} -->
-<div class="wp-block-group has-surface-background-color has-background" style="padding-top:5rem;padding-bottom:5rem">
+<div class="wp-block-group has-surface-background-color has-background py-20">
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"36rem"},"style":{"spacing":{"margin":{"bottom":"3.5rem"}}}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"align":"center","textColor":"accent","fontSize":"sm","className":"theme-section-label"} -->
@@ -24,7 +24,7 @@
 <!-- wp:column -->
 <div class="wp-block-column">
 <!-- wp:cover {"dimRatio":40,"minHeight":320,"className":"theme-category-card","contentPosition":"bottom left"} -->
-<div class="wp-block-cover theme-category-card" style="min-height:320px">
+<div class="wp-block-cover theme-category-card min-h-80">
 <span aria-hidden="true" class="wp-block-cover__background has-background-dim has-background-dim-40"></span>
 <div class="wp-block-cover__inner-container">
 <!-- wp:heading {"level":3,"textColor":"white","fontSize":"2xl","fontFamily":"serif"} -->
@@ -41,7 +41,7 @@
 <!-- wp:column -->
 <div class="wp-block-column">
 <!-- wp:cover {"dimRatio":40,"minHeight":320,"className":"theme-category-card","contentPosition":"bottom left"} -->
-<div class="wp-block-cover theme-category-card" style="min-height:320px">
+<div class="wp-block-cover theme-category-card min-h-80">
 <span aria-hidden="true" class="wp-block-cover__background has-background-dim has-background-dim-40"></span>
 <div class="wp-block-cover__inner-container">
 <!-- wp:heading {"level":3,"textColor":"white","fontSize":"2xl","fontFamily":"serif"} -->
@@ -60,7 +60,7 @@
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 <div class="wp-block-group">
 <!-- wp:cover {"dimRatio":40,"minHeight":148,"className":"theme-category-card","contentPosition":"bottom left"} -->
-<div class="wp-block-cover theme-category-card" style="min-height:148px">
+<div class="wp-block-cover theme-category-card min-h-36">
 <span aria-hidden="true" class="wp-block-cover__background has-background-dim has-background-dim-40"></span>
 <div class="wp-block-cover__inner-container">
 <!-- wp:heading {"level":3,"textColor":"white","fontSize":"xl","fontFamily":"serif"} -->
@@ -70,7 +70,7 @@
 </div>
 <!-- /wp:cover -->
 <!-- wp:cover {"dimRatio":40,"minHeight":148,"className":"theme-category-card","contentPosition":"bottom left"} -->
-<div class="wp-block-cover theme-category-card" style="min-height:148px">
+<div class="wp-block-cover theme-category-card min-h-36">
 <span aria-hidden="true" class="wp-block-cover__background has-background-dim has-background-dim-40"></span>
 <div class="wp-block-cover__inner-container">
 <!-- wp:heading {"level":3,"textColor":"white","fontSize":"xl","fontFamily":"serif"} -->

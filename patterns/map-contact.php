@@ -24,7 +24,7 @@
 	<!-- /wp:group -->
 
 	<!-- wp:spacer {"height":"2.5rem"} -->
-	<div style="height:2.5rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-10" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- Split: mappa + info -->
@@ -33,9 +33,9 @@
 
 		<!-- Mappa embed -->
 		<!-- wp:column {"width":"55%"} -->
-		<div class="wp-block-column" style="flex-basis:55%">
+		<div class="wp-block-column basis-[55%]">
 			<!-- wp:html -->
-			<div style="width:100%;height:420px;overflow:hidden">
+			<div class="w-full h-[420px] overflow-hidden">
 				<!-- Sostituisci con il tuo Google Maps embed URL -->
 				<iframe
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.2!2d9.18!3d45.46!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjA!5e0!3m2!1sit!2sit!4v1700000000000"
@@ -54,13 +54,13 @@
 
 		<!-- Info contatti -->
 		<!-- wp:column {"width":"45%","verticalAlignment":"center"} -->
-		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:45%">
+		<div class="wp-block-column is-vertically-aligned-center basis-[45%]">
 			<!-- wp:group {"style":{"spacing":{"padding":{"all":"2.5rem"},"blockGap":"2rem"}},"backgroundColor":"surface","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-surface-background-color has-background" style="padding:2.5rem;gap:2rem">
+			<div class="wp-block-group has-surface-background-color has-background p-10 gap-8">
 
 				<!-- Indirizzo -->
 				<!-- wp:group {"style":{"spacing":{"blockGap":"0.5rem"}},"layout":{"type":"default"}} -->
-				<div class="wp-block-group" style="gap:0.5rem">
+				<div class="wp-block-group gap-2">
 					<!-- wp:paragraph {"textColor":"accent","fontSize":"xs","className":"section-label"} -->
 					<p class="has-accent-color has-text-color has-xs-font-size section-label">INDIRIZZO</p>
 					<!-- /wp:paragraph -->
@@ -71,12 +71,12 @@
 				<!-- /wp:group -->
 
 				<!-- wp:separator {"style":{"color":{"background":"#e0e0e0"}}} -->
-				<hr class="wp-block-separator has-alpha-channel-opacity" style="background-color:var(--wp--preset--color--border, #e0e0e0)"/>
+				<hr class="wp-block-separator has-alpha-channel-opacity bg-border"/>
 				<!-- /wp:separator -->
 
 				<!-- Telefono -->
 				<!-- wp:group {"style":{"spacing":{"blockGap":"0.5rem"}},"layout":{"type":"default"}} -->
-				<div class="wp-block-group" style="gap:0.5rem">
+				<div class="wp-block-group gap-2">
 					<!-- wp:paragraph {"textColor":"accent","fontSize":"xs","className":"section-label"} -->
 					<p class="has-accent-color has-text-color has-xs-font-size section-label">TELEFONO</p>
 					<!-- /wp:paragraph -->
@@ -87,12 +87,12 @@
 				<!-- /wp:group -->
 
 				<!-- wp:separator {"style":{"color":{"background":"#e0e0e0"}}} -->
-				<hr class="wp-block-separator has-alpha-channel-opacity" style="background-color:var(--wp--preset--color--border, #e0e0e0)"/>
+				<hr class="wp-block-separator has-alpha-channel-opacity bg-border"/>
 				<!-- /wp:separator -->
 
 				<!-- Email -->
 				<!-- wp:group {"style":{"spacing":{"blockGap":"0.5rem"}},"layout":{"type":"default"}} -->
-				<div class="wp-block-group" style="gap:0.5rem">
+				<div class="wp-block-group gap-2">
 					<!-- wp:paragraph {"textColor":"accent","fontSize":"xs","className":"section-label"} -->
 					<p class="has-accent-color has-text-color has-xs-font-size section-label">EMAIL</p>
 					<!-- /wp:paragraph -->
@@ -103,12 +103,12 @@
 				<!-- /wp:group -->
 
 				<!-- wp:separator {"style":{"color":{"background":"#e0e0e0"}}} -->
-				<hr class="wp-block-separator has-alpha-channel-opacity" style="background-color:var(--wp--preset--color--border, #e0e0e0)"/>
+				<hr class="wp-block-separator has-alpha-channel-opacity bg-border"/>
 				<!-- /wp:separator -->
 
 				<!-- Orari -->
 				<!-- wp:group {"style":{"spacing":{"blockGap":"0.5rem"}},"layout":{"type":"default"}} -->
-				<div class="wp-block-group" style="gap:0.5rem">
+				<div class="wp-block-group gap-2">
 					<!-- wp:paragraph {"textColor":"accent","fontSize":"xs","className":"section-label"} -->
 					<p class="has-accent-color has-text-color has-xs-font-size section-label">ORARI</p>
 					<!-- /wp:paragraph -->
@@ -120,7 +120,7 @@
 
 				<!-- CTA -->
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"0.5rem"}}}} -->
-				<div class="wp-block-buttons" style="margin-top:0.5rem">
+				<div class="wp-block-buttons mt-2">
 					<!-- wp:button {"backgroundColor":"accent","textColor":"white"} -->
 					<div class="wp-block-button"><a class="wp-block-button__link has-accent-background-color has-white-color has-background has-text-color wp-element-button" href="/contatti">Scrivici ora</a></div>
 					<!-- /wp:button -->

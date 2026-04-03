@@ -24,10 +24,9 @@
 
 <section
   id="{{ $section_id ?? 'section-hero' }}"
-  class="relative w-full overflow-hidden"
+  class="relative w-full overflow-hidden min-h-svh"
   aria-roledescription="{{ __('carosello', 'sage') }}"
   aria-label="{{ __('Slideshow hero', 'sage') }}"
-  style="min-height: 100svh"
 >
   {{-- Swiper container --}}
   <div class="swiper js-hero-swiper w-full h-full absolute inset-0">
@@ -47,11 +46,10 @@
           $slide_count = count($slides);
         @endphp
         <div
-          class="swiper-slide relative"
+          class="swiper-slide relative min-h-svh"
           role="group"
           aria-roledescription="{{ __('slide', 'sage') }}"
           aria-label="{{ sprintf(__('Slide %d di %d', 'sage'), $loop->iteration, $slide_count) }}"
-          style="min-height: 100svh"
         >
 
           {{-- Slide background --}}

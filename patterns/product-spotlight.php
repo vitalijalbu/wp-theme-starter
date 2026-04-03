@@ -15,17 +15,17 @@
 	<div class="wp-block-columns is-layout-flex">
 
 		<!-- wp:column {"width":"55%","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}}} -->
-		<div class="wp-block-column" style="width:55%;padding:0">
+		<div class="wp-block-column basis-[55%] p-0">
 			<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"dimensions":{"minHeight":"100%"}}} -->
-			<figure class="wp-block-image" style="min-height:100%">
-				<img src="" alt="Immagine prodotto in evidenza" style="aspect-ratio:4/5;object-fit:cover;width:100%;height:100%"/>
+			<figure class="wp-block-image min-h-full">
+				<img src="" alt="Immagine prodotto in evidenza" class="aspect-[4/5] object-cover w-full h-full"/>
 			</figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"width":"45%","style":{"spacing":{"padding":{"top":"4rem","bottom":"4rem","left":"3rem","right":"3rem"}}}} -->
-		<div class="wp-block-column" style="width:45%;padding:4rem 3rem">
+		<div class="wp-block-column basis-[45%] py-16 px-12">
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical","justifyContent":"left"},"style":{"spacing":{"blockGap":"1.5rem"}}} -->
 			<div class="wp-block-group">
 

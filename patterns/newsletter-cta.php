@@ -8,7 +8,7 @@
  */
 ?>
 <!-- wp:group {"backgroundColor":"ink","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"}}}} -->
-<div class="wp-block-group has-ink-background-color has-background" style="padding-top:5rem;padding-bottom:5rem">
+<div class="wp-block-group has-ink-background-color has-background py-20">
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"40rem"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"align":"center","textColor":"accent","fontSize":"sm","className":"theme-section-label"} -->
@@ -18,7 +18,7 @@
 <h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-4-xl-font-size has-serif-font-family theme-section-title">Offerte esclusive per<br>chi ama i propri animali</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"align":"center","fontSize":"base"} -->
-<p class="has-text-align-center has-base-font-size" style="color:rgba(255,255,255,0.5)">Iscriviti e ricevi il 10% di sconto sul primo ordine, guide e consigli veterinari.</p>
+<p class="has-text-align-center has-base-font-size text-white/50">Iscriviti e ricevi il 10% di sconto sul primo ordine, guide e consigli veterinari.</p>
 <!-- /wp:paragraph -->
 <!-- wp:html -->
 <form class="flex flex-col sm:flex-row gap-0 max-w-md mx-auto mt-6" onsubmit="return false">

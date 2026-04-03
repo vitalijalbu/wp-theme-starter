@@ -12,20 +12,20 @@
 <div class="wp-block-group section-luxury bg-ink">
 
 	<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical","justifyContent":"center"},"style":{"spacing":{"blockGap":"2rem"}},"textAlign":"center"} -->
-	<div class="wp-block-group" style="text-align:center">
+	<div class="wp-block-group text-center">
 
 		<!-- wp:paragraph {"className":"font-serif text-gold text-[3rem] leading-none select-none","style":{"typography":{"fontSize":"3rem"}}} -->
-		<p class="font-serif text-gold leading-none select-none" style="font-size:3rem">&ldquo;</p>
+		<p class="font-serif text-gold leading-none select-none text-[3rem]">&ldquo;</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"level":2,"className":"font-serif text-white font-light leading-snug","style":{"typography":{"fontSize":"clamp(1.75rem, 4vw, 3rem)","fontWeight":"300","lineHeight":"1.3"}}} -->
-		<h2 class="font-serif text-white font-light leading-snug" style="font-size:clamp(1.75rem, 4vw, 3rem);font-weight:300;line-height:1.3">La qualità non è mai un caso; è sempre il risultato<br>di uno sforzo intelligente.</h2>
+		<h2 class="font-serif text-white font-light leading-snug text-quote-display">La qualità non è mai un caso; è sempre il risultato<br>di uno sforzo intelligente.</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:group {"layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"1rem"}}} -->
 		<div class="wp-block-group">
 			<!-- wp:separator {"className":"border-white/20","style":{"layout":{"selfStretch":"fixed","flexSize":"2rem"}}} -->
-			<hr class="wp-block-separator border-white/20" style="width:2rem"/>
+			<hr class="wp-block-separator border-white/20 w-8"/>
 			<!-- /wp:separator -->
 		</div>
 		<!-- /wp:group -->

@@ -12,7 +12,7 @@
 <div class="wp-block-group has-white-background-color has-background">
 
 	<!-- wp:media-text {"mediaPosition":"left","mediaType":"image","verticalAlignment":"center","className":"theme-media-text"} -->
-	<div class="wp-block-media-text theme-media-text is-stacked-on-mobile" style="grid-template-columns:50% auto">
+	<div class="wp-block-media-text theme-media-text is-stacked-on-mobile">
 		<figure class="wp-block-media-text__media">
 			<img src="" alt="" class="wp-image-0"/>
 		</figure>

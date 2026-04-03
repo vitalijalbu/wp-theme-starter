@@ -127,9 +127,9 @@ export function initCarousels() {
       autoplay: { delay: 0, disableOnInteraction: false },
       speed: 4000,
       breakpoints: {
-        480:  { slidesPerView: 3,   spaceBetween: 40 },
-        768:  { slidesPerView: 4.5, spaceBetween: 48 },
-        1024: { slidesPerView: 6,   spaceBetween: 56 },
+        480: { slidesPerView: 3, spaceBetween: 40 },
+        768: { slidesPerView: 4.5, spaceBetween: 48 },
+        1024: { slidesPerView: 6, spaceBetween: 56 },
       },
       a11y: { enabled: false },
     })
@@ -179,7 +179,9 @@ export function initCarousels() {
       on: {
         slideChange(swiper) {
           const counter = wrapper?.querySelector('.js-gallery-current')
-          if (counter) counter.textContent = swiper.activeIndex + 1
+          if (counter) {
+            counter.textContent = swiper.activeIndex + 1
+          }
         },
       },
     })

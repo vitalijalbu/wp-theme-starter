@@ -32,7 +32,7 @@
 			<div class="wp-block-group theme-portfolio-card has-background" style="background-color:var(--wp--preset--color--surface, #ffffff)">
 				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3"} /-->
 				<!-- wp:group {"style":{"spacing":{"padding":{"top":"1.25rem","bottom":"1.5rem","left":"1.5rem","right":"1.5rem"}}},"layout":{"type":"default"}} -->
-				<div class="wp-block-group" style="padding-top:1.25rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem">
+				<div class="wp-block-group theme-portfolio-card-body">
 					<!-- wp:post-terms {"term":"portfolio-settore"} /-->
 					<!-- wp:post-title {"isLink":true} /-->
 					<!-- wp:post-excerpt {"excerptLength":12} /-->

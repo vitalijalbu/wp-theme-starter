@@ -17,7 +17,6 @@
   aria-modal="true"
   :aria-label="product ? product.title : '{{ __('Vista rapida prodotto', 'sage') }}'"
   class="fixed inset-0 z-150 flex items-center justify-center px-4 py-8"
-  style="display:none"
 >
   {{-- Backdrop --}}
   <div

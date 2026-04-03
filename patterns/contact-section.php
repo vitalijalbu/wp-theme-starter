@@ -29,7 +29,7 @@
 
 		<!-- Colonna info contatti -->
 		<!-- wp:column {"width":"40%","verticalAlignment":"top"} -->
-		<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:40%">
+		<div class="wp-block-column is-vertically-aligned-top basis-[40%]">
 
 			<!-- wp:group -->
 			<div class="wp-block-group">
@@ -125,10 +125,10 @@
 
 		<!-- Colonna form contatti -->
 		<!-- wp:column {"width":"60%","verticalAlignment":"top"} -->
-		<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:60%">
+		<div class="wp-block-column is-vertically-aligned-top basis-[60%]">
 
 			<!-- wp:group {"className":"theme-contact-form","style":{"spacing":{"padding":{"all":"2.5rem"}},"border":{"width":"1px","style":"solid","color":"#e5e7eb"}}} -->
-			<div class="wp-block-group theme-contact-form" style="border:1px solid var(--wp--preset--color--border, #e5e7eb);padding:2.5rem">
+			<div class="wp-block-group theme-contact-form">
 
 				<!-- wp:html -->
 				<form class="theme-form" id="theme-contact-form" novalidate>

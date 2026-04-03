@@ -30,7 +30,7 @@
 		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"center"}} -->
 		<div class="wp-block-group">
 			<!-- wp:image {"width":64,"height":64,"style":{"border":{"radius":"50%"}}} -->
-			<figure class="wp-block-image is-resized" style="border-radius:50%"><img src="" alt="Avatar cliente" width="64" height="64"/></figure>
+			<figure class="wp-block-image is-resized rounded-full"><img src="" alt="Avatar cliente" width="64" height="64"/></figure>
 			<!-- /wp:image -->
 			<!-- wp:group {"layout":{"type":"default"}} -->
 			<div class="wp-block-group">

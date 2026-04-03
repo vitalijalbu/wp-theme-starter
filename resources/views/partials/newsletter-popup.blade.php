@@ -18,7 +18,7 @@
   aria-modal="true"
   aria-labelledby="nl-popup-title"
   class="fixed inset-0 z-200 flex items-center justify-center px-4"
-  style="display:none"
+  x-cloak
 >
   {{-- Backdrop --}}
   <div

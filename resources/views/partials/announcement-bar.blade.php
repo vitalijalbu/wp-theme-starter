@@ -28,7 +28,7 @@
     role="banner"
     aria-label="{{ __('Annuncio promozionale', 'sage') }}"
     class="relative bg-ink text-white text-center px-10 py-2.5"
-    style="display:none"
+    x-cloak
   >
     <p class="text-xs font-medium tracking-wide inline">
       {!! wp_kses_post($text) !!}

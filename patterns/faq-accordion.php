@@ -30,7 +30,7 @@
 	<!-- /wp:group -->
 
 	<!-- wp:spacer {"height":"2rem"} -->
-	<div style="height:2rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-8" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- wp:group {"layout":{"type":"constrained","contentSize":"52rem"}} -->

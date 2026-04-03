@@ -6,6 +6,10 @@
 @source "../../woocommerce/**/*.php";
 @source "../**/*.blade.php";
 @source "../**/*.js";
+@source "../../patterns/**/*.php";
+@source "../../blocks/**/*.php";
+@source "../../templates/**/*.html";
+@source "../../parts/**/*.html";
 
 /* ── Design tokens — NET-A-PORTER inspired ───────────────────────────────── */
 /*
@@ -48,6 +52,9 @@
   --section-sm:    clamp(3rem, 6vw, 5rem);
   --section-lg:    clamp(4rem, 8vw, 7rem);
 }
+
+/* ── Alpine x-cloak (FOUC prevention) ────────────────────────────────────── */
+[x-cloak] { display: none !important; }
 
 /* ── Base ────────────────────────────────────────────────────────────────── */
 html {
@@ -163,6 +170,21 @@ img {
   background: var(--color-border);
   display: block;
 }
+
+/* ── Responsive clamp typography ─────────────────────────────────────────── */
+.text-hero-display  { font-size: clamp(2.5rem, 6vw, 5rem); }
+.text-stat-display  { font-size: clamp(3rem, 6vw, 5rem); }
+.text-quote-display { font-size: clamp(1.75rem, 4vw, 3rem); }
+
+/* ── Mega-menu clip entrance ─────────────────────────────────────────────── */
+.mega-clip-enter    { clip-path: inset(0% 0% 100% 0%); }
+
+/* ── Pattern utility classes ─────────────────────────────────────────────── */
+.card-border        { border: 1px solid var(--color-border); }
+.card-border-accent { border: 2px solid var(--color-accent); }
+.card-border-white  { border: 1px solid rgba(255,255,255,0.1); }
+.card-border-white-15 { border: 1px solid rgba(255,255,255,0.15); }
+.separator-white    { background-color: rgba(255,255,255,0.1); }
 
 /* ── Buttons ─────────────────────────────────────────────────────────────── */
 .btn-primary {
@@ -1024,6 +1046,45 @@ select:focus {
 .theme-category-card { cursor: pointer; transition: transform 0.3s ease; }
 .theme-category-card:hover .wp-block-cover__image-background { transform: scale(1.05); }
 .wp-block-cover__image-background { transition: transform 0.5s ease; }
+
+/* ── Pattern component classes ───────────────────────────────────────────── */
+.theme-service-card  { border: 1px solid var(--color-border); padding: 2rem; }
+.theme-stat-card     { padding: 2rem; border: 1px solid rgba(255,255,255,0.1); }
+.theme-contact-form  { border: 1px solid var(--color-border); padding: 2.5rem; }
+.theme-portfolio-card-body { padding: 1.25rem 1.5rem 1.5rem; }
+
+/* ITL (image-text-list) items */
+.itl-item { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+.itl-item:not(:last-child) { border-bottom: 1px solid var(--color-border); }
+.itl-icon { width: 48px; height: 48px; object-fit: contain; }
+
+/* Review aggregate wrapper */
+.review-aggregate-header {
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.review-card { border: 1px solid rgba(255,255,255,0.1); padding: 1.75rem; gap: 1rem; }
+.review-badge { border: 1px solid rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; gap: 0.5rem; flex-wrap: nowrap; align-items: center; }
+
+/* Before-after pattern cards */
+.ba-card       { border: 1px solid var(--color-border); }
+.ba-card-accent{ border: 2px solid var(--color-accent); }
+.ba-card-body  { padding: 1.25rem 1.5rem; }
+
+/* Timeline step */
+.timeline-step { padding-bottom: 3rem; gap: 1.5rem; }
+.timeline-step:last-child { padding-bottom: 0; }
+.timeline-step__num-wrap { min-width: 3rem; }
+.timeline-step__num {
+  border: 2px solid var(--color-accent);
+  padding: 0.75rem;
+}
+.timeline-step__body { padding-top: 0.5rem; }
 
 /* USP band items */
 .theme-usp-item { padding: 0 1.5rem; border-right: 1px solid rgba(255,255,255,0.08); }

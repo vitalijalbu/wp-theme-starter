@@ -681,8 +681,8 @@ registerBlockType('theme/accordion', {
     const { items, style, openFirst } = attributes
 
     const styleOptions = [
-      { value: 'lines',  label: __('Linee (default)', 'sage') },
-      { value: 'cards',  label: __('Card con sfondo', 'sage') },
+      { value: 'lines', label: __('Linee (default)', 'sage') },
+      { value: 'cards', label: __('Card con sfondo', 'sage') },
       { value: 'filled', label: __('Filled (titolo scuro)', 'sage') },
     ]
 
@@ -693,7 +693,10 @@ registerBlockType('theme/accordion', {
 
     const addItem = () => {
       setAttributes({
-        items: [...items, { question: __('Nuova domanda?', 'sage'), answer: __('Risposta...', 'sage') }],
+        items: [
+          ...items,
+          { question: __('Nuova domanda?', 'sage'), answer: __('Risposta...', 'sage') },
+        ],
       })
     }
 
@@ -728,7 +731,14 @@ registerBlockType('theme/accordion', {
           ...(items ?? []).map((item, index) =>
             el(
               'div',
-              { key: index, style: { borderBottom: '1px solid #e0e0e0', paddingBottom: '12px', marginBottom: '12px' } },
+              {
+                key: index,
+                style: {
+                  borderBottom: '1px solid #e0e0e0',
+                  paddingBottom: '12px',
+                  marginBottom: '12px',
+                },
+              },
               el(TextControl, {
                 label: `${__('Domanda', 'sage')} ${index + 1}`,
                 value: item.question ?? '',
@@ -748,7 +758,11 @@ registerBlockType('theme/accordion', {
                 ),
             ),
           ),
-          el(Button, { variant: 'secondary', onClick: addItem }, `+ ${__('Aggiungi domanda', 'sage')}`),
+          el(
+            Button,
+            { variant: 'secondary', onClick: addItem },
+            `+ ${__('Aggiungi domanda', 'sage')}`,
+          ),
         ),
       ),
       el('div', useBlockProps(), el(ServerSideRender, { block: 'theme/accordion', attributes })),

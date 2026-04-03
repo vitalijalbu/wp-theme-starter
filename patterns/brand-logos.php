@@ -8,9 +8,9 @@
  */
 ?>
 <!-- wp:group {"backgroundColor":"cream","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"4rem","bottom":"4rem"}}}} -->
-<div class="wp-block-group has-cream-background-color has-background" style="padding-top:4rem;padding-bottom:4rem">
+<div class="wp-block-group has-cream-background-color has-background py-16">
 <!-- wp:paragraph {"align":"center","textColor":"muted","fontSize":"sm","className":"theme-section-label","style":{"spacing":{"margin":{"bottom":"2.5rem"}}}} -->
-<p class="has-text-align-center has-muted-color has-text-color has-sm-font-size theme-section-label" style="margin-bottom:2.5rem">I brand che distribuiamo</p>
+<p class="has-text-align-center has-muted-color has-text-color has-sm-font-size theme-section-label mb-10">I brand che distribuiamo</p>
 <!-- /wp:paragraph -->
 <!-- wp:columns {"isStackedOnMobile":false} -->
 <div class="wp-block-columns">

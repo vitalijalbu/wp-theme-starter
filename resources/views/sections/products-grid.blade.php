@@ -180,10 +180,9 @@
 
     {{-- Products grid --}}
     <div
-      class="grid {{ $cols_class }} gap-x-6 gap-y-10"
+      class="grid {{ $cols_class }} gap-x-6 gap-y-10 transition-opacity duration-300"
       data-scroll="stagger"
       :class="loading ? 'opacity-50 pointer-events-none' : 'opacity-100'"
-      style="transition: opacity 300ms ease"
       role="list"
     >
       @foreach($initial_products as $product)
@@ -197,7 +196,7 @@
     <div
       class="flex justify-center py-8"
       x-show="loading"
-      style="display: none"
+      x-cloak
       aria-hidden="true"
     >
       <div class="w-8 h-8 border-2 border-border border-t-accent rounded-full animate-spin"></div>
@@ -207,7 +206,7 @@
     <div
       class="flex justify-center mt-14"
       x-show="hasMore && !loading"
-      style="display: none"
+      x-cloak
     >
       <button
         type="button"
@@ -222,7 +221,7 @@
     <div
       class="text-center py-16"
       x-show="!loading && products.length === 0"
-      style="display: none"
+      x-cloak
     >
       <p class="font-serif text-2xl text-ink mb-3">{{ __('Nessun prodotto trovato', 'sage') }}</p>
       <p class="text-sm text-muted">{{ __('Prova a selezionare un\'altra categoria.', 'sage') }}</p>

@@ -14,20 +14,20 @@
 	<div class="container">
 
 	<!-- wp:columns {"isStackedOnMobile":true,"style":{"spacing":{"blockGap":{"left":"5rem","top":"3rem"}},"verticalAlignment":"center"}} -->
-	<div class="wp-block-columns" style="align-items:center">
+	<div class="wp-block-columns items-center">
 
 		<!-- wp:column {"width":"50%","verticalAlignment":"center"} -->
-		<div class="wp-block-column" style="width:50%">
+		<div class="wp-block-column basis-1/2">
 			<!-- wp:image {"aspectRatio":"4/5","scale":"cover","className":"overflow-hidden"} -->
 			<figure class="wp-block-image overflow-hidden">
-				<img src="" alt="Immagine sezione" style="aspect-ratio:4/5;object-fit:cover;width:100%"/>
+				<img src="" alt="Immagine sezione" class="aspect-[4/5] object-cover w-full"/>
 			</figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"width":"50%","verticalAlignment":"center"} -->
-		<div class="wp-block-column" style="width:50%">
+		<div class="wp-block-column basis-1/2">
 
 			<!-- wp:paragraph {"className":"section-label text-muted"} -->
 			<p class="section-label text-muted">I NOSTRI VALORI</p>
@@ -42,13 +42,13 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0","marginTop":"2rem"}}} -->
-			<div class="wp-block-group" style="margin-top:2rem">
+			<div class="wp-block-group mt-8">
 
 				<!-- Item 1 -->
 				<!-- wp:group {"className":"itl-item","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"},"style":{"spacing":{"blockGap":"1.25rem","padding":{"top":"1.25rem","bottom":"1.25rem"}},"border":{"bottom":{"color":"var(--color-border)","width":"1px"}}}} -->
-				<div class="wp-block-group itl-item" style="padding-top:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--color-border)">
+				<div class="wp-block-group itl-item">
 					<!-- wp:image {"width":"48px","height":"48px","className":"shrink-0 object-contain"} -->
-					<figure class="wp-block-image" style="width:48px;height:48px"><img src="" alt="Icona" style="width:48px;height:48px;object-fit:contain"/></figure>
+					<figure class="wp-block-image"><img src="" alt="Icona" class="itl-icon"/></figure>
 					<!-- /wp:image -->
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0.25rem"}}} -->
 					<div class="wp-block-group">
@@ -65,9 +65,9 @@
 
 				<!-- Item 2 -->
 				<!-- wp:group {"className":"itl-item","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"},"style":{"spacing":{"blockGap":"1.25rem","padding":{"top":"1.25rem","bottom":"1.25rem"}},"border":{"bottom":{"color":"var(--color-border)","width":"1px"}}}} -->
-				<div class="wp-block-group itl-item" style="padding-top:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--color-border)">
+				<div class="wp-block-group itl-item">
 					<!-- wp:image {"width":"48px","height":"48px","className":"shrink-0 object-contain"} -->
-					<figure class="wp-block-image" style="width:48px;height:48px"><img src="" alt="Icona" style="width:48px;height:48px;object-fit:contain"/></figure>
+					<figure class="wp-block-image"><img src="" alt="Icona" class="itl-icon"/></figure>
 					<!-- /wp:image -->
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0.25rem"}}} -->
 					<div class="wp-block-group">
@@ -84,9 +84,9 @@
 
 				<!-- Item 3 -->
 				<!-- wp:group {"className":"itl-item","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"},"style":{"spacing":{"blockGap":"1.25rem","padding":{"top":"1.25rem","bottom":"1.25rem"}}}} -->
-				<div class="wp-block-group itl-item" style="padding-top:1.25rem;padding-bottom:1.25rem">
+				<div class="wp-block-group itl-item">
 					<!-- wp:image {"width":"48px","height":"48px","className":"shrink-0 object-contain"} -->
-					<figure class="wp-block-image" style="width:48px;height:48px"><img src="" alt="Icona" style="width:48px;height:48px;object-fit:contain"/></figure>
+					<figure class="wp-block-image"><img src="" alt="Icona" class="itl-icon"/></figure>
 					<!-- /wp:image -->
 					<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"style":{"spacing":{"blockGap":"0.25rem"}}} -->
 					<div class="wp-block-group">

@@ -169,7 +169,7 @@
           >
             <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
             <span
-              class="wishlist-count-bubble absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-accent text-ink font-bold rounded-full flex items-center justify-center px-0.5 leading-none text-[10px]" style="display:none"
+              class="wishlist-count-bubble absolute -top-1.5 -right-1.5 min-w-4 h-4 bg-accent text-ink font-bold rounded-full flex items-center justify-center px-0.5 leading-none text-[10px]"
             ></span>
           </a>
 
@@ -233,7 +233,7 @@
           aria-label="{{ __('Wishlist', 'sage') }}"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
-          <span class="wishlist-count-bubble absolute -top-1 -right-1 min-w-4 h-4 bg-accent text-ink font-bold rounded-full flex items-center justify-center px-0.5 leading-none text-[10px]" style="display:none"></span>
+          <span class="wishlist-count-bubble absolute -top-1 -right-1 min-w-4 h-4 bg-accent text-ink font-bold rounded-full flex items-center justify-center px-0.5 leading-none text-[10px]"></span>
         </a>
 
         <button
@@ -265,8 +265,8 @@
       x-cloak
       @mouseenter="activeMenu = 'shop'"
       @mouseleave="closeMenu()"
-      class="absolute top-full left-0 right-0 bg-surface shadow-[0_24px_80px_rgba(0,0,0,0.1)] overflow-hidden border-b border-border"
-      style="display:none; clip-path: inset(0% 0% 100% 0%)"
+      class="absolute top-full left-0 right-0 bg-surface shadow-[0_24px_80px_rgba(0,0,0,0.1)] overflow-hidden border-b border-border mega-clip-enter"
+      x-cloak
     >
       <div class="max-w-360 mx-auto px-8 lg:px-12 py-10">
         <div
@@ -362,8 +362,8 @@
         x-cloak
         @mouseenter="activeMenu = '{{ $mega_id }}'"
         @mouseleave="closeMenu()"
-        class="absolute top-full left-0 right-0 bg-surface shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden border-b border-border"
-        style="display:none; clip-path: inset(0% 0% 100% 0%)"
+        class="absolute top-full left-0 right-0 bg-surface shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden border-b border-border mega-clip-enter"
+        x-cloak
       >
         <div class="max-w-360 mx-auto px-8 lg:px-12 py-6">
           <ul class="flex flex-wrap gap-x-8 gap-y-1">
@@ -395,7 +395,7 @@
     x-transition:leave-start="opacity-100 translate-x-0"
     x-transition:leave-end="opacity-0 translate-x-full"
     class="fixed inset-0 top-18 bg-primary z-40 overflow-y-auto flex flex-col lg:hidden"
-    style="display:none"
+    x-cloak
     role="dialog"
     aria-modal="true"
     aria-label="{{ __('Menu di navigazione', 'sage') }}"

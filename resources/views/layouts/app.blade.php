@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>[x-cloak]{display:none!important}</style>
     @php(do_action('get_header'))
     @php(wp_head())
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -41,7 +40,6 @@
       x-transition:leave-start="opacity-100"
       x-transition:leave-end="opacity-0"
       class="fixed inset-0 z-100 bg-ink/95 backdrop-blur-sm flex items-start justify-center pt-20 px-6"
-      style="display:none"
       role="dialog"
       aria-modal="true"
       :aria-label="'{{ __('Cerca', 'sage') }}'"

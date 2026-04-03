@@ -8,7 +8,7 @@
  */
 ?>
 <!-- wp:group {"backgroundColor":"ink","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem"}}}} -->
-<div class="wp-block-group has-ink-background-color has-background" style="padding-top:2.5rem;padding-bottom:2.5rem">
+<div class="wp-block-group has-ink-background-color has-background py-10">
 <!-- wp:columns {"isStackedOnMobile":false} -->
 <div class="wp-block-columns">
 <!-- wp:column {"className":"theme-usp-item"} -->

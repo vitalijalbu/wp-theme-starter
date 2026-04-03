@@ -12,7 +12,7 @@
 <div class="wp-block-group section-luxury bg-surface">
 
 	<!-- wp:group {"style":{"spacing":{"blockGap":"0.5rem"}},"layout":{"type":"constrained","contentSize":"48rem","justifyContent":"center"}} -->
-	<div class="wp-block-group" style="text-align:center">
+	<div class="wp-block-group text-center">
 		<!-- wp:paragraph {"className":"section-label text-muted"} -->
 		<p class="section-label text-muted">IL NOSTRO TEAM</p>
 		<!-- /wp:paragraph -->
@@ -31,7 +31,7 @@
 			<div class="wp-block-group team-card group">
 				<!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"team-card__img overflow-hidden"} -->
 				<figure class="wp-block-image team-card__img overflow-hidden">
-					<img src="" alt="Foto membro team" style="aspect-ratio:3/4;object-fit:cover"/>
+					<img src="" alt="Foto membro team" class="aspect-[3/4] object-cover"/>
 				</figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink mt-2"} -->
@@ -54,7 +54,7 @@
 			<div class="wp-block-group team-card group">
 				<!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"team-card__img overflow-hidden"} -->
 				<figure class="wp-block-image team-card__img overflow-hidden">
-					<img src="" alt="Foto membro team" style="aspect-ratio:3/4;object-fit:cover"/>
+					<img src="" alt="Foto membro team" class="aspect-[3/4] object-cover"/>
 				</figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink mt-2"} -->
@@ -77,7 +77,7 @@
 			<div class="wp-block-group team-card group">
 				<!-- wp:image {"aspectRatio":"3/4","scale":"cover","className":"team-card__img overflow-hidden"} -->
 				<figure class="wp-block-image team-card__img overflow-hidden">
-					<img src="" alt="Foto membro team" style="aspect-ratio:3/4;object-fit:cover"/>
+					<img src="" alt="Foto membro team" class="aspect-[3/4] object-cover"/>
 				</figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":3,"className":"font-serif text-lg font-light text-ink mt-2"} -->

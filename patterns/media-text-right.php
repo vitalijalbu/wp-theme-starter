@@ -12,7 +12,7 @@
 <div class="wp-block-group has-surface-alt-background-color has-background">
 
 	<!-- wp:media-text {"mediaPosition":"right","mediaType":"image","verticalAlignment":"center","className":"theme-media-text"} -->
-	<div class="wp-block-media-text theme-media-text has-media-on-the-right is-stacked-on-mobile" style="grid-template-columns:auto 50%">
+	<div class="wp-block-media-text theme-media-text has-media-on-the-right is-stacked-on-mobile">
 		<div class="wp-block-media-text__content">
 
 			<!-- wp:heading {"level":2,"textColor":"ink","fontFamily":"serif","fontSize":"hero","className":"theme-hero-title"} -->

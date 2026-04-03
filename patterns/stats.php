@@ -24,7 +24,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"all":"2rem"}},"border":{"color":"rgba(255,255,255,0.1)","width":"1px","style":"solid"}},"className":"theme-stat-card"} -->
-			<div class="wp-block-group theme-stat-card" style="padding:2rem;border:1px solid rgba(255,255,255,0.1)">
+			<div class="wp-block-group theme-stat-card" >
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"primary","fontFamily":"serif","fontSize":"hero","className":"theme-stat-number"} -->
 				<h3 class="wp-block-heading has-text-align-center has-primary-color has-text-color has-serif-font-family has-hero-font-size theme-stat-number">+150</h3>
 				<!-- /wp:heading -->
@@ -40,7 +40,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"all":"2rem"}},"border":{"color":"rgba(255,255,255,0.1)","width":"1px","style":"solid"}},"className":"theme-stat-card"} -->
-			<div class="wp-block-group theme-stat-card" style="padding:2rem;border:1px solid rgba(255,255,255,0.1)">
+			<div class="wp-block-group theme-stat-card" >
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"primary","fontFamily":"serif","fontSize":"hero","className":"theme-stat-number"} -->
 				<h3 class="wp-block-heading has-text-align-center has-primary-color has-text-color has-serif-font-family has-hero-font-size theme-stat-number">+8</h3>
 				<!-- /wp:heading -->
@@ -56,7 +56,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"all":"2rem"}},"border":{"color":"rgba(255,255,255,0.1)","width":"1px","style":"solid"}},"className":"theme-stat-card"} -->
-			<div class="wp-block-group theme-stat-card" style="padding:2rem;border:1px solid rgba(255,255,255,0.1)">
+			<div class="wp-block-group theme-stat-card" >
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"primary","fontFamily":"serif","fontSize":"hero","className":"theme-stat-number"} -->
 				<h3 class="wp-block-heading has-text-align-center has-primary-color has-text-color has-serif-font-family has-hero-font-size theme-stat-number">+300</h3>
 				<!-- /wp:heading -->
@@ -72,7 +72,7 @@
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"padding":{"all":"2rem"}},"border":{"color":"rgba(255,255,255,0.1)","width":"1px","style":"solid"}},"className":"theme-stat-card"} -->
-			<div class="wp-block-group theme-stat-card" style="padding:2rem;border:1px solid rgba(255,255,255,0.1)">
+			<div class="wp-block-group theme-stat-card" >
 				<!-- wp:heading {"level":3,"textAlign":"center","textColor":"primary","fontFamily":"serif","fontSize":"hero","className":"theme-stat-number"} -->
 				<h3 class="wp-block-heading has-text-align-center has-primary-color has-text-color has-serif-font-family has-hero-font-size theme-stat-number">98%</h3>
 				<!-- /wp:heading -->

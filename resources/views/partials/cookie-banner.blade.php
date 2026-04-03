@@ -22,7 +22,7 @@
   aria-labelledby="cookie-banner-title"
   aria-describedby="cookie-banner-desc"
   class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-border shadow-xl"
-  style="display:none"
+  x-cloak
 >
   <div class="container py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
 

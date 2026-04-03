@@ -65,8 +65,7 @@
             @foreach($rest as $ri => $img)
               @php $img_id = (int)($img['id'] ?? $img); @endphp
               <div
-                class="gallery-item overflow-hidden flex-1 cursor-zoom-in"
-                style="min-height: 0"
+                class="gallery-item overflow-hidden flex-1 cursor-zoom-in min-h-0"
                 @if($lightbox) @click="open({{ $loop->parent->index * 3 + $ri + 1 }})" @endif
               >
                 <x-picture :id="$img_id" alt="" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" sizes="(max-width: 640px) 100vw, 50vw" />
@@ -118,9 +117,6 @@
         @keydown.arrow-left.window="prev({{ count($images) }})"
         class="fixed inset-0 z-200 bg-black/95 flex items-center justify-center"
         role="dialog"
-        aria-modal="true"
-        aria-label="{{ __('Lightbox galleria', 'sage') }}"
-        style="display:none"
       >
         @php $lb_images = array_map(fn($img) => wp_get_attachment_image_url((int)($img['id'] ?? $img), 'full'), $images); @endphp
 

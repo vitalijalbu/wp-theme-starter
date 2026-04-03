@@ -24,7 +24,7 @@ $line_class = $bg === 'ink' ? 'bg-white/10' : 'bg-border';
   <?php if ($prefix) { ?>
     <span class="font-serif text-2xl font-light <?= $value_class ?> opacity-60"><?= $prefix ?></span>
   <?php } ?>
-  <span class="font-serif font-light <?= $value_class ?> leading-none" style="font-size: clamp(3rem, 6vw, 5rem)">
+  <span class="font-serif font-light <?= $value_class ?> leading-none text-stat-display">
     <?= $value ?>
   </span>
   <?php if ($suffix) { ?>

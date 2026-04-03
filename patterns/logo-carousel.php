@@ -13,11 +13,11 @@
 
 	<!-- Titolo sezione (opzionale) -->
 	<!-- wp:paragraph {"align":"center","textColor":"muted","className":"theme-section-label","style":{"typography":{"letterSpacing":"0.2em","textTransform":"uppercase","fontSize":"0.6875rem"}}} -->
-	<p class="has-text-align-center has-muted-color has-text-color theme-section-label" style="letter-spacing:0.2em;text-transform:uppercase;font-size:0.6875rem"><?php esc_html_e('Aziende che ci hanno scelto', 'sage'); ?></p>
+	<p class="has-text-align-center has-muted-color has-text-color theme-section-label tracking-[0.2em] uppercase text-[0.6875rem]"><?php esc_html_e('Aziende che ci hanno scelto', 'sage'); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:spacer {"height":"2rem"} -->
-	<div style="height:2rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-8" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- Carosello loghi: usa classe .js-logos-swiper — inizializzato da carousel.js -->

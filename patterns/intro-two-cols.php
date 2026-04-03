@@ -46,12 +46,12 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:spacer {"height":"1.5rem"} -->
-			<div style="height:1.5rem" aria-hidden="true" class="wp-block-spacer"></div>
+			<div class="wp-block-spacer h-6" aria-hidden="true"></div>
 			<!-- /wp:spacer -->
 
 			<!-- Riga decorativa accent -->
 			<!-- wp:group {"style":{"dimensions":{"minHeight":"4px"}},"backgroundColor":"accent","layout":{"type":"constrained","contentSize":"6rem"}} -->
-			<div class="wp-block-group has-accent-background-color has-background" style="min-height:4px"></div>
+			<div class="wp-block-group has-accent-background-color has-background min-h-1"></div>
 			<!-- /wp:group -->
 
 		</div>

@@ -21,13 +21,13 @@
 		<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-serif-font-family has-4-xl-font-size">La nostra storia in 2 minuti</h2>
 		<!-- /wp:heading -->
 		<!-- wp:paragraph {"align":"center","fontSize":"base","style":{"color":{"text":"rgba(255,255,255,0.6)"}}} -->
-		<p class="has-text-align-center has-text-color has-base-font-size" style="color:rgba(255,255,255,0.6)">Scopri chi siamo, cosa facciamo e perché migliaia di clienti scelgono noi ogni anno.</p>
+		<p class="has-text-align-center has-text-color has-base-font-size text-white/60">Scopri chi siamo, cosa facciamo e perché migliaia di clienti scelgono noi ogni anno.</p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
 
 	<!-- wp:spacer {"height":"2.5rem"} -->
-	<div style="height:2.5rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-10" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- Video embed — sostituisci l'URL con il tuo video -->
@@ -40,7 +40,7 @@
 	<!-- /wp:embed -->
 
 	<!-- wp:spacer {"height":"2rem"} -->
-	<div style="height:2rem" aria-hidden="true" class="wp-block-spacer"></div>
+	<div class="wp-block-spacer h-8" aria-hidden="true"></div>
 	<!-- /wp:spacer -->
 
 	<!-- CTA sotto il video -->
@@ -50,7 +50,7 @@
 		<div class="wp-block-button"><a class="wp-block-button__link has-accent-background-color has-white-color has-background has-text-color wp-element-button" href="/contatti">Lavora con noi</a></div>
 		<!-- /wp:button -->
 		<!-- wp:button {"className":"is-style-outline"} -->
-		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" style="color:#ffffff;border-color:#ffffff" href="/chi-siamo">Scopri di più</a></div>
+		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button text-white border-white" href="/chi-siamo">Scopri di più</a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->

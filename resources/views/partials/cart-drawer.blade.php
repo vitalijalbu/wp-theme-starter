@@ -26,7 +26,7 @@
     @click="close()"
     class="fixed inset-0 z-60 bg-ink/40 backdrop-blur-sm"
     aria-hidden="true"
-    style="display:none"
+    x-cloak
   ></div>
 
   {{-- Drawer panel --}}
@@ -44,7 +44,6 @@
     aria-modal="true"
     aria-label="{{ __('Carrello', 'sage') }}"
     class="fixed inset-y-0 right-0 z-70 w-full max-w-md bg-white shadow-2xl flex flex-col"
-    style="display:none"
   >
 
     {{-- Header --}}
